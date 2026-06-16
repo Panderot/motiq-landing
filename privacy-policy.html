@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy Policy — MotiqAI</title>
+<meta name="description" content="MotiqAI Privacy Policy. Learn how we collect, use and protect your personal information and connected account data."/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #050505;
+    --surface: #111111;
+    --surface-2: #181818;
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(255,255,255,0.13);
+    --orange: #FF7A00;
+    --orange-dim: rgba(255,122,0,0.12);
+    --orange-glow: rgba(255,122,0,0.35);
+    --text: #F0EDE9;
+    --text-muted: rgba(240,237,233,0.55);
+    --text-dim: rgba(240,237,233,0.32);
+    --font-main: 'Manrope', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 16px;
+    --radius-lg: 20px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-main);
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,122,0,0.07) 0%, transparent 65%),
+      radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 100% 100%, 28px 28px;
+  }
+
+  ::selection { background: var(--orange); color: #000; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(5,5,5,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-back .material-symbols-outlined { font-size: 18px; }
+
+  /* ===== MAIN ===== */
+  main {
+    min-height: 100vh;
+    padding: 120px 24px 96px;
+  }
+
+  /* ===== PAGE CONTAINER ===== */
+  .page-container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header {
+    margin-bottom: 56px;
+  }
+  .page-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .page-label::before, .page-label::after {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--orange);
+  }
+  .page-header h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .page-header h1 span { color: var(--orange); }
+  .page-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== CONTENT CARD ===== */
+  .content-card {
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 48px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .content-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  }
+
+  /* ===== POLICY CONTENT ===== */
+  .policy-section {
+    margin-bottom: 40px;
+  }
+  .policy-section:last-child {
+    margin-bottom: 0;
+  }
+  .policy-section h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .policy-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 18px;
+    background: var(--orange);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .policy-section p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+  .policy-section ul {
+    list-style: none;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .policy-section ul li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    padding-left: 20px;
+    position: relative;
+  }
+  .policy-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background: var(--orange);
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  .policy-section a {
+    color: var(--orange);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .policy-section a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  /* ===== DIVIDER ===== */
+  .policy-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 36px 0;
+  }
+
+  /* ===== CONTACT HIGHLIGHT ===== */
+  .contact-highlight {
+    background: var(--orange-dim);
+    border: 1px solid rgba(255,122,0,0.2);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-top: 12px;
+  }
+  .contact-highlight p {
+    margin-bottom: 0 !important;
+  }
+  .contact-highlight strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ===== GLOW ORBS ===== */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+    z-index: 0;
+  }
+  .orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,122,0,0.08), transparent 70%);
+    top: -150px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .orb-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,122,0,0.05), transparent 70%);
+    bottom: 0; right: -80px;
+  }
+
+  /* ===== REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .footer-main {
+    padding: 64px 24px 48px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-brand .logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    margin-bottom: 14px;
+  }
+  .footer-brand .logo span { color: var(--orange); }
+  .footer-brand p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 260px;
+    margin-bottom: 24px;
+  }
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+  .social-link {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--border-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  }
+  .social-link svg, .social-link .material-symbols-outlined { pointer-events: none; }
+  .social-link:hover {
+    background: var(--orange-dim);
+    border-color: rgba(255,122,0,0.4);
+    color: var(--orange);
+    transform: translateY(-2px);
+  }
+  .social-link .material-symbols-outlined { font-size: 18px; }
+  .footer-col h4 {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+  .footer-col a {
+    font-size: 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  .footer-col a:hover { color: var(--text); }
+  .footer-newsletter h4 {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .footer-newsletter p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .newsletter-form input {
+    flex: 1;
+    min-width: 160px;
+    background: var(--bg);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text);
+    font-family: var(--font-main);
+    outline: none;
+    transition: border-color var(--transition);
+  }
+  .newsletter-form input:focus { border-color: rgba(255,122,0,0.5); }
+  .newsletter-form input::placeholder { color: var(--text-dim); }
+  .newsletter-form button {
+    background: var(--orange);
+    color: #000;
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition);
+    white-space: nowrap;
+  }
+  .newsletter-form button:hover { background: #FF9533; }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding: 20px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-links a[aria-current="page"] { color: var(--orange); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .footer-main { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: auto; }
+    .content-card { padding: 32px 24px; }
+    main { padding: 100px 16px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Motiq<span>AI</span></a>
+    <a href="index.html" class="nav-back">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Home
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="page-container">
+
+    <div class="page-header reveal">
+      <div class="page-label">Legal</div>
+      <h1>Privacy <span>Policy</span></h1>
+      <p class="page-meta">Last updated: June 16, 2026</p>
+    </div>
+
+    <div class="content-card reveal" style="transition-delay:0.1s;">
+
+      <div class="policy-section">
+        <p>Motiq respects your privacy and is committed to protecting personal information.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Information We Collect</h2>
+        <p>When you interact with our website, services, forms, or connected applications, we may collect information such as your name, email address, company information, messages, and technical information necessary to operate our services.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>LinkedIn Integration</h2>
+        <p>When a user connects their LinkedIn account, our application may receive information and permissions authorized by the user through LinkedIn OAuth.</p>
+        <p>This information is used only to authenticate the user, perform user-requested actions such as publishing content, and operate the connected automation.</p>
+        <p>We do not sell LinkedIn user data or use it for unauthorized advertising, profiling, or unrelated purposes.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>How We Use Information</h2>
+        <p>We may use collected information to:</p>
+        <ul>
+          <li>Provide and operate our automation services</li>
+          <li>Respond to inquiries</li>
+          <li>Authenticate connected accounts</li>
+          <li>Perform actions requested by users</li>
+          <li>Improve service security and reliability</li>
+          <li>Comply with applicable legal obligations</li>
+        </ul>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Data Sharing</h2>
+        <p>We do not sell personal information. Information may only be shared with service providers when necessary to operate our services, comply with legal obligations, or protect our rights.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Data Retention and Deletion</h2>
+        <p>We retain information only for as long as necessary to provide our services or comply with legal obligations.</p>
+        <p>Users may request access to or deletion of their personal information and connected account data by contacting us.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Security</h2>
+        <p>We use reasonable administrative and technical safeguards to protect information. However, no online transmission or storage method is completely secure.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Third-Party Services</h2>
+        <p>Our services may connect with third-party platforms such as LinkedIn, Google, Airtable, Notion, Stripe, and other automation providers. Their processing of information is governed by their own privacy policies.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy when our services or legal requirements change. Updates will be published on this page.</p>
+      </div>
+
+      <hr class="policy-divider">
+
+      <div class="policy-section">
+        <h2>Contact</h2>
+        <p>For privacy questions or data deletion requests, contact:</p>
+        <div class="contact-highlight">
+          <p><strong>Email:</strong> <a href="mailto:info@motiqai.com">info@motiqai.com</a></p>
+          <p><strong>Website:</strong> <a href="https://motiqai.com/" target="_blank" rel="noopener noreferrer">https://motiqai.com/</a></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="logo">Motiq<span>AI</span></div>
+      <p>We take your business into the future with AI-powered systems and seamless workflows.</p>
+      <div class="social-links">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/motiq-ai/" target="_blank" class="social-link" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.982 1.982 0 0 1-1.982-1.982c0-1.094.888-1.982 1.982-1.982 1.095 0 1.982.888 1.982 1.982a1.982 1.982 0 0 1-1.982 1.982zm1.968 13.019H3.37V9h3.935v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/motiqai?igsh=MXcyMndsbGtiZDJyOA==" target="_blank" class="social-link" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/447576385099" target="_blank" class="social-link" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html#why-us">About Us</a></li>
+        <li><a href="index.html#testimonials">Our Work</a></li>
+        <li><a href="index.html#why-us">Why Us</a></li>
+        <li><a href="index.html#how">Process</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-newsletter">
+      <h4>Join Us</h4>
+      <p>Subscribe to our newsletter to stay up to date with AI and automation trends.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address" />
+        <button type="submit">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2020 MotiqAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="privacy-policy.html" aria-current="page">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal animation
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), parseFloat(e.target.style.transitionDelay || 0) * 1000);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Trigger immediately for above-fold elements
+  setTimeout(() => revealEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) el.classList.add('visible');
+  }), 100);
+
+  // Newsletter form
+  const newsletterForm = document.querySelector('.newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.querySelector('button').addEventListener('click', function() {
+      const input = newsletterForm.querySelector('input');
+      const btn = this;
+      btn.textContent = '✓ Subscribed!';
+      btn.style.background = '#22c55e';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = 'Subscribe';
+        btn.style.background = '';
+      }, 3000);
+    });
+  }
+</script>
+</body>
+</html>
