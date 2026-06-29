@@ -99,6 +99,14 @@
 
   /* LANG SWITCHER */
   .lang-switcher { position: relative; }
+  .lang-switcher::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 140px;
+    height: 10px;
+  }
   .lang-trigger { display:flex; align-items:center; gap:6px; padding:7px 13px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.04); cursor:pointer; transition:all 0.2s ease; color:rgba(240,237,233,0.7); font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:0.06em; user-select:none; backdrop-filter:blur(8px); }
   .lang-trigger:hover { border-color:rgba(255,122,0,0.35); background:rgba(255,122,0,0.06); color:var(--text); }
   .lang-trigger svg { flex-shrink:0; }

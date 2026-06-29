@@ -180,6 +180,14 @@
   .lang-switcher {
     position: relative;
   }
+  .lang-switcher::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 140px;
+    height: 10px;
+  }
   .lang-trigger {
     display: flex;
     align-items: center;
