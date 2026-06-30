@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -719,10 +719,11 @@
     <div class="footer-col footer-newsletter">
       <h4>Stay Updated</h4>
       <p>Subscribe to our newsletter to follow AI and automation trends.</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="Your email address" />
+      <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <input type="email" name="email" placeholder="Your email address" required />
         <button type="submit">Subscribe</button>
-      </div>
+      </form>
     </div>
   </div>
   <div class="footer-bottom container">
@@ -813,4 +814,5 @@
 </a>
 </body>
 </html>
+
 

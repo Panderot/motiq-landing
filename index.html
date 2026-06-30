@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="utf-8"/>
@@ -1172,6 +1172,11 @@
 </style>
 </head>
 <body>
+<!-- Hidden static newsletter form for Netlify -->
+<form name="newsletter" method="POST" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="newsletter" />
+  <input type="email" name="email" required />
+</form>
 
 <!-- NAVBAR -->
 <nav id="navbar">
@@ -1723,26 +1728,33 @@
     });
   });
 
-  // ===== NEWSLETTER FORM =====
+      // ===== NEWSLETTER FORM =====
   const newsletterForm = document.querySelector('.newsletter-form');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', e => {
       e.preventDefault();
-      const input = newsletterForm.querySelector('input');
+      const input = newsletterForm.querySelector('input[type="email"]');
       const btn = newsletterForm.querySelector('button');
-      btn.textContent = '✓ Kaydedildi!';
-      btn.style.background = '#22c55e';
-      input.value = '';
-      setTimeout(() => {
-        btn.textContent = 'Kayıt Ol';
-        btn.style.background = '';
-      }, 3000);
+      const originalText = btn.textContent;
+      
+      const formData = new FormData(newsletterForm);
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        btn.textContent = originalText === 'Subscribe' ? 'âœ“ Saved!' : 'âœ“ Kaydedildi!';
+        btn.style.background = '#22c55e';
+        input.value = '';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+        }, 3000);
+      })
+      .catch(err => console.error(err));
     });
-    newsletterForm.querySelector('button').addEventListener('click', function(e) {
-      newsletterForm.dispatchEvent(new Event('submit'));
-    });
-  }
-</script>
+  }</script>
 <!-- WhatsApp FAB -->
 <a href="https://wa.me/+447476196133?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="wa-fab" data-tooltip="WhatsApp'tan yazın">
   <svg viewBox="0 0 24 24">
@@ -1751,3 +1763,5 @@
 </a>
 </body>
 </html>
+
+
