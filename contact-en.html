@@ -87,6 +87,99 @@
   .nav-back:hover { color: var(--text); }
   .nav-back .material-symbols-outlined { font-size: 18px; }
 
+  /* LANG SWITCHER */
+  .lang-switcher {
+    position: relative;
+  }
+  .lang-switcher::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 140px;
+    height: 10px;
+  }
+  .lang-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(240,237,233,0.7);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    user-select: none;
+    backdrop-filter: blur(8px);
+  }
+  .lang-trigger:hover {
+    border-color: rgba(255,122,0,0.35);
+    background: rgba(255,122,0,0.06);
+    color: var(--text);
+  }
+  .lang-trigger svg { flex-shrink: 0; }
+  .lang-trigger .arrow {
+    font-size: 10px;
+    opacity: 0.5;
+    transition: transform 0.2s ease;
+    font-style: normal;
+  }
+  .lang-switcher:hover .arrow { transform: rotate(180deg); }
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #141414;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    overflow: hidden;
+    min-width: 140px;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,122,0,0.05);
+    z-index: 200;
+  }
+  .lang-switcher:hover .lang-dropdown {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: rgba(240,237,233,0.55);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    cursor: pointer;
+  }
+  .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+  .lang-option.active { color: var(--orange); }
+  .lang-option .flag {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .lang-option .check {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--orange);
+    opacity: 0;
+  }
+  .lang-option.active .check { opacity: 1; }
+  .lang-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0 12px; }
+
   /* ===== MAIN ===== */
   main {
     min-height: 100vh;
@@ -337,10 +430,34 @@
 <nav>
   <div class="nav-inner">
     <a href="index-en.html" class="nav-logo">Motiq<span>AI</span></a>
-    <a href="index-en.html" class="nav-back">
-      <span class="material-symbols-outlined">arrow_back</span>
-      Home
-    </a>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <div class="lang-trigger">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          EN
+          <i class="arrow">&#9662;</i>
+        </div>
+        <div class="lang-dropdown">
+          <a href="contact.html" class="lang-option">
+            <span class="flag">🇹🇷</span> Türkçe
+            <span class="check">✓</span>
+          </a>
+          <div class="lang-divider"></div>
+          <span class="lang-option active">
+            <span class="flag">🇬🇧</span> English
+            <span class="check">✓</span>
+          </span>
+        </div>
+      </div>
+      <a href="index-en.html" class="nav-back">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Home
+      </a>
+    </div>
   </div>
 </nav>
 
