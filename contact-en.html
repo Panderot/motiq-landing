@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<html lang="tr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>İletişim — MotiqAI</title>
-<meta name="description" content="MotiqAI ile iletişime geçin. Londra merkezli yapay zeka otomasyon ajansı."/>
+<title>Contact — MotiqAI</title>
+<meta name="description" content="Get in touch with MotiqAI. London-based AI-powered automation agency ready to discuss your project."/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <style>
@@ -159,13 +159,10 @@
     display: block;
     cursor: pointer;
     color: var(--text);
-    -webkit-user-select: none;
-    user-select: none;
   }
   .contact-card > * {
     position: relative;
     z-index: 2;
-    pointer-events: none;
   }
   .contact-card::before {
     content: '';
@@ -339,10 +336,10 @@
 <!-- NAVBAR -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Motiq<span>AI</span></a>
-    <a href="index.html" class="nav-back">
+    <a href="index-en.html" class="nav-logo">Motiq<span>AI</span></a>
+    <a href="index-en.html" class="nav-back">
       <span class="material-symbols-outlined">arrow_back</span>
-      Ana Sayfa
+      Home
     </a>
   </div>
 </nav>
@@ -350,9 +347,9 @@
 <!-- MAIN -->
 <main>
   <div class="page-header reveal">
-    <div class="page-label">İletişim</div>
-    <h1>Bizimle <span>İletişime</span> Geçin</h1>
-    <p>Projenizi konuşmaya hazırız. Aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+    <div class="page-label">Contact</div>
+    <h1>Get in <span>Touch</span> with Us</h1>
+    <p>We are ready to discuss your project. You can reach us through the channels below.</p>
   </div>
 
   <div class="contact-grid">
@@ -362,11 +359,11 @@
       <div class="card-icon-wrap">
         <span class="material-symbols-outlined">call</span>
       </div>
-      <div class="card-type">Telefon</div>
+      <div class="card-type">Phone</div>
       <div class="card-value">+44 7476 196133</div>
-      <div class="card-sub">Haftanın 7 günü kesintisiz hizmetinizdeyiz.</div>
+      <div class="card-sub">We are at your service 7 days a week.</div>
       <div class="card-action">
-        WhatsApp'tan Yaz
+        Message on WhatsApp
         <span class="material-symbols-outlined">arrow_outward</span>
       </div>
     </a>
@@ -376,11 +373,11 @@
       <div class="card-icon-wrap">
         <span class="material-symbols-outlined">mail</span>
       </div>
-      <div class="card-type">E-posta</div>
+      <div class="card-type">Email</div>
       <div class="card-value">info@motiqai.com</div>
-      <div class="card-sub">24 saat içinde yanıt veriyoruz</div>
+      <div class="card-sub">We respond within 24 hours</div>
       <div class="card-action">
-        E-posta Gönder
+        Send an Email
         <span class="material-symbols-outlined">arrow_outward</span>
       </div>
     </a>
@@ -390,15 +387,15 @@
       <div class="card-icon-wrap">
         <span class="material-symbols-outlined">location_on</span>
       </div>
-      <div class="card-type">İş Adresi</div>
+      <div class="card-type">Business Address</div>
       <div class="card-value">71-75 Shelton Street, Covent Garden</div>
       <div class="card-sub">London, WC2H 9JQ &nbsp;·&nbsp; United Kingdom</div>
       <div class="map-hint">
         <span class="material-symbols-outlined">map</span>
-        Google Maps'te Görüntüle
+        View on Google Maps
       </div>
       <div class="card-action">
-        Haritada Aç
+        Open in Maps
         <span class="material-symbols-outlined">arrow_outward</span>
       </div>
     </a>
@@ -406,7 +403,7 @@
   </div>
 
   <div class="bottom-note reveal" style="transition-delay:0.2s;">
-    <p>Projeniz hakkında konuşmak için <strong>ücretsiz danışmanlık görüşmesi</strong> talep edebilirsiniz. Ortalama yanıt süremiz <strong>2 saattir</strong>.</p>
+    <p>You can request a <strong>free consultation</strong> to discuss your project. Our average response time is <strong>2 hours</strong>.</p>
   </div>
 </main>
 
@@ -428,14 +425,37 @@
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) el.classList.add('visible');
   }), 100);
+
+  // Email copy to clipboard fallback
+  const emailCard = document.querySelector('a[href^="mailto:"]');
+  if (emailCard) {
+    emailCard.addEventListener('click', e => {
+      const email = 'info@motiqai.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const actionEl = emailCard.querySelector('.card-action');
+        if (actionEl) {
+          const originalHTML = actionEl.innerHTML;
+          const isTr = document.documentElement.lang === 'tr';
+          actionEl.innerHTML = (isTr ? '✓ Kopyalandı!' : '✓ Copied!') + ' <span class="material-symbols-outlined" style="font-size: 14px; margin-left: 2px;">check</span>';
+          actionEl.style.color = '#22c55e';
+          emailCard.style.borderColor = 'rgba(34, 197, 94, 0.4)';
+          setTimeout(() => {
+            actionEl.innerHTML = originalHTML;
+            actionEl.style.color = '';
+            emailCard.style.borderColor = '';
+          }, 3000);
+        }
+      }).catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+    });
+  }
 </script>
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/+447476196133?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="wa-fab" data-tooltip="WhatsApp'tan yazın">
+<a href="https://wa.me/+447476196133?text=Hello%2C%20I%20would%20like%20to%20get%20information%20about%20your%20services." target="_blank" class="wa-fab" data-tooltip="Message on WhatsApp">
   <svg viewBox="0 0 24 24">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.81 11.81 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413Z"/>
   </svg>
 </a>
 </body>
 </html>
-
-

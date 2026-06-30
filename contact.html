@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="utf-8"/>
@@ -159,13 +159,10 @@
     display: block;
     cursor: pointer;
     color: var(--text);
-    -webkit-user-select: none;
-    user-select: none;
   }
   .contact-card > * {
     position: relative;
     z-index: 2;
-    pointer-events: none;
   }
   .contact-card::before {
     content: '';
@@ -428,6 +425,31 @@
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) el.classList.add('visible');
   }), 100);
+
+  // Email copy to clipboard fallback
+  const emailCard = document.querySelector('a[href^="mailto:"]');
+  if (emailCard) {
+    emailCard.addEventListener('click', e => {
+      const email = 'info@motiqai.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const actionEl = emailCard.querySelector('.card-action');
+        if (actionEl) {
+          const originalHTML = actionEl.innerHTML;
+          const isTr = document.documentElement.lang === 'tr';
+          actionEl.innerHTML = (isTr ? '✓ Kopyalandı!' : '✓ Copied!') + ' <span class="material-symbols-outlined" style="font-size: 14px; margin-left: 2px;">check</span>';
+          actionEl.style.color = '#22c55e';
+          emailCard.style.borderColor = 'rgba(34, 197, 94, 0.4)';
+          setTimeout(() => {
+            actionEl.innerHTML = originalHTML;
+            actionEl.style.color = '';
+            emailCard.style.borderColor = '';
+          }, 3000);
+        }
+      }).catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+    });
+  }
 </script>
 <!-- WhatsApp FAB -->
 <a href="https://wa.me/+447476196133?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="wa-fab" data-tooltip="WhatsApp'tan yazın">
