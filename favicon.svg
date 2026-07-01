@@ -1,11 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Dark premium background for visibility in both light and dark browser tabs -->
-  <rect width="100" height="100" rx="22" fill="#0A0A0A"/>
-  <!-- Stylized geometric "M" with neural/automation connections -->
-  <path d="M28 72V38L50 55L72 38V72" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Core AI node -->
-  <circle cx="50" cy="55" r="7" fill="#FF7A00"/>
-  <!-- Endpoint nodes -->
-  <circle cx="28" cy="38" r="5" fill="#FF7A00"/>
-  <circle cx="72" cy="38" r="5" fill="#FF7A00"/>
+  <defs>
+    <!-- Premium neon orange to crimson gradient -->
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFAE00" />
+      <stop offset="50%" stop-color="#FF5E00" />
+      <stop offset="100%" stop-color="#FF0055" />
+    </linearGradient>
+    <!-- Deep premium background gradient with tech highlight -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#121216" />
+      <stop offset="100%" stop-color="#020204" />
+    </radialGradient>
+    <!-- High-end neon glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4.5" result="blur" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.8 0" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer container card -->
+  <rect width="100" height="100" rx="26" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle technical dashed radar ring -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#2A2A35" stroke-width="1.2" stroke-dasharray="3 6"/>
+  
+  <!-- Futuristic Glowing M-Ribbon -->
+  <path d="M26 68V34L44 52C47 55, 53 55, 56 52L74 34V68" 
+        fill="none" 
+        stroke="url(#glowGrad)" 
+        stroke-width="11" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
+  
+  <!-- Precise white node intersections representing AI automation nodes -->
+  <circle cx="26" cy="34" r="3.5" fill="#FFFFFF"/>
+  <circle cx="74" cy="34" r="3.5" fill="#FFFFFF"/>
+  <circle cx="50" cy="46" r="4.5" fill="#FFFFFF"/>
 </svg>
