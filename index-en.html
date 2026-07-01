@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script>
+  (function() {
+    const pref = localStorage.getItem('motiq_lang');
+    if (pref === 'tr') {
+      window.location.replace('index.html');
+      return;
+    }
+    if (!pref) {
+      const languages = navigator.languages || [navigator.language || navigator.userLanguage];
+      const isTurkish = languages.some(lang => lang.toLowerCase().startsWith('tr'));
+      if (isTurkish) {
+        window.location.replace('index.html');
+      }
+    }
+  })();
+</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>MotiqAI - AI-Powered Business Workflow Automation</title>
 <meta name="description" content="Automate repetitive tasks with MotiqAI. AI-powered automation systems integrated with leading cloud tools for fast-growing teams."/>
@@ -321,7 +337,7 @@
           <i class="arrow">&#9662;</i>
         </div>
         <div class="lang-dropdown">
-          <a href="index.html" class="lang-option">
+          <a href="index.html" class="lang-option" onclick="localStorage.setItem('motiq_lang', 'tr')">
             <span class="flag">&#127481;&#127479;</span> Türkçe
             <span class="check">&#10003;</span>
           </a>

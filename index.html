@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script>
+  (function() {
+    const pref = localStorage.getItem('motiq_lang');
+    if (pref === 'en') {
+      window.location.replace('index-en.html');
+      return;
+    }
+    if (!pref) {
+      const languages = navigator.languages || [navigator.language || navigator.userLanguage];
+      const isTurkish = languages.some(lang => lang.toLowerCase().startsWith('tr'));
+      if (!isTurkish) {
+        window.location.replace('index-en.html');
+      }
+    }
+  })();
+</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu</title>
 <meta name="description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
@@ -1201,7 +1217,7 @@
             <span class="check">✓</span>
           </span>
           <div class="lang-divider"></div>
-          <a href="index-en.html" class="lang-option">
+          <a href="index-en.html" class="lang-option" onclick="localStorage.setItem('motiq_lang', 'en')">
             <span class="flag">🇬🇧</span> English
             <span class="check">✓</span>
           </a>
