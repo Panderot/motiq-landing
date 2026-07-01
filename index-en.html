@@ -196,10 +196,8 @@
 
   /* EXPERTISE */
   .expertise { padding:96px 24px; background:linear-gradient(180deg,transparent,rgba(255,122,0,0.025) 50%,transparent); }
-  .expertise-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:24px; }
-  .expertise-card { grid-column:span 2; }
-  .expertise-card:nth-child(4){grid-column:2/span 2}
-  .expertise-card:nth-child(5){grid-column:4/span 2}
+  .expertise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .expertise-card:nth-child(4){grid-column:2/3}
   .expertise-card { background:rgba(17,17,17,0.8); backdrop-filter:blur(16px); border:1px solid var(--border-bright); border-top:1px solid rgba(255,255,255,0.15); border-radius:var(--radius-lg); padding:40px 36px; position:relative; overflow:hidden; transition:border-color var(--transition),transform var(--transition),box-shadow var(--transition); cursor:default; }
   .expertise-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--orange),transparent); transform:scaleX(0); transition:transform .5s ease; }
   .expertise-card:hover{border-color:rgba(255,122,0,0.3);transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,0.5)}
@@ -284,8 +282,8 @@
   .social-link:hover{background:var(--orange-dim);border-color:rgba(255,122,0,0.4);color:var(--orange);transform:translateY(-2px)}
 
   @media(max-width:1024px){.footer-main{grid-template-columns:1fr 1fr}}
-  @media(max-width:768px){.footer-main{grid-template-columns:1fr 1fr}.expertise-grid{grid-template-columns:repeat(2,1fr)}.expertise-card{grid-column:auto}.expertise-card:nth-child(4){grid-column:auto}.expertise-card:nth-child(5){grid-column:span 2}}
-  @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.hero h1{font-size:36px}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn-primary,.hero-ctas .btn-secondary{justify-content:center}.steps-grid::before{display:none}.expertise-grid{grid-template-columns:1fr}.expertise-card{grid-column:auto !important}}
+  @media(max-width:768px){.footer-main{grid-template-columns:1fr 1fr}.expertise-grid{grid-template-columns:1fr 1fr}.expertise-card:nth-child(4){grid-column:auto}}
+  @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.hero h1{font-size:36px}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn-primary,.hero-ctas .btn-secondary{justify-content:center}.steps-grid::before{display:none}.expertise-grid{grid-template-columns:1fr}}
   /* WhatsApp FAB */
   .wa-fab { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; }
   .wa-fab:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); color: white; }
@@ -502,9 +500,9 @@
     <div class="expertise-grid">
       <div class="expertise-card reveal reveal-left">
         <div class="card-num">// 01</div>
-        <span class="material-symbols-outlined card-icon">hub</span>
-        <h3>CRM & Sales Automation</h3>
-        <p>Automate your customer relations and sales pipelines. Integrate with custom CRM systems and leading business applications to manage lead tracking, automated emails, and your sales funnel from a single hub.</p>
+        <span class="material-symbols-outlined card-icon">code</span>
+        <h3>Custom Software & Automation</h3>
+        <p>We develop digital systems tailored to your business needs. We unify data collection, reporting, notifications, appointments, payments, and various integrations in a single workflow.</p>
       </div>
       <div class="expertise-card reveal" style="transition-delay:0.1s">
         <div class="card-num">// 02</div>
@@ -518,17 +516,11 @@
         <h3>Visual & Video Automation</h3>
         <p>Automate AI-powered graphic design, video editing, and content production pipelines to strengthen your social media presence on platforms like YouTube, Instagram, and TikTok.</p>
       </div>
-      <div class="expertise-card reveal reveal-left" style="transition-delay:0.15s">
+      <div class="expertise-card reveal" style="transition-delay:0.15s">
         <div class="card-num">// 04</div>
         <span class="material-symbols-outlined card-icon">web</span>
         <h3>Website Design</h3>
         <p>We design modern, conversion-focused websites that reflect your brand identity — combining speed, aesthetics and user experience.</p>
-      </div>
-      <div class="expertise-card reveal reveal-right" style="transition-delay:0.15s">
-        <div class="card-num">// 05</div>
-        <span class="material-symbols-outlined card-icon">code</span>
-        <h3>Custom Software & Automation</h3>
-        <p>We develop digital systems tailored to your business needs. We unify data collection, reporting, notifications, appointments, payments, and various integrations in a single workflow.</p>
       </div>
     </div>
   </div>

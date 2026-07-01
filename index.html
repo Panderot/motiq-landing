@@ -689,17 +689,11 @@
   }
   .expertise-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-  .expertise-card {
-    grid-column: span 2;
-  }
   .expertise-card:nth-child(4) {
-    grid-column: 2 / span 2;
-  }
-  .expertise-card:nth-child(5) {
-    grid-column: 4 / span 2;
+    grid-column: 2 / 3;
   }
   .expertise-card {
     background: rgba(17,17,17,0.8);
@@ -1146,10 +1140,6 @@
   @media (max-width: 900px) {
     .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
     .footer-brand { grid-column: 1 / -1; }
-    .expertise-grid { grid-template-columns: repeat(2, 1fr); }
-    .expertise-card { grid-column: auto; }
-    .expertise-card:nth-child(4) { grid-column: auto; }
-    .expertise-card:nth-child(5) { grid-column: span 2; }
   }
   @media (max-width: 640px) {
     .nav-links { display: none; }
@@ -1160,8 +1150,6 @@
     .hero-ctas { flex-direction: column; align-items: stretch; }
     .hero-ctas .btn-primary, .hero-ctas .btn-secondary { justify-content: center; }
     .steps-grid::before { display: none; }
-    .expertise-grid { grid-template-columns: 1fr; }
-    .expertise-card { grid-column: auto !important; }
   }
 
   /* ===== TYPING CURSOR ===== */
@@ -1393,9 +1381,9 @@
     <div class="expertise-grid">
       <div class="expertise-card reveal reveal-left">
         <div class="card-num">// 01</div>
-        <span class="material-symbols-outlined card-icon">hub</span>
-        <h3>CRM ve Satış Otomasyonu</h3>
-        <p>Müşteri ilişkilerinizi ve satış süreçlerinizi otomatikleştirin. Özel CRM sistemleri ve lider iş uygulamalarıyla entegre olarak lead takibini, e-posta gönderimlerini ve satış huninizi tek merkezden yönetin.</p>
+        <span class="material-symbols-outlined card-icon">code</span>
+        <h3>Özel Yazılım ve Otomasyon</h3>
+        <p>İşletmenizin ihtiyaçlarına özel dijital sistemler geliştiriyoruz. Veri toplama, raporlama, bildirim, randevu, ödeme ve farklı platform entegrasyonlarını tek bir akışta birleştiriyoruz.</p>
       </div>
       <div class="expertise-card reveal" style="transition-delay:0.1s">
         <div class="card-num">// 02</div>
@@ -1409,17 +1397,11 @@
         <h3>Görsel ve Video Otomasyonu</h3>
         <p>Yapay zeka destekli görsel tasarımı, video kurgusu ve içerik üretim süreçlerini otomatize ederek YouTube, Instagram ve TikTok gibi mecralarda sosyal medya varlığınızı güçlendiriyoruz.</p>
       </div>
-      <div class="expertise-card reveal reveal-left" style="transition-delay:0.15s">
+      <div class="expertise-card reveal" style="transition-delay:0.15s">
         <div class="card-num">// 04</div>
         <span class="material-symbols-outlined card-icon">web</span>
         <h3>Web Sitesi Tasarımı</h3>
         <p>İşletmenizin kimliğini yansıtan, dönüşüm odaklı ve modern web siteleri tasarlıyoruz. Hız, estetik ve kullanıcı deneyimini bir araya getiriyoruz.</p>
-      </div>
-      <div class="expertise-card reveal reveal-right" style="transition-delay:0.15s">
-        <div class="card-num">// 05</div>
-        <span class="material-symbols-outlined card-icon">code</span>
-        <h3>Özel Yazılım ve Otomasyon</h3>
-        <p>İşletmenizin ihtiyaçlarına özel dijital sistemler geliştiriyoruz. Veri toplama, raporlama, bildirim, randevu, ödeme ve farklı platform entegrasyonlarını tek bir akışta birleştiriyoruz.</p>
       </div>
     </div>
   </div>
