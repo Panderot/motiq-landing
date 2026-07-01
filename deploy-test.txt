@@ -1,2 +1,0 @@
-Cloudflare otomatik deploy testi başarılı.
-Test kodu: MOTIQ-CF-2026
