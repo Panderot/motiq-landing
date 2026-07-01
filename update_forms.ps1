@@ -4,57 +4,105 @@ foreach ($file in $files) {
     $content = Get-Content $file.FullName -Raw -Encoding UTF8
     $orig = $content
     
-    # Replace Turkish visible form
+    # Check if English
+    $isEnglish = ($file.Name -like "*en*") -or ($file.Name -eq "privacy-policy.html") -or ($file.Name -eq "terms-of-use.html")
+
+    # Replace Turkish newsletter form (both div-based and old Netlify form-based)
     $content = [regex]::Replace($content, '(?s)<div class="newsletter-form">\s*<input type="email" placeholder="E-posta adresiniz"\s*/>\s*<button type="submit">Kayıt Ol</button>\s*</div>', 
-    '<form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="newsletter" />
+    '<form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
+        <input type="email" name="email" placeholder="E-posta adresiniz" required />
+        <button type="submit">Kayıt Ol</button>
+      </form>')
+    $content = [regex]::Replace($content, '(?s)<form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">\s*<input type="hidden" name="form-name" value="newsletter" />\s*<input type="email" name="email" placeholder="E-posta adresiniz" required />\s*<button type="submit">Kayıt Ol</button>\s*</form>', 
+    '<form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
         <input type="email" name="email" placeholder="E-posta adresiniz" required />
         <button type="submit">Kayıt Ol</button>
       </form>')
 
-    # Replace English visible form
+    # Replace English newsletter form (both div-based and old Netlify form-based)
     $content = [regex]::Replace($content, '(?s)<div class="newsletter-form">\s*<input type="email" placeholder="Your email address"\s*/>\s*<button type="submit">Subscribe</button>\s*</div>', 
-    '<form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="newsletter" />
+    '<form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
+        <input type="email" name="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>')
+    $content = [regex]::Replace($content, '(?s)<form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">\s*<input type="hidden" name="form-name" value="newsletter" />\s*<input type="email" name="email" placeholder="Your email address" required />\s*<button type="submit">Subscribe</button>\s*</form>', 
+    '<form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
         <input type="email" name="email" placeholder="Your email address" required />
         <button type="submit">Subscribe</button>
       </form>')
 
     # Replace JS
     $jsSearch = '(?s)// ===== NEWSLETTER FORM =====.*?}\s*(?=</script>|<!--)'
-    $newJS = @"
+    if ($content -match $jsSearch) {
+        $successMsg = if ($isEnglish) { "✓ Subscribed!" } else { "✓ Kaydedildi!" }
+        $errorMsg = if ($isEnglish) { "Please try again" } else { "Tekrar deneyin" }
+
+        $newJS = @"
   // ===== NEWSLETTER FORM =====
   const newsletterForm = document.querySelector('.newsletter-form');
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', e => {
+    let isSubmitting = false;
+    newsletterForm.addEventListener('submit', async e => {
       e.preventDefault();
-      const input = newsletterForm.querySelector('input[type="email"]');
+      if (isSubmitting) return;
+
+      const emailInput = newsletterForm.querySelector('input[name="email"]');
+      const companyWebsiteInput = newsletterForm.querySelector('input[name="company_website"]');
       const btn = newsletterForm.querySelector('button');
-      const originalText = btn.textContent;
       
-      const formData = new FormData(newsletterForm);
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(() => {
-        btn.textContent = originalText === 'Subscribe' ? '✓ Saved!' : '✓ Kaydedildi!';
-        btn.style.background = '#22c55e';
-        input.value = '';
+      const email = emailInput ? emailInput.value : '';
+      const company_website = companyWebsiteInput ? companyWebsiteInput.value : '';
+      
+      const originalText = btn.textContent;
+      const originalBg = btn.style.background;
+
+      isSubmitting = true;
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, company_website })
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok && data.success) {
+          btn.textContent = '$successMsg';
+          btn.style.background = '#22c55e';
+          if (emailInput) emailInput.value = '';
+        } else {
+          btn.textContent = '$errorMsg';
+          btn.style.background = '#ef4444';
+        }
+      } catch (err) {
+        console.error(err);
+        btn.textContent = '$errorMsg';
+        btn.style.background = '#ef4444';
+      } finally {
+        isSubmitting = false;
+        btn.disabled = false;
         setTimeout(() => {
           btn.textContent = originalText;
-          btn.style.background = '';
+          btn.style.background = originalBg;
         }, 3000);
-      })
-      .catch(err => console.error(err));
+      }
     });
   }
 "@
-    $content = [regex]::Replace($content, $jsSearch, $newJS)
+        $content = [regex]::Replace($content, $jsSearch, $newJS)
+    }
 
-    if ($file.Name -eq 'index.html' -and $content -notmatch '<!-- Hidden static newsletter form') {
-        $content = [regex]::Replace($content, '<body>', "<body>`r`n<!-- Hidden static newsletter form for Netlify -->`r`n<form name=`"newsletter`" method=`"POST`" data-netlify=`"true`" hidden>`r`n  <input type=`"hidden`" name=`"form-name`" value=`"newsletter`" />`r`n  <input type=`"email`" name=`"email`" required />`r`n</form>")
+    # Remove hidden Netlify form if index.html
+    if ($file.Name -eq 'index.html') {
+        $content = [regex]::Replace($content, '(?s)<!-- Hidden static newsletter form for Netlify -->\s*<form name="newsletter".*?</form>\s*', '')
     }
 
     if ($content -ne $orig) {

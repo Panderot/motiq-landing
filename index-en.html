@@ -719,8 +719,8 @@
     <div class="footer-col footer-newsletter">
       <h4>Stay Updated</h4>
       <p>Subscribe to our newsletter to follow AI and automation trends.</p>
-      <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="newsletter" />
+      <form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
+        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
         <input type="email" name="email" placeholder="Your email address" required />
         <button type="submit">Subscribe</button>
       </form>
@@ -796,13 +796,55 @@
 
   const newsletterForm = document.querySelector('.newsletter-form');
   if (newsletterForm) {
-    newsletterForm.querySelector('button').addEventListener('click', function() {
-      const input = newsletterForm.querySelector('input');
-      const btn = this;
-      btn.textContent = '✓ Subscribed!';
-      btn.style.background = '#22c55e';
-      input.value = '';
-      setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+    let isSubmitting = false;
+    newsletterForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (isSubmitting) return;
+
+      const emailInput = newsletterForm.querySelector('input[name="email"]');
+      const companyWebsiteInput = newsletterForm.querySelector('input[name="company_website"]');
+      const btn = newsletterForm.querySelector('button');
+      
+      const email = emailInput ? emailInput.value : '';
+      const company_website = companyWebsiteInput ? companyWebsiteInput.value : '';
+      
+      const originalText = btn.textContent;
+      const originalBg = btn.style.background;
+
+      isSubmitting = true;
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, company_website })
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok && data.success) {
+          btn.textContent = '✓ Subscribed!';
+          btn.style.background = '#22c55e';
+          if (emailInput) emailInput.value = '';
+        } else {
+          btn.textContent = 'Please try again';
+          btn.style.background = '#ef4444';
+        }
+      } catch (err) {
+        console.error(err);
+        btn.textContent = 'Please try again';
+        btn.style.background = '#ef4444';
+      } finally {
+        isSubmitting = false;
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = originalBg;
+        }, 3000);
+      }
     });
   }
 </script>
