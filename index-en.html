@@ -781,6 +781,18 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
 
+  const slotSequence = [3, 2, 1, 3];
+  const today = new Date();
+  const referenceDate = new Date(2024, 0, 1);
+  const daysDiff = Math.floor((today - referenceDate) / (1000 * 60 * 60 * 24));
+  const slots = slotSequence[daysDiff % 4];
+  const badge = document.querySelector('.hero-badge');
+  if (badge) {
+    const dot = badge.querySelector('.dot');
+    badge.textContent = 'Limited Spots — ' + slots + ' Slots Remaining';
+    badge.prepend(dot);
+  }
+
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
