@@ -93,6 +93,130 @@
     background: var(--orange);
   }
 
+  /* ===== BEFORE/AFTER SECTION ===== */
+  .before-after {
+    padding: 96px 24px;
+    background: linear-gradient(180deg, transparent, rgba(255,122,0,0.015), transparent);
+  }
+  .before-after-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+  .workflow-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+  .workflow-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,122,0,0.06) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .workflow-card:hover {
+    border-color: rgba(255,122,0,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+  .workflow-card:hover::before { opacity: 1; }
+  .workflow-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+  .workflow-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .workflow-steps {
+    position: relative;
+  }
+  .workflow-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .step-arrow {
+    position: absolute;
+    left: 8px;
+    top: calc(100% + 4px);
+    color: var(--orange);
+    font-size: 12px;
+    opacity: 0.6;
+  }
+  .step-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,122,0,0.1);
+    border: 1px solid rgba(255,122,0,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: var(--orange);
+  }
+  .step-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-top: 4px;
+  }
+  .workflow-step:last-child .step-arrow { display: none; }
+
+  .key-message-box {
+    background: rgba(255,122,0,0.04);
+    border: 1px solid rgba(255,122,0,0.15);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .key-message {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .key-message em {
+    font-style: normal;
+    color: var(--orange);
+    font-weight: 800;
+  }
+  .key-message-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .before-after-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
   /* ===== ANIMATIONS ===== */
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -1338,6 +1462,94 @@
           </svg>
         </div>
         Python
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="before-after reveal">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:64px">
+      <span class="section-label">Önce → Sonra</span>
+      <h2 class="section-title">Aynı İş.<br>Daha Akıllı Bir Süreç.</h2>
+      <p class="section-sub">Tekrarlayan operasyonları yeniden tasarlıyor, ekibinizin manuel adımlar yerine sonuçlara odaklanmasını sağlıyoruz.</p>
+    </div>
+
+    <div class="before-after-grid">
+      <!-- BEFORE CARD -->
+      <div class="workflow-card reveal reveal-left">
+        <div class="workflow-label">Önce</div>
+        <div class="workflow-title">Manuel Süreç</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">📧</div>
+            <div class="step-text">E-posta gelir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">👤</div>
+            <div class="step-text">Çalışan talebi okur</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📝</div>
+            <div class="step-text">Bilgiler Excel'e girilir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🔄</div>
+            <div class="step-text">CRM'e manuel aktarılır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">💬</div>
+            <div class="step-text">Müşteriye cevap hazırlanır</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AFTER CARD -->
+      <div class="workflow-card reveal reveal-right">
+        <div class="workflow-label">Motiq İLE</div>
+        <div class="workflow-title">Otomatik Akış</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">📧</div>
+            <div class="step-text">Talep gelir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🤖</div>
+            <div class="step-text">AI içeriği analiz eder</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">⚙️</div>
+            <div class="step-text">Gerekli veriler işlenir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📊</div>
+            <div class="step-text">CRM otomatik güncellenir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">✅</div>
+            <div class="step-text">Cevap hazırlanır</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY MESSAGE -->
+    <div class="key-message-box reveal">
+      <div class="key-message">
+        Otomasyon insanı süreçten çıkarmak değil,<br>
+        <em>gereksiz işi</em> süreçten çıkarmaktır.
+      </div>
+      <div class="key-message-sub">
+        Ekibiniz karar vermeye ve büyümeye odaklanırken, tekrarlayan adımları sistem yönetir.
       </div>
     </div>
   </div>
