@@ -327,6 +327,12 @@
     /* Nothing interactive may sit permanently underneath it. */
     footer { padding-bottom: 80px; }
   }
+
+  /* .case-grid used a hard minmax(340px, 1fr) floor, so on a 320px phone
+     the card stayed 340px wide and pushed the page 45px past the screen.
+     Capping the floor at the available width lets it shrink instead. */
+  .case-grid { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
+  .case-card { width: 100%; max-width: 100%; min-width: 0; }
 </style>
 </head>
 <body>
@@ -390,8 +396,8 @@
 
       <a href="case-study-restaurant-multilang-ordering.html" class="case-card reveal" style="transition-delay:0.1s;">
         <div class="case-category">Web Tasarım & Geliştirme · Restoran</div>
-        <div class="case-title">Restoran Zinciri: Çok Dilli Web & Sipariş Sistemi</div>
-        <div class="case-desc">Sosyal medyada aktif bir restoranın dağınık sipariş kanallarını, merkezi bir çok dilli web platformunda toplayan, menü yönetimini basitleştiren digitalization projesi.</div>
+        <div class="case-title">Çekya'da Çok Dilli Restoran Platformu</div>
+        <div class="case-desc">Çekya'da faaliyet gösteren bir restoran işletmesi için hazırladığımız demo çözüm; yerel misafirleri ve turistleri üç dilde karşılayan modern bir web deneyimi sunuyor. Dijital menü, online sipariş ve rezervasyon akışlarını tek platformda birleştirerek telefon ve mesajlaşma üzerinden gelen operasyon yükünü azaltıyor. Marka kimliğiyle uyumlu tasarımı, yeni şube ve dillere ölçeklenebilir bir altyapı üzerine kuruldu.</div>
         <div class="case-cta">
           Case Study'yi İncele
           <span class="material-symbols-outlined">arrow_outward</span>
