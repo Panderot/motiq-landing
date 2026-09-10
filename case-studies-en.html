@@ -276,6 +276,57 @@
     .wa-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; }
     .wa-fab svg { width: 26px; height: 26px; }
   }
+
+  /* =========================================================
+     MOBILE OPTIMIZATION (shared header / footer / FAB)
+     Overflow is prevented at the source; the overflow-x guard
+     below is only a safety net.
+     ========================================================= */
+  html { overflow-x: hidden; }
+
+  /* Grid and flex children must be allowed to shrink below their own
+     content width, otherwise text gets pushed past its container. */
+  .nav-inner > * { min-width: 0; }
+
+  h1, h2, h3, h4, p, li, figcaption, blockquote {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  img, svg, video, iframe, canvas { max-width: 100%; }
+
+  /* Touch targets: at least 44x44 for anything tappable. */
+  @media (pointer: coarse), (max-width: 768px) {
+    .nav-logo      { min-height: 44px; display: inline-flex; align-items: center; }
+    .nav-back      { min-height: 44px; display: inline-flex; align-items: center; padding: 4px 6px; }
+    .lang-trigger  { min-height: 44px; min-width: 44px; justify-content: center; padding: 8px 14px; }
+    .lang-option   { min-height: 44px; padding: 12px 16px; }
+    .hamburger     { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; padding: 10px; }
+    .mobile-menu a { min-height: 44px; display: flex; align-items: center; padding: 12px 4px; }
+    .nav-links a   { min-height: 44px; display: inline-flex; align-items: center; }
+    .btn-primary,
+    .btn-secondary { min-height: 44px; padding: 12px 20px; }
+    .social-links  { gap: 12px; }
+    .social-link   { width: 44px; height: 44px; }
+    .footer-col a,
+    .footer-links a { min-height: 44px; display: inline-flex; align-items: center; padding-right: 8px; }
+    input, textarea, select { min-height: 44px; }
+  }
+
+  /* Floating WhatsApp button: >=44px, clear of the bottom edge and of
+     any other bottom-anchored control, safe-area aware. */
+  @media (max-width: 768px) {
+    .wa-fab {
+      width: 56px;
+      height: 56px;
+      right: max(16px, env(safe-area-inset-right, 0px));
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    }
+    .wa-fab svg { width: 28px; height: 28px; }
+    /* Nothing interactive may sit permanently underneath it. */
+    footer { padding-bottom: 80px; }
+  }
 </style>
 </head>
 <body>

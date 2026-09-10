@@ -47,7 +47,7 @@
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     font-family: var(--font-main);
     background-color: var(--bg);
@@ -332,6 +332,283 @@
     .wa-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; }
     .wa-fab svg { width: 26px; height: 26px; }
     .wa-fab::before { display: none; }
+  }
+
+  /* =========================================================
+     MOBILE OPTIMIZATION / OVERFLOW FIXES
+     ---------------------------------------------------------
+     Overflow is fixed at the SOURCE (min-width:0 on grid/flex
+     children, min() inside minmax track sizes, wrapping text).
+     The body overflow-x:hidden above is only a safety net.
+     ========================================================= */
+
+  /* 1. ROOT CAUSE OF CARD OVERFLOW ------------------------------------
+     A grid/flex child defaults to min-width:auto, so it refuses to
+     shrink below its content width. That is what pushes card text past
+     the card border. min-width:0 lets the item shrink so text can wrap. */
+  .expertise-grid > *,
+  .steps-grid > *,
+  .feature-grid > *,
+  .testimonials-grid > *,
+  .stats-grid > *,
+  .before-after-grid > *,
+  .footer-main > *,
+  .nav-inner > *,
+  .hero-ctas > *,
+  .workflow-step > * {
+    min-width: 0;
+  }
+
+  /* 2. TEXT MUST WRAP INSIDE ITS CARD --------------------------------- */
+  .expertise-card .card-num,
+  .expertise-card h3,
+  .expertise-card p,
+  .step-card h3,
+  .step-card p,
+  .feature-card h3,
+  .feature-card p,
+  .workflow-title,
+  .step-text,
+  .testimonial-card p,
+  .section-title,
+  .section-sub,
+  .cta-box h2,
+  .cta-box p,
+  .faq-question {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+  /* 3. TRACK SIZES THAT NEVER EXCEED THE VIEWPORT ---------------------
+     minmax(300px, 1fr) forces a 300px column even inside a 279px
+     container, which is a real horizontal-overflow source at 375px.
+     min(300px, 100%) caps the floor at the available width. */
+  .steps-grid        { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+  .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+  .feature-grid      { grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); }
+  .stats-grid        { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); }
+
+  /* Cards get an explicit width envelope of their own. */
+  .expertise-card,
+  .step-card,
+  .feature-card,
+  .testimonial-card,
+  .workflow-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Media never pushes a column wider than the layout allows. */
+  img, svg, video, iframe, canvas { max-width: 100%; }
+  video, iframe { height: auto; }
+
+  /* 4. FLUID TYPE - desktop px values are not carried down to phones --- */
+  .nav-logo                  { font-size: clamp(24px, 6.4vw, 34px); }
+  .hero-sub                  { font-size: clamp(15px, 4.2vw, 18px); }
+  .hero-stat-num             { font-size: clamp(24px, 6.5vw, 32px); }
+  .section-sub               { font-size: clamp(14.5px, 4vw, 17px); }
+  .stat-num                  { font-size: clamp(34px, 9vw, 52px); }
+  .partner-item              { font-size: clamp(17px, 4.6vw, 22px); }
+  .expertise-card .card-num  { font-size: clamp(10px, 2.9vw, 11px); }
+  .expertise-card .card-icon { font-size: clamp(32px, 9vw, 44px); }
+  .expertise-card h3         { font-size: clamp(18px, 4.6vw, 22px); }
+  .expertise-card p          { font-size: clamp(14px, 3.8vw, 15px); }
+  .step-num                  { font-size: clamp(38px, 11vw, 56px); }
+  .step-card h3              { font-size: clamp(17px, 4.4vw, 20px); }
+  .step-card p               { font-size: clamp(13.5px, 3.6vw, 14px); }
+  .feature-card h3           { font-size: clamp(16px, 4.2vw, 18px); }
+  .workflow-title            { font-size: clamp(17px, 4.4vw, 20px); }
+  .faq-question              { font-size: clamp(15px, 4vw, 17px); }
+  .cta-box p                 { font-size: clamp(14.5px, 4vw, 16px); }
+  .testimonial-card::before  { font-size: clamp(48px, 12vw, 80px); }
+
+  /* 5. TABLET - the 4-up expertise grid folds to 2 --------------------- */
+  @media (max-width: 1024px) {
+    .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .expertise-card:nth-child(4) { grid-column: auto; }
+  }
+
+  @media (max-width: 768px) {
+    /* Proportionally smaller rhythm - desktop spacing is not reused. */
+    .before-after,
+    .stats,
+    .why-us,
+    .expertise,
+    .how-we-work,
+    .testimonials,
+    .faq            { padding-left: 20px; padding-right: 20px; padding-top: 64px; padding-bottom: 64px; }
+    .partners       { padding: 44px 20px; }
+    .cta-banner     { padding: 32px 20px 64px; }
+    .container      { padding: 0 4px; }
+
+    .expertise-card   { padding: 28px 22px; }
+    .step-card        { padding: 28px 22px; }
+    .feature-card     { padding: 24px 20px; }
+    .workflow-card    { padding: 28px 22px; }
+    .testimonial-card { padding: 24px 20px; }
+    .cta-box          { padding: 48px 24px; }
+    .key-message-box  { padding: 32px 22px; }
+    .section-header   { margin-bottom: 40px; }
+
+    .feature-icon-wrap { width: 44px; height: 44px; }
+    .partner-item .partner-icon { width: 38px; height: 38px; font-size: 18px; }
+    .partners-row   { gap: 28px 32px; }
+    .hero           { padding: 104px 20px 64px; }
+    .hero-ctas      { margin-bottom: 48px; }
+  }
+
+  /* 6. PHONES - every card stacks, one per row ------------------------- */
+  @media (max-width: 640px) {
+    .expertise-grid    { grid-template-columns: 1fr; gap: 16px; }
+    .expertise-card:nth-child(4) { grid-column: auto; }
+    .steps-grid        { grid-template-columns: 1fr; gap: 12px; }
+    .feature-grid      { grid-template-columns: 1fr; gap: 14px; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
+    .stats-grid        { grid-template-columns: 1fr; }
+
+    /* Header: the CTA moves into the hamburger menu (where it already
+       exists) so logo, language picker and burger are not cramped. */
+    #nav-cta-mobile-hidden { display: none; }
+    .nav-inner   { gap: 12px; height: 64px; }
+    nav          { padding: 0 16px; }
+    .mobile-menu { top: 64px; }
+
+    .footer-main    { padding: 48px 20px 36px; gap: 32px; }
+    .footer-bottom  { padding: 20px; justify-content: center; text-align: center; }
+    .hero-visual    { gap: 12px; }
+    .hero-stat-card { padding: 16px 20px; min-width: 0; flex: 1 1 140px; }
+  }
+
+  /* 7. TOUCH TARGETS - every interactive element at least 44x44 -------- */
+  @media (pointer: coarse), (max-width: 768px) {
+    .hamburger {
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .lang-trigger {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 8px 14px;
+      justify-content: center;
+    }
+    .lang-option { min-height: 44px; padding: 12px 16px; }
+    .mobile-menu { gap: 4px; }
+    .mobile-menu a {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 12px 4px;
+    }
+    .nav-links a   { min-height: 44px; display: inline-flex; align-items: center; }
+    .btn-primary,
+    .btn-secondary { min-height: 44px; padding: 12px 20px; }
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-secondary { min-height: 48px; }
+    .faq-question  { min-height: 44px; padding: 16px 4px; }
+    .faq-icon      { width: 36px; height: 36px; }
+    .social-links  { gap: 12px; }
+    .social-link   { width: 44px; height: 44px; }
+    .footer-col ul { gap: 4px; }
+    .footer-col a  { min-height: 44px; min-width: 44px; padding-right: 8px; display: inline-flex; align-items: center; }
+    .footer-links  { gap: 8px 20px; flex-wrap: wrap; justify-content: center; }
+    .footer-links a{ min-height: 44px; padding: 4px 2px; display: inline-flex; align-items: center; }
+    .nav-logo      { min-height: 44px; display: inline-flex; align-items: center; }
+    .newsletter-form input  { min-height: 44px; }
+    .newsletter-form button { min-height: 44px; padding: 12px 18px; }
+  }
+
+  /* 8. FLOATING WHATSAPP BUTTON ---------------------------------------
+     56x56 (>=44) and lifted clear of the bottom edge and of any other
+     bottom-anchored control, with iOS safe-area insets respected. */
+  @media (max-width: 768px) {
+    .wa-fab {
+      width: 56px;
+      height: 56px;
+      right: max(16px, env(safe-area-inset-right, 0px));
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    }
+    .wa-fab svg { width: 28px; height: 28px; }
+  }
+
+  /* 8b. Nothing interactive may sit permanently under the floating button:
+     reserve room at the very bottom of the page for it. */
+  @media (max-width: 768px) {
+    .footer-bottom { padding-bottom: 88px; }
+  }
+
+  /* 9. SMALL PHONES - 320px to 400px ----------------------------------- */
+  @media (max-width: 400px) {
+    .before-after,
+    .stats,
+    .why-us,
+    .expertise,
+    .how-we-work,
+    .testimonials,
+    .faq        { padding-left: 16px; padding-right: 16px; }
+    .hero       { padding-left: 16px; padding-right: 16px; }
+    .cta-banner { padding-left: 16px; padding-right: 16px; }
+    .expertise-card { padding: 24px 18px; }
+    .step-card      { padding: 24px 18px; }
+    .cta-box        { padding: 40px 18px; }
+    .hero-badge     { font-size: 11px; padding: 7px 12px; text-align: center; }
+    .nav-logo       { font-size: 22px; }
+    .lang-trigger   { padding: 8px 10px; font-size: 11px; }
+    /* Newsletter stacks so input and button both get full width. */
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form input,
+    .newsletter-form button { width: 100%; min-width: 0; }
+  }
+
+  /* 10. REVEAL ANIMATION MUST NOT PUSH CARDS OUT OF THE VIEWPORT ------
+     .reveal-left / .reveal-right park their card at translateX(-30px) /
+     translateX(+30px) until it scrolls into view. On desktop the card is
+     narrower than its column so the 30px is absorbed. On a phone the card
+     already fills the full column width, so those 30px hang outside the
+     screen: that is the real reason cards look clipped at the edge, and
+     it is the only genuine source of horizontal overflow on the page.
+     Reveal along Y instead - identical effect, zero horizontal travel.
+     Fixed at the source, so body's overflow-x:hidden stays a safety net
+     rather than the thing holding the layout together. */
+  @media (max-width: 900px) {
+    .reveal-left,
+    .reveal-right          { transform: translateY(24px); }
+    .reveal-left.visible,
+    .reveal-right.visible  { transform: translateY(0); }
+  }
+
+  /* Anything animating in must never widen the document either. */
+  @media (max-width: 900px) {
+    .expertise-grid,
+    .steps-grid,
+    .feature-grid,
+    .before-after-grid,
+    .testimonials-grid { overflow-x: clip; }
+  }
+
+  /* 11. LONG BUTTON LABELS MUST WRAP ON NARROW PHONES -----------------
+     .btn-primary / .btn-secondary carry white-space:nowrap so they keep
+     their pill shape on desktop. At 320px a label like "Ucretsiz Gorusme
+     Baslat" is wider than the card it sits in and spills past the border.
+     Below 420px the label is allowed to wrap and the button goes full
+     width, which keeps it inside its card and well over the 44px target. */
+  @media (max-width: 420px) {
+    .btn-primary,
+    .btn-secondary {
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+      max-width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+    .cta-box .btn-primary,
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-secondary { width: 100%; }
   }
 </style>
 </head>
