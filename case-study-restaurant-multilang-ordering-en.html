@@ -407,6 +407,181 @@
     /* Nothing interactive may sit permanently underneath it. */
     footer { padding-bottom: 80px; }
   }
+
+  /* ===== IMPACT: KARSILASTIRMALI ISTATISTIK KARTLARI =====
+     Koyu sayfa uzerinde acik krem kartlar - referans tasarimdaki
+     koyu/acik kontrasti ve kalin rakam dilini takip eder. */
+  .impact-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 20px;
+  }
+  .stat-card {
+    background: #F7F3EC;
+    border: 1px solid rgba(255,122,0,0.28);
+    border-radius: var(--radius);
+    padding: 28px 26px 26px;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    width: 100%;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--orange), rgba(255,122,0,0.15));
+  }
+  .stat-card .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #93704A;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .stat-values {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .stat-old {
+    font-family: var(--font-mono);
+    font-size: clamp(15px, 4.2vw, 18px);
+    font-weight: 500;
+    color: rgba(20,16,12,0.40);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,122,0,0.8);
+    text-decoration-thickness: 2px;
+  }
+  .stat-arrow { color: var(--orange); font-size: 15px; font-weight: 700; }
+  .stat-new {
+    font-size: clamp(34px, 9vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #14100C;
+    line-height: 1;
+  }
+  .story-section .stat-card p.stat-note {
+    margin-top: 16px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: rgba(20,16,12,0.60);
+    max-width: none;
+  }
+
+  /* ===== IMPACT: OZELLIK KARTLARI ===== */
+  .feature-blocks {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .feature-block {
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    min-width: 0;
+    width: 100%;
+  }
+  .feature-block .fb-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+  .feature-block h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .feature-block h3 .material-symbols-outlined {
+    font-size: 22px;
+    color: var(--orange);
+    font-variation-settings: 'FILL' 1, 'wght' 500;
+    flex-shrink: 0;
+  }
+  .story-section .feature-block p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    max-width: none;
+  }
+  .fb-list {
+    list-style: none;
+    margin-top: 18px;
+    display: grid;
+    gap: 11px;
+  }
+  .fb-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+  .fb-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.75;
+  }
+  .fb-list li strong { color: var(--text); font-weight: 600; }
+  .fb-keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .fb-keywords span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--orange-dim);
+    border: 1px solid rgba(255,122,0,0.28);
+    color: #FFB16B;
+  }
+  /* Teslim edilen arayuzden bir ornek - canli baglanti degil, numune */
+  .fb-specimen {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    background: var(--orange);
+    color: #000;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    min-height: 44px;
+  }
+  .fb-specimen .material-symbols-outlined { font-size: 18px; }
+  .fb-specimen-note {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 640px) {
+    .stat-card     { padding: 24px 20px 22px; }
+    .feature-block { padding: 26px 20px; }
+    .impact-grid   { gap: 16px; }
+    .feature-blocks{ gap: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -497,6 +672,64 @@
       <p>
         Brand identity — logo, colors, typography — became consistent across all digital touchpoints. The restaurant's professional image started on social media and now carried through to the web.
       </p>
+
+      <!-- 01-02: Before / after performance cards -->
+      <div class="impact-grid">
+        <div class="stat-card">
+          <div class="stat-label">Page Load Time</div>
+          <div class="stat-values">
+            <span class="stat-old">6.8 s</span>
+            <span class="stat-arrow">&rarr;</span>
+            <span class="stat-new">1.2 s</span>
+          </div>
+          <p class="stat-note">Image optimization, a simplified architecture and static delivery cut first load to a fifth of what it was.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Monthly Organic Traffic</div>
+          <div class="stat-values">
+            <span class="stat-old">220</span>
+            <span class="stat-arrow">&rarr;</span>
+            <span class="stat-new">3,600</span>
+          </div>
+          <p class="stat-note">The three-language content structure and regional SEO work multiplied visitors arriving from search.</p>
+        </div>
+      </div>
+
+      <!-- 03-04: Feature cards -->
+      <div class="feature-blocks">
+        <div class="feature-block">
+          <div class="fb-num">// 03</div>
+          <h3><span class="material-symbols-outlined">check_circle</span>Location and Directions</h3>
+          <p>Location and travel details were gathered into a single section, so a guest never has to leave the site to work out how to get there.</p>
+          <ul class="fb-list">
+            <li><strong>Google Maps placement</strong> — the restaurant's location is shown inline through an embedded map.</li>
+            <li><strong>Transit and parking</strong> — the nearest metro/tram stop is listed alongside nearby parking options.</li>
+            <li><strong>Valet parking status</strong> — whether the service is offered, and its hours, stated plainly.</li>
+            <li><strong>Directions handoff</strong> — the &ldquo;Get directions&rdquo; button opens the device's own map app straight into navigation mode.</li>
+          </ul>
+          <span class="fb-specimen"><span class="material-symbols-outlined">near_me</span>Get directions</span>
+          <span class="fb-specimen-note">// sample from the delivered interface</span>
+        </div>
+
+        <div class="feature-block">
+          <div class="fb-num">// 04</div>
+          <h3><span class="material-symbols-outlined">travel_explore</span>SEO and Google My Business</h3>
+          <p>Technical SEO and the local business profile were set up together, so the restaurant surfaces for people searching nearby.</p>
+          <ul class="fb-list">
+            <li><strong>Schema markup</strong> — Restaurant, Menu and LocalBusiness schemas let the menu and opening hours appear as rich results.</li>
+            <li><strong>Regional SEO</strong> — content structured around location-led keyword clusters in all three languages.</li>
+            <li><strong>Google My Business</strong> — profile details, imagery, menu link and opening hours optimized.</li>
+            <li><strong>Review management</strong> — a working process for monitoring and responding to incoming reviews.</li>
+          </ul>
+          <div class="fb-keywords">
+            <span>döner kebab v centru</span>
+            <span>pizza rozvoz v okolí</span>
+            <span>restaurace s rozvozem</span>
+            <span>nejlepší kebab poblíž</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TECHNICAL DETAILS -->
