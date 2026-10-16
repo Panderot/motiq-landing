@@ -239,6 +239,16 @@
   .case-cta .material-symbols-outlined { font-size: 15px; transition: transform 0.25s ease; }
   .case-card:hover .case-cta .material-symbols-outlined { transform: translate(2px, -2px); }
 
+  /* Card with a secondary link: a stretched link covers the card so
+     nested <a> tags are avoided, and the secondary link sits above it. */
+  .case-card-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+  .case-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+  .case-live { position: relative; z-index: 2; color: var(--text-muted); text-decoration: none; transition: color 0.25s ease; }
+  .case-live:hover { color: var(--orange); }
+  @media (pointer: coarse), (max-width: 768px) {
+    .case-live { min-height: 44px; }
+  }
+
   /* Placeholder for upcoming case studies */
   .case-card-soon {
     border-style: dashed;
@@ -394,15 +404,22 @@
         </div>
       </a>
 
-      <a href="case-study-restaurant-multilang-ordering-en.html" class="case-card reveal" style="transition-delay:0.1s;">
+      <div class="case-card reveal" style="transition-delay:0.1s;">
+        <a href="case-study-restaurant-multilang-ordering-en.html" class="case-card-link" aria-label="Read the Case Study"></a>
         <div class="case-category">Web Design & Development · Restaurant</div>
         <div class="case-title">Multi-Language Restaurant Platform</div>
         <div class="case-desc">We built a three-language, brand-aligned web platform for our restaurant client in Czechia. The digital menu, online ordering and reservations converge in a single system, on an infrastructure that scales to new locations and languages.</div>
-        <div class="case-cta">
-          Read the Case Study
-          <span class="material-symbols-outlined">arrow_outward</span>
+        <div class="case-actions">
+          <div class="case-cta">
+            Read the Case Study
+            <span class="material-symbols-outlined">arrow_outward</span>
+          </div>
+          <a href="https://king-kebab-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-cta case-live">
+            View Live Site
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </main>

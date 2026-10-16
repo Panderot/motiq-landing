@@ -330,6 +330,34 @@
     box-shadow: 0 0 0 1px rgba(255,122,0,0.6), 0 8px 28px rgba(255,122,0,0.35);
   }
 
+  /* Live site link under the intro */
+  .hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-main);
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
+    background: rgba(255,122,0,0.06);
+    color: var(--orange);
+    border: 1px solid rgba(255,122,0,0.4);
+  }
+  .btn-live:hover {
+    background: rgba(255,122,0,0.14);
+    border-color: rgba(255,122,0,0.6);
+    transform: translateY(-1px);
+  }
+  @media (pointer: coarse), (max-width: 768px) {
+    .btn-live { min-height: 44px; padding: 12px 20px; }
+  }
+
   /* ===== GLOW ORBS ===== */
   .orb { position: fixed; border-radius: 50%; pointer-events: none; filter: blur(90px); z-index: 0; }
   .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,122,0,0.08), transparent 70%); top: -150px; left: 50%; transform: translateX(-50%); }
@@ -633,6 +661,12 @@
       <p class="story-intro">
         A digital transformation project for a döner and pizza restaurant in the Czech Republic — consolidating fragmented ordering channels and providing professional service in three languages through a centralized web platform.
       </p>
+      <div class="hero-actions">
+        <a href="https://king-kebab-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-live">
+          View Live Site
+          <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+        </a>
+      </div>
     </div>
 
     <!-- CHALLENGE -->
