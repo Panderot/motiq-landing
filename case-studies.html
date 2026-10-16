@@ -262,6 +262,35 @@
   .case-card-soon .case-category { color: var(--text-dim); opacity: 0.7; }
   .case-card-soon .case-title { color: var(--text-dim); font-size: 20px; }
 
+  /* Card without a page yet: clicking or pressing Enter/Space shows a toast */
+  .case-card[role="button"] { cursor: pointer; }
+  .case-card[role="button"]:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+  .case-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    transform: translate(-50%, 12px);
+    max-width: calc(100% - 32px);
+    width: max-content;
+    padding: 12px 20px;
+    background: var(--surface);
+    border: 1px solid rgba(255,122,0,0.35);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1001;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .case-toast.show { opacity: 1; transform: translate(-50%, 0); }
+  @media (max-width: 768px) {
+    .case-toast { bottom: 96px; }
+  }
+
   /* ===== GLOW ORBS ===== */
   .orb { position: fixed; border-radius: 50%; pointer-events: none; filter: blur(90px); z-index: 0; }
   .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,122,0,0.08), transparent 70%); top: -150px; left: 50%; transform: translateX(-50%); }
@@ -420,6 +449,16 @@
           </a>
         </div>
       </div>
+
+      <div class="case-card reveal" style="transition-delay:0.15s;" role="button" tabindex="0" aria-label="Fixnote case study'si yakında" data-toast>
+        <div class="case-category">Yazılım Ürünü · Saha Servis</div>
+        <div class="case-title">Fixnote: Saha Ekipleri için Dijital Servis Raporu</div>
+        <div class="case-desc">Kendi ürünümüz. Usta işi müşterinin kapısında telefondan doldurur, müşteriye ekranda imzalatır; firma başlıklı A4 rapor PDF olarak hazırlanır ve WhatsApp'tan gönderilir. İş, araca binmeden kapanır.</div>
+        <div class="case-cta">
+          Case Study · Yakında
+          <span class="material-symbols-outlined">schedule</span>
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -440,6 +479,30 @@
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) el.classList.add('visible');
   }), 100);
+</script>
+
+<div class="case-toast" aria-live="polite"></div>
+
+<script>
+  (() => {
+    const toast = document.querySelector('.case-toast');
+    let hideTimer;
+    const showToast = () => {
+      toast.textContent = "Fixnote case study'si çok yakında yayında.";
+      toast.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+    };
+    document.querySelectorAll('.case-card[data-toast]').forEach(card => {
+      card.addEventListener('click', showToast);
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          showToast();
+        }
+      });
+    });
+  })();
 </script>
 
 <!-- WhatsApp FAB -->
