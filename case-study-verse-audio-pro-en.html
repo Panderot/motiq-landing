@@ -21,8 +21,8 @@
     --orange-dim: rgba(255,122,0,0.12);
     --orange-glow: rgba(255,122,0,0.35);
     --text: #F0EDE9;
-    --text-muted: rgba(240,237,233,0.55);
-    --text-dim: rgba(240,237,233,0.32);
+    --text-muted: rgba(240,237,233,0.68);
+    --text-dim: rgba(240,237,233,0.5);
     --font-main: 'Manrope', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --radius: 16px;
@@ -451,6 +451,14 @@
     .wa-fab svg { width: 28px; height: 28px; }
     /* Nothing interactive may sit permanently underneath it. */
     footer { padding-bottom: 80px; }
+  }
+
+  /* Gezinme ve erişilebilirlik */
+  section[id] { scroll-margin-top: 88px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   }
 </style>
 </head>

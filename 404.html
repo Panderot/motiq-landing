@@ -16,8 +16,8 @@
     --orange-dim: rgba(255,122,0,0.12);
     --orange-glow: rgba(255,122,0,0.35);
     --text: #F0EDE9;
-    --text-muted: rgba(240,237,233,0.55);
-    --text-dim: rgba(240,237,233,0.32);
+    --text-muted: rgba(240,237,233,0.68);
+    --text-dim: rgba(240,237,233,0.5);
     --font-main: 'Manrope', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --radius: 16px;
@@ -48,6 +48,15 @@
   .btn-primary:hover { box-shadow: 0 0 24px var(--orange-glow); }
   .btn-ghost { border: 1px solid var(--border-bright); color: var(--text); }
   .btn-ghost:hover { border-color: var(--orange); }
+
+  /* Gezinme ve erişilebilirlik */
+  section[id] { scroll-margin-top: 88px; }
+  html { scroll-behavior: smooth; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>

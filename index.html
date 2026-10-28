@@ -22,6 +22,19 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu</title>
 <meta name="description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
+<link rel="canonical" href="https://motiqai.com/"/>
+<link rel="alternate" hreflang="tr" href="https://motiqai.com/"/>
+<link rel="alternate" hreflang="en" href="https://motiqai.com/index-en.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="MotiqAI"/>
+<meta property="og:title" content="MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu"/>
+<meta property="og:description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
+<meta property="og:url" content="https://motiqai.com/"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu"/>
+<meta name="twitter:description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
+<meta name="theme-color" content="#050505"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <style>
@@ -38,8 +51,8 @@
     --orange-dim: rgba(255,122,0,0.15);
     --orange-glow: rgba(255,122,0,0.35);
     --text: #F0EDE9;
-    --text-muted: rgba(240,237,233,0.55);
-    --text-dim: rgba(240,237,233,0.35);
+    --text-muted: rgba(240,237,233,0.68);
+    --text-dim: rgba(240,237,233,0.5);
     --font-main: 'Manrope', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --radius: 12px;
@@ -181,6 +194,10 @@
     padding-top: 4px;
   }
   .workflow-step:last-child .step-arrow { display: none; }
+  .step-icon .material-symbols-outlined { font-size: 18px; color: var(--orange); }
+  .step-arrow { display: none; }
+  .workflow-steps .workflow-step { position: relative; }
+  .workflow-steps .workflow-step:not(:last-child)::after { content: ''; position: absolute; left: 15.5px; top: 36px; bottom: -16px; width: 1px; background: rgba(255,122,0,0.25); }
 
   /* Önce/Sonra sekmeleri */
   .ba-tabs {
@@ -1709,6 +1726,14 @@
     .hero-ctas .btn-primary,
     .hero-ctas .btn-secondary { width: 100%; }
   }
+
+  /* Gezinme ve erişilebilirlik */
+  section[id] { scroll-margin-top: 88px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -1780,7 +1805,7 @@
 
   <div class="hero-badge">
     <span class="dot"></span>
-    Sınırlı Kontenjan — 3 Yer Kaldı
+    Yapay Zeka Destekli Otomasyon
   </div>
 
   <h1>
@@ -1795,11 +1820,11 @@
 
   <div class="hero-ctas">
     <a href="#cta" class="btn-primary">
-      Sürekli Ön Sırayı Planla
+      Ücretsiz Görüşme Planla
       <span class="material-symbols-outlined" style="font-size:18px;">arrow_outward</span>
     </a>
     <a href="#expertise" class="btn-secondary">
-      Çalışmaları İncele
+      Hizmetleri İncele
       <span class="material-symbols-outlined" style="font-size:18px;">south</span>
     </a>
   </div>
@@ -1901,27 +1926,27 @@
         <div class="workflow-title">Manuel Süreç</div>
         <div class="workflow-steps">
           <div class="workflow-step">
-            <div class="step-icon">📧</div>
+            <div class="step-icon"><span class="material-symbols-outlined">mail</span></div>
             <div class="step-text">E-posta gelir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">👤</div>
+            <div class="step-icon"><span class="material-symbols-outlined">person</span></div>
             <div class="step-text">Çalışan talebi okur</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📝</div>
+            <div class="step-icon"><span class="material-symbols-outlined">edit_note</span></div>
             <div class="step-text">Bilgiler Excel'e girilir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🔄</div>
+            <div class="step-icon"><span class="material-symbols-outlined">sync</span></div>
             <div class="step-text">CRM'e manuel aktarılır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">💬</div>
+            <div class="step-icon"><span class="material-symbols-outlined">chat</span></div>
             <div class="step-text">Müşteriye cevap hazırlanır</div>
           </div>
         </div>
@@ -1933,27 +1958,27 @@
         <div class="workflow-title">Otomatik Akış</div>
         <div class="workflow-steps">
           <div class="workflow-step">
-            <div class="step-icon">📧</div>
+            <div class="step-icon"><span class="material-symbols-outlined">mail</span></div>
             <div class="step-text">Talep gelir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🤖</div>
+            <div class="step-icon"><span class="material-symbols-outlined">smart_toy</span></div>
             <div class="step-text">AI içeriği analiz eder</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">⚙️</div>
+            <div class="step-icon"><span class="material-symbols-outlined">settings</span></div>
             <div class="step-text">Gerekli veriler işlenir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📊</div>
+            <div class="step-icon"><span class="material-symbols-outlined">monitoring</span></div>
             <div class="step-text">CRM otomatik güncellenir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">✅</div>
+            <div class="step-icon"><span class="material-symbols-outlined">check_circle</span></div>
             <div class="step-text">Cevap hazırlanır</div>
           </div>
         </div>
@@ -1967,27 +1992,27 @@
         <div class="workflow-title">Manuel Üretim</div>
         <div class="workflow-steps">
           <div class="workflow-step">
-            <div class="step-icon">💡</div>
+            <div class="step-icon"><span class="material-symbols-outlined">lightbulb</span></div>
             <div class="step-text">Her paylaşım için fikir aranır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🎨</div>
+            <div class="step-icon"><span class="material-symbols-outlined">palette</span></div>
             <div class="step-text">Görseller tek tek tasarlanır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🎬</div>
+            <div class="step-icon"><span class="material-symbols-outlined">movie</span></div>
             <div class="step-text">Videolar elle kurgulanır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📐</div>
+            <div class="step-icon"><span class="material-symbols-outlined">aspect_ratio</span></div>
             <div class="step-text">Her kanal için yeniden boyutlandırılır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📅</div>
+            <div class="step-icon"><span class="material-symbols-outlined">calendar_month</span></div>
             <div class="step-text">Paylaşımlar elle planlanır</div>
           </div>
         </div>
@@ -1998,27 +2023,27 @@
         <div class="workflow-title">Otomatik Üretim</div>
         <div class="workflow-steps">
           <div class="workflow-step">
-            <div class="step-icon">📝</div>
+            <div class="step-icon"><span class="material-symbols-outlined">edit_note</span></div>
             <div class="step-text">Tek bir brief girilir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🤖</div>
+            <div class="step-icon"><span class="material-symbols-outlined">smart_toy</span></div>
             <div class="step-text">AI görsel ve video taslaklarını üretir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🎬</div>
+            <div class="step-icon"><span class="material-symbols-outlined">movie</span></div>
             <div class="step-text">Marka şablonunuza göre düzenlenir</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📐</div>
+            <div class="step-icon"><span class="material-symbols-outlined">aspect_ratio</span></div>
             <div class="step-text">Her kanal için otomatik boyutlanır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">✅</div>
+            <div class="step-icon"><span class="material-symbols-outlined">check_circle</span></div>
             <div class="step-text">Onayınızla planlanır ve yayınlanır</div>
           </div>
         </div>
@@ -2032,27 +2057,27 @@
         <div class="workflow-title">Eski Site</div>
         <div class="workflow-steps">
           <div class="workflow-step">
-            <div class="step-icon">🐢</div>
+            <div class="step-icon"><span class="material-symbols-outlined">hourglass_empty</span></div>
             <div class="step-text">Site yavaş açılır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📱</div>
+            <div class="step-icon"><span class="material-symbols-outlined">smartphone</span></div>
             <div class="step-text">Mobilde düzgün görünmez</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🗓️</div>
+            <div class="step-icon"><span class="material-symbols-outlined">event_busy</span></div>
             <div class="step-text">İçerik aylarca güncellenmez</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📧</div>
+            <div class="step-icon"><span class="material-symbols-outlined">mail</span></div>
             <div class="step-text">Talepler e-postada kaybolur</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🚪</div>
+            <div class="step-icon"><span class="material-symbols-outlined">logout</span></div>
             <div class="step-text">Ziyaretçi iletişime geçmeden çıkar</div>
           </div>
         </div>
@@ -2063,27 +2088,27 @@
         <div class="workflow-title">Yeni Site</div>
         <div class="workflow-steps">
           <div class="workflow-step">
-            <div class="step-icon">⚡</div>
+            <div class="step-icon"><span class="material-symbols-outlined">bolt</span></div>
             <div class="step-text">Hızlı açılan modern tasarım</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📱</div>
+            <div class="step-icon"><span class="material-symbols-outlined">devices</span></div>
             <div class="step-text">Her ekrana uyumlu</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🔍</div>
+            <div class="step-icon"><span class="material-symbols-outlined">search</span></div>
             <div class="step-text">Arama motorlarına uygun yapı</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">📥</div>
+            <div class="step-icon"><span class="material-symbols-outlined">inbox</span></div>
             <div class="step-text">Formlar doğrudan CRM'e bağlanır</div>
           </div>
           <div class="step-arrow">↓</div>
           <div class="workflow-step">
-            <div class="step-icon">🎯</div>
+            <div class="step-icon"><span class="material-symbols-outlined">ads_click</span></div>
             <div class="step-text">Dönüşüm odaklı sayfa yapısı</div>
           </div>
         </div>
@@ -2497,7 +2522,7 @@
     <div class="footer-col">
       <h4>Şirket</h4>
       <ul>
-        <li><a href="#">Hakkımızda</a></li>
+        <li><a href="#why-us">Hakkımızda</a></li>
         <li><a href="#testimonials">Çalışmalarımız</a></li>
         <li><a href="case-studies.html">Case Study'ler</a></li>
         <li><a href="#why-us">Neden Biz</a></li>
@@ -2535,21 +2560,6 @@
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // ===== DAILY SLOT BADGE =====
-  (function() {
-    const slotSequence = [3, 2, 1, 3];
-    const today = new Date();
-    const referenceDate = new Date(2024, 0, 1);
-    const daysDiff = Math.floor((today - referenceDate) / (1000 * 60 * 60 * 24));
-    const slots = slotSequence[daysDiff % 4];
-
-    const badge = document.querySelector('.hero-badge');
-    if (badge) {
-      const dot = badge.querySelector('.dot');
-      badge.textContent = 'Sınırlı Kontenjan — ' + slots + ' Yer Kaldı';
-      badge.prepend(dot);
-    }
-  })();
 
   // ===== HAMBURGER MENU =====
   const hamburger = document.getElementById('hamburger');
