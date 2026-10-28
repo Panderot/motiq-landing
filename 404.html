@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Sayfa bulunamadı — MotiqAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #050505;
+    --border-bright: rgba(255,255,255,0.13);
+    --orange: #FF7A00;
+    --orange-dim: rgba(255,122,0,0.12);
+    --orange-glow: rgba(255,122,0,0.35);
+    --text: #F0EDE9;
+    --text-muted: rgba(240,237,233,0.55);
+    --text-dim: rgba(240,237,233,0.32);
+    --font-main: 'Manrope', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    background: var(--bg);
+    background-image: radial-gradient(ellipse at 50% 0%, var(--orange-dim), transparent 60%);
+    color: var(--text);
+    font-family: var(--font-main);
+    text-align: center;
+  }
+  main { max-width: 560px; }
+  .logo { display: inline-block; margin-bottom: 48px; color: var(--text); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; text-decoration: none; }
+  .logo span { color: var(--orange); }
+  .code { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.2em; color: var(--orange); margin-bottom: 16px; }
+  h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+  p { color: var(--text-muted); font-size: 17px; line-height: 1.6; }
+  .en { margin-top: 8px; color: var(--text-dim); font-size: 15px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
+  .btn { display: inline-block; padding: 14px 26px; border-radius: var(--radius); font-weight: 600; font-size: 15px; text-decoration: none; transition: box-shadow 0.2s ease, border-color 0.2s ease; }
+  .btn-primary { background: var(--orange); color: #050505; }
+  .btn-primary:hover { box-shadow: 0 0 24px var(--orange-glow); }
+  .btn-ghost { border: 1px solid var(--border-bright); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--orange); }
+</style>
+</head>
+<body>
+<main>
+  <a class="logo" href="/">Motiq<span>AI</span></a>
+  <div class="code">404</div>
+  <h1>Sayfa bulunamadı</h1>
+  <p>Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.</p>
+  <p class="en">Page not found. The page you are looking for may have moved or never existed.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="/">Ana sayfaya dön</a>
+    <a class="btn btn-ghost" href="/index-en.html">Go to homepage (EN)</a>
+  </div>
+</main>
+</body>
+</html>
