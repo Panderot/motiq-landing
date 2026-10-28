@@ -102,6 +102,35 @@
   .step-icon { width:32px; height:32px; background:rgba(255,122,0,0.1); border:1px solid rgba(255,122,0,0.2); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; color:var(--orange); }
   .step-text { font-size:14px; color:var(--text-muted); line-height:1.6; padding-top:4px; }
   .workflow-step:last-child .step-arrow { display:none; }
+
+  /* Önce/Sonra sekmeleri */
+  .ba-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: -32px 0 40px;
+  }
+  .ba-tab {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--border-bright);
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+  }
+  .ba-tab:hover { color: var(--text); border-color: rgba(255,122,0,0.3); }
+  .ba-tab[aria-selected="true"] {
+    color: var(--text);
+    border-color: rgba(255,122,0,0.45);
+    background: var(--orange-dim);
+  }
+  .ba-tab:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  .ba-panel[hidden] { display: none; }
   .key-message-box { background:rgba(255,122,0,0.04); border:1px solid rgba(255,122,0,0.15); border-radius:var(--radius-lg); padding:48px 40px; text-align:center; }
   .key-message { font-size:clamp(18px,3vw,24px); font-weight:700; color:var(--text); line-height:1.5; margin-bottom:16px; letter-spacing:-0.02em; }
   .key-message em { font-style:normal; color:var(--orange); font-weight:800; }
@@ -784,6 +813,12 @@
       <p class="section-sub">We redesign repetitive operations so your team can focus on outcomes instead of manual steps.</p>
     </div>
 
+    <div class="ba-tabs" role="tablist" aria-label="Choose a service">
+      <button type="button" class="ba-tab" role="tab" id="ba-tab-1" aria-controls="ba-panel-1" aria-selected="true">Automation</button>
+      <button type="button" class="ba-tab" role="tab" id="ba-tab-2" aria-controls="ba-panel-2" aria-selected="false">Visual & Video</button>
+      <button type="button" class="ba-tab" role="tab" id="ba-tab-3" aria-controls="ba-panel-3" aria-selected="false">Website</button>
+    </div>
+    <div class="ba-panel" id="ba-panel-1" role="tabpanel" aria-labelledby="ba-tab-1">
     <div class="before-after-grid">
       <!-- BEFORE CARD -->
       <div class="workflow-card reveal reveal-left">
@@ -848,6 +883,137 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
+    <div class="ba-panel" id="ba-panel-2" role="tabpanel" aria-labelledby="ba-tab-2" hidden>
+    <div class="before-after-grid">
+      <div class="workflow-card">
+        <div class="workflow-label">Before</div>
+        <div class="workflow-title">Manual Production</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">💡</div>
+            <div class="step-text">Ideas are hunted for every post</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎨</div>
+            <div class="step-text">Visuals are designed one by one</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎬</div>
+            <div class="step-text">Videos are edited by hand</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📐</div>
+            <div class="step-text">Everything is resized for each channel</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📅</div>
+            <div class="step-text">Posts are scheduled manually</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-label">With Motiq</div>
+        <div class="workflow-title">Automated Production</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">📝</div>
+            <div class="step-text">One brief is entered</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🤖</div>
+            <div class="step-text">AI drafts the visuals and videos</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎬</div>
+            <div class="step-text">Edited to your brand template</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📐</div>
+            <div class="step-text">Auto-resized for every channel</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">✅</div>
+            <div class="step-text">Scheduled and published with your approval</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="ba-panel" id="ba-panel-3" role="tabpanel" aria-labelledby="ba-tab-3" hidden>
+    <div class="before-after-grid">
+      <div class="workflow-card">
+        <div class="workflow-label">Before</div>
+        <div class="workflow-title">Old Website</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">🐢</div>
+            <div class="step-text">The site loads slowly</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📱</div>
+            <div class="step-text">It breaks on mobile</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🗓️</div>
+            <div class="step-text">Content goes months without updates</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📧</div>
+            <div class="step-text">Enquiries get lost in email</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🚪</div>
+            <div class="step-text">Visitors leave without getting in touch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-label">With Motiq</div>
+        <div class="workflow-title">New Website</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">⚡</div>
+            <div class="step-text">Fast, modern design</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📱</div>
+            <div class="step-text">Works on every screen</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🔍</div>
+            <div class="step-text">Search-engine-friendly structure</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📥</div>
+            <div class="step-text">Forms connect straight to your CRM</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎯</div>
+            <div class="step-text">Conversion-focused page structure</div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 
     <!-- KEY MESSAGE -->
@@ -1191,6 +1357,13 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  document.querySelectorAll('.ba-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ba-tab').forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+      document.querySelectorAll('.ba-panel').forEach(p => { p.hidden = p.id !== tab.getAttribute('aria-controls'); });
+    });
+  });
 
   const counters = document.querySelectorAll('[data-target]');
   const counterObserver = new IntersectionObserver((entries) => {

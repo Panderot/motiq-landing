@@ -182,6 +182,35 @@
   }
   .workflow-step:last-child .step-arrow { display: none; }
 
+  /* Önce/Sonra sekmeleri */
+  .ba-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: -32px 0 40px;
+  }
+  .ba-tab {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--border-bright);
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+  }
+  .ba-tab:hover { color: var(--text); border-color: rgba(255,122,0,0.3); }
+  .ba-tab[aria-selected="true"] {
+    color: var(--text);
+    border-color: rgba(255,122,0,0.45);
+    background: var(--orange-dim);
+  }
+  .ba-tab:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  .ba-panel[hidden] { display: none; }
+
   .key-message-box {
     background: rgba(255,122,0,0.04);
     border: 1px solid rgba(255,122,0,0.15);
@@ -1764,6 +1793,12 @@
       <p class="section-sub">Tekrarlayan operasyonları yeniden tasarlıyor, ekibinizin manuel adımlar yerine sonuçlara odaklanmasını sağlıyoruz.</p>
     </div>
 
+    <div class="ba-tabs" role="tablist" aria-label="Hizmet seçin">
+      <button type="button" class="ba-tab" role="tab" id="ba-tab-1" aria-controls="ba-panel-1" aria-selected="true">Otomasyon</button>
+      <button type="button" class="ba-tab" role="tab" id="ba-tab-2" aria-controls="ba-panel-2" aria-selected="false">Görsel ve Video</button>
+      <button type="button" class="ba-tab" role="tab" id="ba-tab-3" aria-controls="ba-panel-3" aria-selected="false">Web Sitesi</button>
+    </div>
+    <div class="ba-panel" id="ba-panel-1" role="tabpanel" aria-labelledby="ba-tab-1">
     <div class="before-after-grid">
       <!-- BEFORE CARD -->
       <div class="workflow-card reveal reveal-left">
@@ -1828,6 +1863,137 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
+    <div class="ba-panel" id="ba-panel-2" role="tabpanel" aria-labelledby="ba-tab-2" hidden>
+    <div class="before-after-grid">
+      <div class="workflow-card">
+        <div class="workflow-label">Önce</div>
+        <div class="workflow-title">Manuel Üretim</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">💡</div>
+            <div class="step-text">Her paylaşım için fikir aranır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎨</div>
+            <div class="step-text">Görseller tek tek tasarlanır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎬</div>
+            <div class="step-text">Videolar elle kurgulanır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📐</div>
+            <div class="step-text">Her kanal için yeniden boyutlandırılır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📅</div>
+            <div class="step-text">Paylaşımlar elle planlanır</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-label">Motiq İLE</div>
+        <div class="workflow-title">Otomatik Üretim</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">📝</div>
+            <div class="step-text">Tek bir brief girilir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🤖</div>
+            <div class="step-text">AI görsel ve video taslaklarını üretir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎬</div>
+            <div class="step-text">Marka şablonunuza göre düzenlenir</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📐</div>
+            <div class="step-text">Her kanal için otomatik boyutlanır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">✅</div>
+            <div class="step-text">Onayınızla planlanır ve yayınlanır</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="ba-panel" id="ba-panel-3" role="tabpanel" aria-labelledby="ba-tab-3" hidden>
+    <div class="before-after-grid">
+      <div class="workflow-card">
+        <div class="workflow-label">Önce</div>
+        <div class="workflow-title">Eski Site</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">🐢</div>
+            <div class="step-text">Site yavaş açılır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📱</div>
+            <div class="step-text">Mobilde düzgün görünmez</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🗓️</div>
+            <div class="step-text">İçerik aylarca güncellenmez</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📧</div>
+            <div class="step-text">Talepler e-postada kaybolur</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🚪</div>
+            <div class="step-text">Ziyaretçi iletişime geçmeden çıkar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-label">Motiq İLE</div>
+        <div class="workflow-title">Yeni Site</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-icon">⚡</div>
+            <div class="step-text">Hızlı açılan modern tasarım</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📱</div>
+            <div class="step-text">Her ekrana uyumlu</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🔍</div>
+            <div class="step-text">Arama motorlarına uygun yapı</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">📥</div>
+            <div class="step-text">Formlar doğrudan CRM'e bağlanır</div>
+          </div>
+          <div class="step-arrow">↓</div>
+          <div class="workflow-step">
+            <div class="step-icon">🎯</div>
+            <div class="step-text">Dönüşüm odaklı sayfa yapısı</div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 
     <!-- KEY MESSAGE -->
@@ -2202,6 +2368,13 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  document.querySelectorAll('.ba-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ba-tab').forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+      document.querySelectorAll('.ba-panel').forEach(p => { p.hidden = p.id !== tab.getAttribute('aria-controls'); });
+    });
+  });
 
   // ===== COUNTER ANIMATION =====
   const counters = document.querySelectorAll('[data-target]');
