@@ -380,32 +380,6 @@
     html { scroll-behavior: auto; }
     .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   }
-  /* ===== YASAL ALTBİLGİ: yasal linkler, işletme bilgileri, ödeme logoları ===== */
-  .site-legal { border-top: 1px solid var(--border, rgba(255,255,255,0.07)); }
-  .site-footer { background: var(--surface, #111111); }
-  .site-legal-inner { max-width: 1200px; margin: 0 auto; padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 14px; }
-  .site-legal-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
-  .site-legal-links a { font-size: 13px; color: var(--text-muted, rgba(240,237,233,0.68)); text-decoration: none; transition: color 0.2s ease; }
-  .site-legal-links a:hover, .site-legal-links a[aria-current="page"] { color: var(--orange, #FF7A00); }
-  .site-legal-biz { font-size: 12px; line-height: 1.7; color: var(--text-dim, rgba(240,237,233,0.5)); margin: 0; }
-  .site-legal-biz a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-  .site-legal-biz a:hover { color: var(--orange, #FF7A00); }
-  .site-legal-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--border, rgba(255,255,255,0.07)); }
-  .site-legal-copy { font-size: 12px; color: var(--text-dim, rgba(240,237,233,0.5)); margin: 0; }
-  .pay-band { display: block; width: 300px; max-width: 100%; height: auto; }
-  @media (max-width: 768px) {
-    .site-legal-inner { align-items: center; text-align: center; padding: 24px 20px 96px; }
-    .site-legal-links { justify-content: center; gap: 0 18px; }
-    .site-legal-links a { min-height: 44px; display: inline-flex; align-items: center; }
-    .site-legal-bottom { flex-direction: column-reverse; justify-content: center; width: 100%; }
-    .pay-band { width: 280px; }
-  }
-  /* Dar ekranda (360 px) üst menü: logo, dil seçici ve geri bağlantısı sığsın */
-  @media (max-width: 400px) {
-    .nav-inner:has(.nav-back) { padding: 0 16px; gap: 12px; }
-    .nav-inner:has(.nav-back) .nav-logo { font-size: 28px; flex-shrink: 0; }
-  }
-  /* ===== /YASAL ALTBİLGİ ===== */
 </style>
 </head>
 <body>
@@ -496,32 +470,6 @@
     </div>
   </div>
 </main>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-<!-- YASAL ALTBILGI -->
-<div class="site-legal">
-  <div class="site-legal-inner">
-    <div class="site-legal-links" role="navigation" aria-label="Yasal">
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="fiyatlar.html">Fiyatlar</a>
-      <a href="teslimat-ve-iade.html">Teslimat ve İade Şartları</a>
-      <a href="privacy-policy-tr.html">Gizlilik Politikası</a>
-      <a href="mesafeli-sozlesme.html">Mesafeli Satış Sözleşmesi</a>
-      <a href="terms-of-use-tr.html">Kullanım Koşulları</a>
-      <a href="abonelik-kosullari.html">Abonelik Koşulları</a>
-      <a href="genel-hizmet-sartlari.html">Genel Hizmet Şartları</a>
-      <a href="contact.html">İletişim</a>
-    </div>
-    <p class="site-legal-biz">Baret Güngörmezer (şahıs işletmesi) · Zincirlikuyu VD / VKN 4380649547 · Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, Şişli / İstanbul · <a href="mailto:info@motiqai.com">info@motiqai.com</a> · <a href="tel:+447476196133">+44 7476 196133</a></p>
-    <div class="site-legal-bottom">
-      <p class="site-legal-copy">© 2026 MotiqAI. Tüm hakları saklıdır.</p>
-      <img class="pay-band" src="/assets/payment/logo_band_white.svg" width="456" height="32" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" loading="lazy">
-    </div>
-  </div>
-</div>
-<!-- /YASAL ALTBILGI -->
-</footer>
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
