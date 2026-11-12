@@ -816,50 +816,16 @@
   .app-note { font-size: 12.5px; line-height: 1.6; color: var(--text-dim); }
   .sub-cta .btn-secondary { margin-bottom: 4px; }
 
-  /* ===== HAKKIMIZDA ===== */
-  .about { padding: 96px 24px; }
-  .about-box {
-    max-width: 880px;
-    margin: 0 auto;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-  }
-  .about-lead { font-size: 17px; line-height: 1.7; color: var(--text); }
-  .about-facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px 24px;
-    margin-top: 32px;
-    padding-top: 28px;
-    border-top: 1px solid var(--border);
-  }
-  .about-facts dt {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 6px;
-  }
-  .about-facts dd { font-size: 15px; line-height: 1.5; color: var(--text-muted); overflow-wrap: anywhere; }
-  .about-facts a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-  .about-facts a:hover { color: var(--orange); }
-
   @media (max-width: 768px) {
-    .apps, .about { padding: 64px 20px; }
+    .apps { padding: 64px 20px; }
     .app-card { padding: 28px 22px; }
-    .about-box { padding: 28px 22px; }
   }
   @media (max-width: 560px) {
     .sub-cta .btn-secondary { width: 100%; justify-content: center; }
   }
   @media (max-width: 400px) {
-    .apps, .about { padding-left: 16px; padding-right: 16px; }
+    .apps { padding-left: 16px; padding-right: 16px; }
     .app-card { padding: 24px 18px; }
-    .about-box { padding: 24px 18px; }
     .app-card .btn-primary { align-self: stretch; }
   }
 
@@ -885,7 +851,6 @@
       <li><a href="#subscription">Subscription</a></li>
       <li><a href="#testimonials">References</a></li>
       <li><a href="case-studies-en.html">Case Studies</a></li>
-      <li><a href="#about">About Us</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <div class="lang-switcher">
@@ -929,7 +894,6 @@
   <a href="#testimonials">References</a>
   <a href="case-studies-en.html">Case Studies</a>
   <a href="#faq">FAQ</a>
-  <a href="#about">About Us</a>
   <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Let's Talk →</a>
 </div>
 
@@ -1642,25 +1606,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">About Us</span>
-      <h2 class="section-title">About MotiqAI</h2>
-    </div>
-    <div class="about-box reveal">
-      <p class="about-lead">MotiqAI is a software business based in Istanbul. It builds custom software and automation, visual and video automation and websites, and develops its own subscription apps. The business is owned by Baret Güngörmezer (sole proprietorship).</p>
-      <dl class="about-facts">
-        <div><dt>Owner</dt><dd>Baret Güngörmezer (sole proprietorship)</dd></div>
-        <div><dt>Based in</dt><dd>Şişli, Istanbul</dd></div>
-        <div><dt>Apps</dt><dd><a href="#apps">Fixnote</a></dd></div>
-        <div><dt>Contact</dt><dd><a href="mailto:info@motiqai.com">info@motiqai.com</a></dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
-
 <!-- CTA BANNER -->
 <section class="cta-banner" id="cta">
   <div class="container">
@@ -1699,7 +1644,6 @@
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#about">About Us</a></li>
         <li><a href="#testimonials">Our Work</a></li>
         <li><a href="case-studies-en.html">Case Studies</a></li>
         <li><a href="#why-us">Why Us</a></li>
