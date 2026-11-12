@@ -757,6 +757,119 @@
     html { scroll-behavior: auto; }
     .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   }
+  /* Altbilgi: işletme bilgileri */
+  .footer-bottom { flex-wrap: wrap; }
+  .footer-biz { flex-basis: 100%; line-height: 1.7; }
+  .footer-biz a { white-space: nowrap; color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  .footer-biz a:hover { color: var(--orange); }
+  /* ===== UYGULAMALARIMIZ =====
+     Yeni uygulama: .app-grid içine aynı yapıda bir .app-card daha eklenir. */
+  .apps { padding: 96px 24px; }
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 420px));
+    justify-content: center;
+    gap: 24px;
+  }
+  .app-card {
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+  .app-card:hover {
+    border-color: rgba(255,122,0,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+  .app-card-head { display: flex; align-items: center; gap: 14px; }
+  .app-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255,122,0,0.1);
+    border: 1px solid rgba(255,122,0,0.2);
+    color: var(--orange);
+    font-size: 26px;
+    font-variation-settings: 'FILL' 0, 'wght' 300;
+  }
+  .app-name { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); line-height: 1.2; }
+  .app-tag {
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .app-desc { font-size: 15px; line-height: 1.65; color: var(--text-muted); }
+  .app-card .btn-primary { align-self: flex-start; margin-top: 4px; }
+  .app-note { font-size: 12.5px; line-height: 1.6; color: var(--text-dim); }
+  .sub-cta .btn-secondary { margin-bottom: 4px; }
+
+  /* ===== HAKKIMIZDA ===== */
+  .about { padding: 96px 24px; }
+  .about-box {
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+  }
+  .about-lead { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .about-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 24px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .about-facts dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+  .about-facts dd { font-size: 15px; line-height: 1.5; color: var(--text-muted); overflow-wrap: anywhere; }
+  .about-facts a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+  .about-facts a:hover { color: var(--orange); }
+
+  @media (max-width: 768px) {
+    .apps, .about { padding: 64px 20px; }
+    .app-card { padding: 28px 22px; }
+    .about-box { padding: 28px 22px; }
+  }
+  @media (max-width: 560px) {
+    .sub-cta .btn-secondary { width: 100%; justify-content: center; }
+  }
+  @media (max-width: 400px) {
+    .apps, .about { padding-left: 16px; padding-right: 16px; }
+    .app-card { padding: 24px 18px; }
+    .about-box { padding: 24px 18px; }
+    .app-card .btn-primary { align-self: stretch; }
+  }
+
+  /* Üst menü: bağlantılar tek satır; sığmadıkları genişlikte hamburger menü */
+  .nav-links a { white-space: nowrap; }
+  .nav-links { gap: 28px; }
+  @media (max-width: 1199px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -772,6 +885,7 @@
       <li><a href="#subscription">Subscription</a></li>
       <li><a href="#testimonials">References</a></li>
       <li><a href="case-studies-en.html">Case Studies</a></li>
+      <li><a href="#about">About Us</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <div class="lang-switcher">
@@ -815,6 +929,7 @@
   <a href="#testimonials">References</a>
   <a href="case-studies-en.html">Case Studies</a>
   <a href="#faq">FAQ</a>
+  <a href="#about">About Us</a>
   <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Let's Talk →</a>
 </div>
 
@@ -1335,7 +1450,39 @@
     </div>
 
     <div class="sub-cta reveal">
+      <a href="#apps" class="btn-secondary">
+        See our apps
+        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">south</span>
+      </a>
       <p class="sub-note">Want the system to be fully yours? We can also build the same solution as a one-off project. Subscriptions are open to businesses, freelancers and individual users and are governed by our <a href="abonelik-kosullari.html">Subscription Terms</a> (in Turkish).</p>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPS: to add an app, add another .app-card with the same structure inside .app-grid -->
+<section class="apps" id="apps">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Our Apps</span>
+      <h2 class="section-title">Our Subscription Web Apps</h2>
+      <p class="section-sub">Web apps we build ourselves and offer by subscription. Each app has its own website with its plans and payment.</p>
+    </div>
+    <div class="app-grid reveal">
+      <article class="app-card">
+        <div class="app-card-head">
+          <span class="material-symbols-outlined app-icon" aria-hidden="true">assignment</span>
+          <div>
+            <h3 class="app-name">Fixnote</h3>
+            <p class="app-tag">Subscription web app</p>
+          </div>
+        </div>
+        <p class="app-desc">Digital service reports for field service teams: fill it in on your phone, get the customer's signature on screen, send the A4 PDF via WhatsApp.</p>
+        <a href="https://fixnotee.vercel.app" class="btn-primary" target="_blank" rel="noopener">
+          Explore Fixnote
+          <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">arrow_outward</span>
+        </a>
+        <p class="app-note">Plans, prices and subscriptions are on the Fixnote website.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1495,6 +1642,25 @@
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title">About MotiqAI</h2>
+    </div>
+    <div class="about-box reveal">
+      <p class="about-lead">MotiqAI is a software business based in Istanbul. It builds custom software and automation, visual and video automation and websites, and develops its own subscription apps. The business is owned by Baret Güngörmezer (sole proprietorship).</p>
+      <dl class="about-facts">
+        <div><dt>Owner</dt><dd>Baret Güngörmezer (sole proprietorship)</dd></div>
+        <div><dt>Based in</dt><dd>Şişli, Istanbul</dd></div>
+        <div><dt>Apps</dt><dd><a href="#apps">Fixnote</a></dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:info@motiqai.com">info@motiqai.com</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 <!-- CTA BANNER -->
 <section class="cta-banner" id="cta">
   <div class="container">
@@ -1533,7 +1699,7 @@
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#why-us">About Us</a></li>
+        <li><a href="#about">About Us</a></li>
         <li><a href="#testimonials">Our Work</a></li>
         <li><a href="case-studies-en.html">Case Studies</a></li>
         <li><a href="#why-us">Why Us</a></li>
@@ -1554,6 +1720,7 @@
     </div>
   </div>
   <div class="footer-bottom container">
+    <p class="footer-biz">Baret Güngörmezer (sole proprietorship) · Zincirlikuyu Tax Office / Tax No. 4380649547 · Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, 34387 Şişli / İstanbul · <a href="mailto:info@motiqai.com">info@motiqai.com</a> · <a href="tel:+447476196133">+44 7476 196133</a></p>
     <p>© 2026 MotiqAI. All rights reserved.</p>
     <div class="footer-links">
       <a href="privacy-policy.html">Privacy Policy</a>

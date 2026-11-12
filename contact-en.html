@@ -479,6 +479,51 @@
     html { scroll-behavior: auto; }
     .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   }
+  /* Altbilgi: işletme bilgileri */
+  .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border, rgba(255,255,255,0.07)); }
+  .site-footer .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .site-footer .footer-bottom p { margin: 0; font-size: 12px; line-height: 1.7; color: var(--text-dim, rgba(240,237,233,0.5)); }
+  .footer-biz { flex-basis: 100%; }
+  .footer-biz a { white-space: nowrap; color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  .footer-biz a:hover { color: var(--orange, #FF7A00); }
+  @media (max-width: 640px) {
+    .site-footer .footer-bottom { padding: 20px 16px; justify-content: center; text-align: center; }
+  }
+  /* ===== İŞLETME BİLGİLERİ ===== */
+  .biz-info {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .biz-info h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .biz-list { display: grid; gap: 14px; }
+  .biz-list > div { display: grid; grid-template-columns: 190px 1fr; gap: 16px; align-items: baseline; }
+  .biz-list dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .biz-list dd { font-size: 15px; line-height: 1.6; color: var(--text); overflow-wrap: anywhere; }
+  .biz-list a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 640px) {
+    .biz-info { padding: 24px 20px; }
+    .biz-list > div { grid-template-columns: 1fr; gap: 2px; }
+  }
 </style>
 </head>
 <body>
@@ -562,10 +607,30 @@
 
   </div>
 
+  <!-- Business details -->
+  <section class="biz-info reveal" aria-labelledby="biz-title" style="transition-delay:0.15s;">
+    <h2 id="biz-title">Business details</h2>
+    <dl class="biz-list">
+      <div><dt>Name</dt><dd>Baret Güngörmezer (sole proprietorship)</dd></div>
+      <div><dt>Tax office / Tax No.</dt><dd>Zincirlikuyu / 4380649547</dd></div>
+      <div><dt>Address</dt><dd>Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, 34387 Şişli / İstanbul</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:info@motiqai.com">info@motiqai.com</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+447476196133">+44 7476 196133</a></dd></div>
+    </dl>
+  </section>
+
   <div class="bottom-note reveal" style="transition-delay:0.2s;">
     <p>You can request a <strong>free consultation</strong> to discuss your project. Our average response time is <strong>2 hours</strong>.</p>
   </div>
 </main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p class="footer-biz">Baret Güngörmezer (sole proprietorship) · Zincirlikuyu Tax Office / Tax No. 4380649547 · Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, 34387 Şişli / İstanbul · <a href="mailto:info@motiqai.com">info@motiqai.com</a> · <a href="tel:+447476196133">+44 7476 196133</a></p>
+    <p>© 2026 MotiqAI. All rights reserved.</p>
+  </div>
+</footer>
 
 <script>
   // Reveal animation

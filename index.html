@@ -1734,6 +1734,119 @@
     html { scroll-behavior: auto; }
     .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   }
+  /* Altbilgi: işletme bilgileri */
+  .footer-bottom { flex-wrap: wrap; }
+  .footer-biz { flex-basis: 100%; line-height: 1.7; }
+  .footer-biz a { white-space: nowrap; color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  .footer-biz a:hover { color: var(--orange); }
+  /* ===== UYGULAMALARIMIZ =====
+     Yeni uygulama: .app-grid içine aynı yapıda bir .app-card daha eklenir. */
+  .apps { padding: 96px 24px; }
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 420px));
+    justify-content: center;
+    gap: 24px;
+  }
+  .app-card {
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+  .app-card:hover {
+    border-color: rgba(255,122,0,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+  .app-card-head { display: flex; align-items: center; gap: 14px; }
+  .app-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255,122,0,0.1);
+    border: 1px solid rgba(255,122,0,0.2);
+    color: var(--orange);
+    font-size: 26px;
+    font-variation-settings: 'FILL' 0, 'wght' 300;
+  }
+  .app-name { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); line-height: 1.2; }
+  .app-tag {
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .app-desc { font-size: 15px; line-height: 1.65; color: var(--text-muted); }
+  .app-card .btn-primary { align-self: flex-start; margin-top: 4px; }
+  .app-note { font-size: 12.5px; line-height: 1.6; color: var(--text-dim); }
+  .sub-cta .btn-secondary { margin-bottom: 4px; }
+
+  /* ===== HAKKIMIZDA ===== */
+  .about { padding: 96px 24px; }
+  .about-box {
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+  }
+  .about-lead { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .about-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 24px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .about-facts dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+  .about-facts dd { font-size: 15px; line-height: 1.5; color: var(--text-muted); overflow-wrap: anywhere; }
+  .about-facts a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+  .about-facts a:hover { color: var(--orange); }
+
+  @media (max-width: 768px) {
+    .apps, .about { padding: 64px 20px; }
+    .app-card { padding: 28px 22px; }
+    .about-box { padding: 28px 22px; }
+  }
+  @media (max-width: 560px) {
+    .sub-cta .btn-secondary { width: 100%; justify-content: center; }
+  }
+  @media (max-width: 400px) {
+    .apps, .about { padding-left: 16px; padding-right: 16px; }
+    .app-card { padding: 24px 18px; }
+    .about-box { padding: 24px 18px; }
+    .app-card .btn-primary { align-self: stretch; }
+  }
+
+  /* Üst menü: bağlantılar tek satır; sığmadıkları genişlikte hamburger menü */
+  .nav-links a { white-space: nowrap; }
+  .nav-links { gap: 28px; }
+  @media (max-width: 1199px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -1750,6 +1863,7 @@
       <li><a href="#abonelik">Abonelik</a></li>
       <li><a href="#testimonials">Referanslar</a></li>
       <li><a href="case-studies.html">Case Study'ler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <div class="lang-switcher">
@@ -1795,6 +1909,7 @@
   <a href="#testimonials">Referanslar</a>
   <a href="case-studies.html">Case Study'ler</a>
   <a href="#faq">SSS</a>
+  <a href="#hakkimizda">Hakkımızda</a>
   <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Konuşalım →</a>
 </div>
 
@@ -2318,7 +2433,39 @@
     </div>
 
     <div class="sub-cta reveal">
+      <a href="#uygulamalar" class="btn-secondary">
+        Uygulamalarımızı görün
+        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">south</span>
+      </a>
       <p class="sub-note">Sistemin tamamen sizin olmasını mı istiyorsunuz? Aynı çözümü tek seferlik proje olarak da kurabiliriz. Abonelik; işletmelere, serbest çalışanlara ve bireysel kullanıcılara açıktır ve <a href="abonelik-kosullari.html">Abonelik Koşulları</a>'na tabidir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UYGULAMALARIMIZ: yeni uygulama için .app-grid içine aynı yapıda bir .app-card ekleyin -->
+<section class="apps" id="uygulamalar">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Uygulamalarımız</span>
+      <h2 class="section-title">Abonelikli Web Uygulamalarımız</h2>
+      <p class="section-sub">Kendi geliştirdiğimiz, abonelikle kullanılan web uygulamaları. Her uygulamanın paketleri ve ödemesi kendi sitesindedir.</p>
+    </div>
+    <div class="app-grid reveal">
+      <article class="app-card">
+        <div class="app-card-head">
+          <span class="material-symbols-outlined app-icon" aria-hidden="true">assignment</span>
+          <div>
+            <h3 class="app-name">Fixnote</h3>
+            <p class="app-tag">Abonelikli web uygulaması</p>
+          </div>
+        </div>
+        <p class="app-desc">Saha servis ekipleri için dijital servis raporu: telefonda doldur, müşteriye ekranda imzalat, A4 PDF'i WhatsApp'tan gönder.</p>
+        <a href="https://fixnotee.vercel.app" class="btn-primary" target="_blank" rel="noopener">
+          Fixnote'u incele
+          <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">arrow_outward</span>
+        </a>
+        <p class="app-note">Paketler, fiyatlar ve abonelik Fixnote sitesindedir.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -2478,6 +2625,25 @@
   </div>
 </section>
 
+<!-- HAKKIMIZDA -->
+<section class="about" id="hakkimizda">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Hakkımızda</span>
+      <h2 class="section-title">MotiqAI Hakkında</h2>
+    </div>
+    <div class="about-box reveal">
+      <p class="about-lead">MotiqAI, İstanbul merkezli bir yazılım işletmesidir. Özel yazılım ve otomasyon, görsel ve video otomasyonu ve web sitesi tasarımı yapar; kendi abonelikli uygulamalarını da geliştirir. İşletmenin sahibi Baret Güngörmezer'dir (şahıs işletmesi).</p>
+      <dl class="about-facts">
+        <div><dt>İşletme sahibi</dt><dd>Baret Güngörmezer (şahıs işletmesi)</dd></div>
+        <div><dt>Merkez</dt><dd>Şişli / İstanbul</dd></div>
+        <div><dt>Uygulamalar</dt><dd><a href="#uygulamalar">Fixnote</a></dd></div>
+        <div><dt>İletişim</dt><dd><a href="mailto:info@motiqai.com">info@motiqai.com</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 <!-- CTA BANNER -->
 <section class="cta-banner" id="cta">
   <div class="container">
@@ -2522,7 +2688,7 @@
     <div class="footer-col">
       <h4>Şirket</h4>
       <ul>
-        <li><a href="#why-us">Hakkımızda</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
         <li><a href="#testimonials">Çalışmalarımız</a></li>
         <li><a href="case-studies.html">Case Study'ler</a></li>
         <li><a href="#why-us">Neden Biz</a></li>
@@ -2543,6 +2709,7 @@
     </div>
   </div>
   <div class="footer-bottom container">
+    <p class="footer-biz">Baret Güngörmezer (şahıs işletmesi) · Zincirlikuyu VD / VKN 4380649547 · Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, 34387 Şişli / İstanbul · <a href="mailto:info@motiqai.com">info@motiqai.com</a> · <a href="tel:+447476196133">+44 7476 196133</a></p>
     <p>© 2026 MotiqAI. Tüm hakları saklıdır.</p>
     <div class="footer-links">
       <a href="privacy-policy-tr.html">Gizlilik Politikası</a>

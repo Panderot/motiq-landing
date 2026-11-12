@@ -460,6 +460,16 @@
     html { scroll-behavior: auto; }
     .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   }
+  /* Altbilgi: işletme bilgileri */
+  .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border, rgba(255,255,255,0.07)); }
+  .site-footer .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .site-footer .footer-bottom p { margin: 0; font-size: 12px; line-height: 1.7; color: var(--text-dim, rgba(240,237,233,0.5)); }
+  .footer-biz { flex-basis: 100%; }
+  .footer-biz a { white-space: nowrap; color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  .footer-biz a:hover { color: var(--orange, #FF7A00); }
+  @media (max-width: 640px) {
+    .site-footer .footer-bottom { padding: 20px 16px; justify-content: center; text-align: center; }
+  }
 </style>
 </head>
 <body>
@@ -618,6 +628,14 @@
 
   </div>
 </main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p class="footer-biz">Baret Güngörmezer (sole proprietorship) · Zincirlikuyu Tax Office / Tax No. 4380649547 · Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, 34387 Şişli / İstanbul · <a href="mailto:info@motiqai.com">info@motiqai.com</a> · <a href="tel:+447476196133">+44 7476 196133</a></p>
+    <p>© 2026 MotiqAI. All rights reserved.</p>
+  </div>
+</footer>
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
