@@ -10,6 +10,10 @@
   const INDIRME_URL = ""; // .exe hazır olunca tam adres yazılır
   const WA_DENEME = "https://wa.me/905369011714?text=" + encodeURIComponent(document.documentElement.lang === 'en' ? "Hello, I'd like to download the Fixnote trial." : "Merhaba, Fixnote deneme sürümünü indirmek istiyorum.");
 
+  // KURULUM DOSYASI: sürüm, boyut ve SHA-256 TEK yerde. Her yeni sürümde güncellenir.
+  // sha256 boşken "Dosyayı doğrulayın" kutusu hiç görünmez.
+  const KURULUM = { surum: "", boyut: "", sha256: "" }; // her yeni sürümde güncellenir
+
   // Fiyatlar TEK yerde. Fixnote app/lib/paket.ts ile AYNI tutulmalı.
   const PAKET = { usta: { ay: 499, yil: 4790 }, firma: { ay: 1249, yil: 11990 } };
   const FIXNOTE = 'https://fixnotee.vercel.app';
@@ -577,7 +581,46 @@
     });
   }
 
+  // ---------- İlk kurulum: dosya doğrulama kutusu (KURULUM boşsa gizli) ----------
+  function kurulum() {
+    const kutu = $('[data-ku="dogrula"]'), kutular = $('[data-ku="kutular"]');
+    if (!kutu || !kutular) return;
+    const sha = String(KURULUM.sha256 || '').trim();
+    if (!sha) { kutu.hidden = true; kutular.classList.remove('ku-iki'); return; }
+    const yaz = function (ad, deger) {
+      const d = String(deger || '').trim();
+      const el = $('[data-ku="' + ad + '"]', kutu), satir = $('[data-ku="' + ad + '-satir"]', kutu);
+      if (el) el.textContent = d;
+      if (satir) satir.hidden = !d;
+    };
+    yaz('surum', KURULUM.surum); yaz('boyut', KURULUM.boyut);
+    $('[data-ku="sha"]', kutu).textContent = sha;
+    kutu.hidden = false; kutular.classList.add('ku-iki');
+    function kopyala(metin) {
+      if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(metin);
+      return new Promise(function (ok, hata) {
+        const t = document.createElement('textarea');
+        t.value = metin; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        try { document.execCommand('copy') ? ok() : hata(); } catch (e) { hata(e); } finally { document.body.removeChild(t); }
+      });
+    }
+    $$('[data-kopya]', kutu).forEach(function (btn) {
+      const ilk = btn.textContent;
+      let zaman = 0;
+      btn.addEventListener('click', function () {
+        const kaynak = $('[data-ku="' + btn.getAttribute('data-kopya') + '"]', kutu);
+        kopyala(kaynak.textContent.trim()).then(function () {
+          btn.textContent = EN ? 'Copied' : 'Kopyalandı';
+          clearTimeout(zaman);
+          zaman = setTimeout(function () { btn.textContent = ilk; }, 1600);
+        }, function () {});
+      });
+    });
+  }
+
   indirmeLinkleri();
+  kurulum();
   gorununceOynat();
   hero();
   sureHesap();
