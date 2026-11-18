@@ -16,6 +16,10 @@
 
   // Fiyatlar TEK yerde. Fixnote app/lib/paket.ts ile AYNI tutulmalı.
   const PAKET = { usta: { ay: 499, yil: 4790 }, firma: { ay: 1249, yil: 11990 } };
+  // Süresiz Lisans: tek yer. Fixnote lisans fiyatlarıyla AYNI tutulmalı. KDV dahil TL.
+  const SURESIZ = { tutar: 8990, guncelleme: 690 };
+  // iyzico'da taksit açılınca true yapılır; false iken taksit satırı hiç görünmez.
+  const TAKSIT_VAR = false;
   const FIXNOTE = 'https://fixnotee.vercel.app';
 
   const kok = document.getElementById('fx');
@@ -559,6 +563,40 @@
     boya();
   }
 
+  // ---------- Süresiz Lisans kartı: tutar, ay sayısı, kendini ödeme çubuğu, taksit satırı, WhatsApp mesajı ----------
+  function suresiz() {
+    const kart = document.getElementById('suresiz');
+    if (!kart) return;
+    const q = function (a) { return kart.querySelector('[data-sz="' + a + '"]'); };
+    const tl = function (n) { return tlSayi(n, DIL) + ' TL'; };
+    const n = Math.max(1, Math.round(SURESIZ.tutar / PAKET.usta.ay));
+    q('tutar').textContent = tl(SURESIZ.tutar);
+    q('guncelleme').textContent = tlSayi(SURESIZ.guncelleme, DIL);
+    q('n').textContent = n;
+    q('taksit').hidden = !TAKSIT_VAR;
+    q('wa').href = 'https://wa.me/905369011714?text=' + encodeURIComponent(EN
+      ? "Hello, I'd like to know more about the Fixnote lifetime licence (" + tl(SURESIZ.tutar) + ")."
+      : 'Merhaba, Fixnote süresiz lisans (' + tl(SURESIZ.tutar) + ') hakkında bilgi almak istiyorum.');
+    // çubuk: n parça (her biri bir ay). Hareketsiz tercihinde dolu gelir; değilse görününce soldan sağa BİR kez dolar (~1,2 sn).
+    const cubuk = q('cubuk');
+    cubuk.innerHTML = '';
+    for (let i = 0; i < n; i++) {
+      const p = document.createElement('i');
+      p.style.setProperty('--i', i);
+      p.style.setProperty('--gec', Math.round(1200 / n * i) + 'ms');
+      cubuk.appendChild(p);
+    }
+    cubuk.setAttribute('aria-label', (EN ? 'Months you would pay on the monthly plan: ' : 'Aylık paketle ödeyeceğiniz ay sayısı: ') + n);
+    if (hareketsiz() || !('IntersectionObserver' in window)) { cubuk.setAttribute('data-dolu', 'evet'); return; }
+    cubuk.setAttribute('data-dolu', 'hayir');
+    const io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      io.disconnect();
+      cubuk.setAttribute('data-dolu', 'evet');
+    }, { threshold: 0.6 });
+    io.observe(cubuk);
+  }
+
   // ---------- İndirme linkleri: INDIRME_URL boşsa WhatsApp, doluysa doğrudan indirme ----------
   function indirmeLinkleri() {
     const indir = !!INDIRME_URL;
@@ -630,4 +668,5 @@
   musteriGecmisi();
   whatsapp();
   fiyatlar();
+  suresiz();
 })();
