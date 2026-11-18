@@ -289,34 +289,48 @@
   .cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 64px; }
   .cat-card {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 16px;
     background: var(--surface);
-    border: 1px solid var(--border-bright);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 28px 32px;
+    padding: 20px 24px;
     text-decoration: none;
     color: var(--text);
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.3s;
   }
-  .cat-card:hover { border-color: rgba(255,122,0,0.3); }
+  .cat-card:hover { border-color: rgba(255,122,0,0.3); transform: translateY(-3px); }
   .cat-card:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
-  .cat-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
-  .cat-desc { font-size: 15px; line-height: 1.6; color: var(--text-muted); }
-  .cat-meta {
+  .cat-icon {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--orange-dim);
+    color: var(--orange);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 6px;
+    justify-content: center;
+  }
+  .cat-icon .material-symbols-outlined { font-size: 26px; }
+  .cat-text { flex: 1; min-width: 0; }
+  .cat-title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; }
+  .cat-desc { font-size: 14px; line-height: 1.5; color: var(--text-muted); }
+  .cat-meta {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-mono);
     font-size: 11.5px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--orange);
+    white-space: nowrap;
   }
   .cat-meta .material-symbols-outlined { font-size: 18px; }
-  .case-group { scroll-margin-top: 96px; }
+  .case-group-title { scroll-margin-top: 100px; }
 
   /* Placeholder for upcoming case studies */
   .case-card-soon {
@@ -349,8 +363,9 @@
     .case-card { padding: 32px 26px; }
     .case-title { font-size: 24px; }
     .case-thumb { margin: -32px -26px 24px; }
-    .cat-grid { grid-template-columns: 1fr; margin-bottom: 48px; }
-    .cat-card { padding: 24px 22px; }
+    .cat-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+    .cat-card { padding: 18px 18px; gap: 14px; }
+    .cat-meta { flex-direction: column-reverse; align-items: flex-end; gap: 2px; }
   }
 
   /* WhatsApp FAB */
@@ -493,19 +508,25 @@
 
     <nav class="cat-grid" aria-label="Kategoriler">
       <a href="#uygulamalar-isleri" class="cat-card reveal">
-        <div class="cat-title">Uygulamalar</div>
-        <div class="cat-desc">Abonelikle kullanılan hazır web uygulamaları</div>
-        <div class="cat-meta"><span>1 proje</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+        <span class="cat-icon"><span class="material-symbols-outlined" aria-hidden="true">apps</span></span>
+        <span class="cat-text">
+          <span class="cat-title" style="display:block">Uygulamalar</span>
+          <span class="cat-desc" style="display:block">Abonelikle kullanılan hazır web uygulamaları</span>
+        </span>
+        <span class="cat-meta"><span>1 proje</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></span>
       </a>
       <a href="#web-siteleri" class="cat-card reveal">
-        <div class="cat-title">Web Siteleri</div>
-        <div class="cat-desc">Ürün lansmanı ve restoran siteleri</div>
-        <div class="cat-meta"><span>2 proje</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+        <span class="cat-icon"><span class="material-symbols-outlined" aria-hidden="true">language</span></span>
+        <span class="cat-text">
+          <span class="cat-title" style="display:block">Web Siteleri</span>
+          <span class="cat-desc" style="display:block">Ürün lansmanı ve restoran siteleri</span>
+        </span>
+        <span class="cat-meta"><span>2 proje</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></span>
       </a>
     </nav>
 
-    <section class="case-group" id="uygulamalar-isleri">
-      <h2 class="case-group-title reveal">Uygulamalar</h2>
+    <section class="case-group">
+      <h2 class="case-group-title reveal" id="uygulamalar-isleri">Uygulamalar</h2>
       <div class="case-grid">
       <a id="fixnote" href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="case-card reveal" aria-label="Fixnote'u İncele (Fixnote sitesi yeni sekmede açılır)">
         <div class="case-thumb case-thumb--contain"><img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Fixnote canlı demosunda servis raporları paneli"></div>
@@ -520,8 +541,8 @@
       </div>
     </section>
 
-    <section class="case-group" id="web-siteleri">
-      <h2 class="case-group-title reveal">Web Siteleri</h2>
+    <section class="case-group">
+      <h2 class="case-group-title reveal" id="web-siteleri">Web Siteleri</h2>
       <div class="case-grid">
       <a href="case-study-verse-audio-pro.html" class="case-card reveal" style="transition-delay:0.05s;">
         <div class="case-thumb"><img src="case-studies/verse-audio-pro/verse-case-study-poster.jpg?v=2" width="1920" height="1080" loading="lazy" decoding="async" alt="VERSE Audio Pro ürün sitesinin tanıtım kapağı: kulaklık görseli"></div>
