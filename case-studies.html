@@ -132,7 +132,7 @@
   /* ===== MAIN ===== */
   main {
     min-height: 100vh;
-    padding: 152px 24px 96px;
+    padding: 150px 24px 120px;
   }
   .container { max-width: 1100px; margin: 0 auto; }
 
@@ -163,33 +163,30 @@
     line-height: 1.65;
   }
 
-  /* ===== CATEGORY PICKER ===== */
-  .pick-panel {
-    max-width: 720px;
-    margin: 0 auto;
+  /* ===== WORK PICKER ===== */
+  .work-picker {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 880px;
+    margin: 56px auto 0;
+  }
+  .work-option {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 12px;
+    gap: 14px;
+    min-height: 220px;
+    padding: 36px 32px;
     background: var(--surface);
-    border: 1px solid var(--border-bright);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-  }
-  .pick-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 18px 20px;
-    border-radius: 14px;
-    border: 1px solid transparent;
     text-decoration: none;
     color: var(--text);
-    transition: background 0.25s ease, border-color 0.25s ease;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .pick-icon {
-    flex: 0 0 52px;
-    width: 52px;
-    height: 52px;
+  .work-option-icon {
+    width: 56px;
+    height: 56px;
     border-radius: 14px;
     background: var(--orange-dim);
     border: 1px solid rgba(255,122,0,0.35);
@@ -197,17 +194,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: box-shadow 0.25s ease;
+    transition: box-shadow 0.3s ease;
   }
-  .pick-icon .material-symbols-outlined { font-size: 24px; }
-  .pick-text { flex: 1; min-width: 0; }
-  .pick-title { display: block; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-  .pick-desc { display: block; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
-  .pick-arrow { flex: 0 0 auto; color: var(--text-dim); transition: color 0.25s ease, transform 0.25s ease; }
-  .pick-row:hover, .pick-row:focus-visible { background: rgba(255,122,0,0.06); border-color: rgba(255,122,0,0.3); }
-  .pick-row:hover .pick-icon, .pick-row:focus-visible .pick-icon { box-shadow: 0 0 24px var(--orange-glow); }
-  .pick-row:hover .pick-arrow, .pick-row:focus-visible .pick-arrow { color: var(--orange); transform: translateX(4px); }
-  .pick-row:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  .work-option-icon .material-symbols-outlined { font-size: 28px; }
+  .work-option-title { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+  .work-option-desc { font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+  .work-option-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--orange);
+  }
+  .work-option-cta .material-symbols-outlined { font-size: 18px; transition: transform 0.25s ease; }
+  .work-option:hover, .work-option:focus-visible {
+    border-color: rgba(255,122,0,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+  .work-option:hover .work-option-icon, .work-option:focus-visible .work-option-icon { box-shadow: 0 0 24px var(--orange-glow); }
+  .work-option:hover .work-option-cta .material-symbols-outlined, .work-option:focus-visible .work-option-cta .material-symbols-outlined { transform: translateX(4px); }
+  .work-option:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  @media (max-width: 720px) {
+    .work-picker { grid-template-columns: minmax(0, 1fr); }
+  }
 
   /* ===== GLOW ORBS ===== */
   .orb { position: fixed; border-radius: 50%; pointer-events: none; filter: blur(90px); z-index: 0; }
@@ -220,10 +232,10 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 640px) {
-    main { padding: 132px 20px 72px; }
-    .pick-row { padding: 16px; gap: 14px; }
-    .pick-icon { flex-basis: 44px; width: 44px; height: 44px; }
-    .pick-title { font-size: 16px; }
+    main { padding: 110px 20px 120px; }
+    .work-picker { margin-top: 40px; }
+    .work-option { padding: 28px 22px; min-height: 0; }
+    .work-option-title { font-size: 22px; }
   }
 
   /* WhatsApp FAB */
@@ -363,22 +375,18 @@
       <p>Bir kategori seçin; kendi ürünlerimizi ve yaklaşımımızı gösteren örnek projeleri görün.</p>
     </div>
 
-    <div class="pick-panel reveal" role="group" aria-label="Kategoriler">
-      <a href="neler-yaptik-uygulamalar.html" class="pick-row">
-        <span class="pick-icon"><span class="material-symbols-outlined" aria-hidden="true">apps</span></span>
-        <span class="pick-text">
-          <span class="pick-title">Uygulamalar</span>
-          <span class="pick-desc">Abonelikle kullanılan hazır web uygulamaları</span>
-        </span>
-        <span class="material-symbols-outlined pick-arrow" aria-hidden="true">arrow_forward</span>
+    <div class="work-picker reveal" role="group" aria-label="Kategoriler">
+      <a href="neler-yaptik-uygulamalar.html" class="work-option">
+        <span class="work-option-icon"><span class="material-symbols-outlined" aria-hidden="true">apps</span></span>
+        <span class="work-option-title">Uygulamalar</span>
+        <span class="work-option-desc">Abonelikle kullanılan hazır web uygulamaları</span>
+        <span class="work-option-cta">İncele <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
       </a>
-      <a href="neler-yaptik-web-siteleri.html" class="pick-row">
-        <span class="pick-icon"><span class="material-symbols-outlined" aria-hidden="true">language</span></span>
-        <span class="pick-text">
-          <span class="pick-title">Web Siteleri</span>
-          <span class="pick-desc">Ürün lansmanı ve restoran siteleri</span>
-        </span>
-        <span class="material-symbols-outlined pick-arrow" aria-hidden="true">arrow_forward</span>
+      <a href="neler-yaptik-web-siteleri.html" class="work-option">
+        <span class="work-option-icon"><span class="material-symbols-outlined" aria-hidden="true">language</span></span>
+        <span class="work-option-title">Web Siteleri</span>
+        <span class="work-option-desc">Ürün lansmanı ve restoran siteleri</span>
+        <span class="work-option-cta">İncele <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
       </a>
     </div>
   </div>
