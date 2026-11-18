@@ -1733,6 +1733,8 @@
   width: 100%; max-width: 104px; padding: 18px 8px 14px; background: var(--fx-paper);
   border: 1px solid var(--fx-line-2); border-radius: 16px; color: var(--fx-accent);
 }
+.fx .vk-dugum > svg { width: 24px; height: 24px; }
+.fx .vk-dugum-orta > svg { width: 28px; height: 28px; }
 .fx .vk-dugum-orta { max-width: 136px; padding: 26px 8px 18px; box-shadow: 0 0 44px rgba(255, 122, 0, 0.22), var(--fx-shadow-md); }
 @media (max-width: 520px) { .fx .vk-dugum { max-width: 92px; } .fx .vk-dugum-orta { max-width: 116px; } }
 .fx .vk-et { font-size: 12.5px; font-weight: 700; color: var(--fx-ink); text-align: center; line-height: 1.25; }
@@ -1741,7 +1743,7 @@
   display: grid; place-items: center; background: var(--fx-paper); border: 1px solid var(--fx-line-2); color: var(--fx-accent);
 }
 .fx .vk-bulut { position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px; white-space: nowrap; }
-.fx .vk-bulut-ik { position: relative; width: 36px; height: 36px; color: var(--fx-faint); opacity: .55; }
+.fx .vk-bulut-ik { position: relative; width: 28px; height: 28px; color: var(--fx-faint); opacity: .55; }
 .fx .vk-bulut-ik svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .fx .vk-bulut-ik .vk-capraz { color: var(--fx-accent); opacity: 1; }
 .fx .vk-bulut-et { font-size: 11px; font-weight: 700; color: var(--fx-accent); }
