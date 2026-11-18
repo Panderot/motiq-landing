@@ -563,10 +563,13 @@
       a.href = indir ? INDIRME_URL : WA_DENEME;
       if (indir) { a.setAttribute('download', ''); a.removeAttribute('target'); a.removeAttribute('rel'); }
       else { a.removeAttribute('download'); a.target = '_blank'; a.rel = 'noopener'; }
+      if (a.getAttribute('data-indir') === 'sabit') return; // metni HTML'de sabit olan link
       let t = a.firstChild;
       while (t && t.nodeType !== 3) t = t.nextSibling;
       if (t) t.nodeValue = yazi; else a.insertBefore(document.createTextNode(yazi), a.firstChild);
     });
+    // "bağlantı WhatsApp'tan gönderilir" notu yalnızca INDIRME_URL boşken görünür
+    $$('[data-indir-not]').forEach(function (n) { n.hidden = indir; });
   }
 
   indirmeLinkleri();
