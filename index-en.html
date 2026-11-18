@@ -151,41 +151,6 @@
 
   /* Abonelik bölümü */
   .subscription { padding: 96px 24px; }
-  .sub-pairs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 48px;
-  }
-  .sub-pair {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  }
-  .sub-pair:hover {
-    border-color: rgba(255,122,0,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-  }
-  .sub-tag {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .sub-problem .sub-tag { color: var(--text-dim); }
-  .sub-solution .sub-tag { color: var(--orange); }
-  .sub-problem p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text-muted); }
-  .sub-solution p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text); }
-  .sub-arrow { color: var(--orange); opacity: 0.6; font-size: 18px; line-height: 1; }
   .sub-subtitle {
     text-align: center;
     font-size: 24px;
@@ -209,25 +174,6 @@
   .sub-step-num { font-family: var(--font-mono); font-size: 13px; color: var(--orange); margin-bottom: 14px; }
   .sub-step h4 { margin: 0 0 8px; font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
   .sub-step p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--text-muted); }
-  .sub-benefits {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  .sub-benefit {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,122,0,0.2);
-    background: rgba(255,122,0,0.06);
-    color: var(--text);
-    font-size: 14px;
-  }
-  .sub-benefit .material-symbols-outlined { font-size: 18px; color: var(--orange); }
   .sub-cta { text-align: center; }
   .sub-note { max-width: 640px; margin: 20px auto 0; font-size: 13px; line-height: 1.6; color: var(--text-dim); }
   .sub-note a { color: var(--text-muted); text-decoration: underline; }
@@ -289,7 +235,6 @@
     .app-card-actions .btn-primary, .app-card-actions .btn-secondary { width: 100%; justify-content: center; }
   }
   @media (max-width: 960px) {
-    .sub-pairs { grid-template-columns: 1fr; margin-bottom: 56px; }
     .sub-steps { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 560px) {
@@ -1293,32 +1238,6 @@
         <h4>We keep improving it</h4>
         <p>We keep improving the app and take care of updates and backups.</p>
       </div>
-    </div>
-
-    <h3 class="sub-subtitle reveal">Why a subscription?</h3>
-    <div class="sub-pairs">
-      <div class="sub-pair reveal">
-        <div class="sub-problem"><span class="sub-tag">Problem</span><p>Custom software needs a large one-off budget.</p></div>
-        <div class="sub-arrow">↓</div>
-        <div class="sub-solution"><span class="sub-tag">Solution</span><p>Because many businesses use the same solution, the cost is shared and you don't need a large software budget.</p></div>
-      </div>
-      <div class="sub-pair reveal" style="transition-delay:0.1s">
-        <div class="sub-problem"><span class="sub-tag">Problem</span><p>After launch, maintenance, updates and bugs are left to you.</p></div>
-        <div class="sub-arrow">↓</div>
-        <div class="sub-solution"><span class="sub-tag">Solution</span><p>We take care of maintenance, updates and technical support.</p></div>
-      </div>
-      <div class="sub-pair reveal" style="transition-delay:0.2s">
-        <div class="sub-problem"><span class="sub-tag">Problem</span><p>You don't have a team to handle servers, security and backups.</p></div>
-        <div class="sub-arrow">↓</div>
-        <div class="sub-solution"><span class="sub-tag">Solution</span><p>We take care of hosting, security and backups for you.</p></div>
-      </div>
-    </div>
-
-    <div class="sub-benefits reveal">
-      <span class="sub-benefit"><span class="material-symbols-outlined">check</span>No large upfront investment</span>
-      <span class="sub-benefit"><span class="material-symbols-outlined">check</span>Quick install, start using it right away</span>
-      <span class="sub-benefit"><span class="material-symbols-outlined">check</span>We handle maintenance and updates</span>
-      <span class="sub-benefit"><span class="material-symbols-outlined">check</span>Your data is yours, download it anytime</span>
     </div>
 
     <div class="sub-cta reveal">
