@@ -285,6 +285,39 @@
   .case-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .case-thumb--contain img { object-fit: contain; object-position: top; }
 
+  /* ===== CATEGORY CARDS ===== */
+  .cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 64px; }
+  .cat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.3s;
+  }
+  .cat-card:hover { border-color: rgba(255,122,0,0.3); }
+  .cat-card:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  .cat-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+  .cat-desc { font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+  .cat-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .cat-meta .material-symbols-outlined { font-size: 18px; }
+  .case-group { scroll-margin-top: 96px; }
+
   /* Placeholder for upcoming case studies */
   .case-card-soon {
     border-style: dashed;
@@ -316,6 +349,8 @@
     .case-card { padding: 32px 26px; }
     .case-title { font-size: 24px; }
     .case-thumb { margin: -32px -26px 24px; }
+    .cat-grid { grid-template-columns: 1fr; margin-bottom: 48px; }
+    .cat-card { padding: 24px 22px; }
   }
 
   /* WhatsApp FAB */
@@ -456,7 +491,20 @@
       <p>Our own products and sample projects that show our approach. Each one shows how we turn a business problem into a simple digital solution.</p>
     </div>
 
-    <section class="case-group">
+    <nav class="cat-grid" aria-label="Categories">
+      <a href="#apps-work" class="cat-card reveal">
+        <div class="cat-title">Apps</div>
+        <div class="cat-desc">Ready-made web apps used by subscription</div>
+        <div class="cat-meta"><span>1 project</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+      </a>
+      <a href="#websites" class="cat-card reveal">
+        <div class="cat-title">Websites</div>
+        <div class="cat-desc">Product launch and restaurant sites</div>
+        <div class="cat-meta"><span>2 projects</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></div>
+      </a>
+    </nav>
+
+    <section class="case-group" id="apps-work">
       <h2 class="case-group-title reveal">Apps</h2>
       <div class="case-grid">
       <a id="fixnote" href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="case-card reveal" aria-label="Explore Fixnote (Fixnote website opens in a new tab)">
@@ -472,7 +520,7 @@
       </div>
     </section>
 
-    <section class="case-group">
+    <section class="case-group" id="websites">
       <h2 class="case-group-title reveal">Websites</h2>
       <div class="case-grid">
       <a href="case-study-verse-audio-pro-en.html" class="case-card reveal" style="transition-delay:0.05s;">
