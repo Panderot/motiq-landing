@@ -5,6 +5,11 @@
 (function () {
   'use strict';
 
+  // İNDİRME ANAHTARI: tek yer. .exe hazır olunca INDIRME_URL'ye tam adres yazılır.
+  // Boşken "data-indir" işaretli bütün linkler WhatsApp'tan deneme sürümünü ister.
+  const INDIRME_URL = ""; // .exe hazır olunca buraya tam adres yazılır
+  const WA_DENEME = "https://wa.me/905369011714?text=" + encodeURIComponent(document.documentElement.lang === 'en' ? "Hello, I'd like to download the Fixnote trial." : "Merhaba, Fixnote deneme sürümünü indirmek istiyorum.");
+
   // Fiyatlar TEK yerde. Fixnote app/lib/paket.ts ile AYNI tutulmalı.
   const PAKET = { usta: { ay: 499, yil: 4790 }, firma: { ay: 1249, yil: 11990 } };
   const FIXNOTE = 'https://fixnotee.vercel.app';
@@ -550,6 +555,21 @@
     boya();
   }
 
+  // ---------- İndirme linkleri: INDIRME_URL boşsa WhatsApp, doluysa doğrudan indirme ----------
+  function indirmeLinkleri() {
+    const indir = !!INDIRME_URL;
+    const yazi = EN ? (indir ? 'Download the trial' : 'Request the trial') : (indir ? 'Deneme sürümünü indir' : 'Deneme sürümünü iste');
+    $$('[data-indir]').forEach(function (a) {
+      a.href = indir ? INDIRME_URL : WA_DENEME;
+      if (indir) { a.setAttribute('download', ''); a.removeAttribute('target'); a.removeAttribute('rel'); }
+      else { a.removeAttribute('download'); a.target = '_blank'; a.rel = 'noopener'; }
+      let t = a.firstChild;
+      while (t && t.nodeType !== 3) t = t.nextSibling;
+      if (t) t.nodeValue = yazi; else a.insertBefore(document.createTextNode(yazi), a.firstChild);
+    });
+  }
+
+  indirmeLinkleri();
   gorununceOynat();
   hero();
   sureHesap();
