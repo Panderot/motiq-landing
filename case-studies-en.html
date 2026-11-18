@@ -26,6 +26,7 @@
     --font-main: 'Manrope', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --radius: 16px;
+    --radius-lg: 20px;
   }
 
   html { scroll-behavior: smooth; }
@@ -162,191 +163,51 @@
     line-height: 1.65;
   }
 
-  /* ===== CASE GRID ===== */
-  .case-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 24px;
-  }
-  .case-card {
-    background: var(--surface);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius);
-    padding: 40px 36px;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    color: var(--text);
-    display: block;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  }
-  .case-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  }
-  .case-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--orange), transparent);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-  }
-  .case-card:hover {
-    border-color: rgba(255,122,0,0.3);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,122,0,0.08);
-  }
-  .case-card:hover::after { transform: scaleX(1); }
-  .case-category {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--orange);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    opacity: 0.85;
-  }
-  .case-title {
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .case-desc {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.75;
-    margin-bottom: 28px;
-  }
-  .case-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--orange);
-  }
-  .case-cta .material-symbols-outlined { font-size: 15px; transition: transform 0.25s ease; }
-  .case-card:hover .case-cta .material-symbols-outlined { transform: translate(2px, -2px); }
-
-  /* Card with a secondary link: a stretched link covers the card so
-     nested <a> tags are avoided, and the secondary link sits above it. */
-  .case-card-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
-  .case-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
-  .case-live { position: relative; z-index: 2; color: var(--text-muted); text-decoration: none; transition: color 0.25s ease; }
-  .case-live:hover { color: var(--orange); }
-  @media (pointer: coarse), (max-width: 768px) {
-    .case-live { min-height: 44px; }
-  }
-
-
-  /* ===== WORK GROUPS ===== */
-  .case-group { margin-bottom: 56px; }
-  .case-group-title {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin: 0 0 20px;
-  }
-  .case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 18px; }
-  .case-meta .case-category { margin-bottom: 0; }
-  .case-badge {
-    display: inline-flex;
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 3px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border-bright);
-    color: var(--text-muted);
-  }
-  .case-badge--own { border-color: var(--orange); background: var(--orange-dim); color: var(--orange); }
-  .case-thumb {
-    margin: -40px -36px 28px;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-bright);
-    background: var(--surface-2);
-  }
-  .case-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .case-thumb--contain img { object-fit: contain; object-position: top; }
-
-  /* ===== CATEGORY CARDS ===== */
-  .cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 64px; }
-  .cat-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    text-decoration: none;
-    color: var(--text);
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .cat-card:hover { border-color: rgba(255,122,0,0.3); transform: translateY(-3px); }
-  .cat-card:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
-  .cat-icon {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: var(--orange-dim);
-    color: var(--orange);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .cat-icon .material-symbols-outlined { font-size: 26px; }
-  .cat-text { flex: 1; min-width: 0; }
-  .cat-title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; }
-  .cat-desc { font-size: 14px; line-height: 1.5; color: var(--text-muted); }
-  .cat-meta {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--orange);
-    white-space: nowrap;
-  }
-  .cat-meta .material-symbols-outlined { font-size: 18px; }
-  .case-group-title { scroll-margin-top: 100px; }
-
-  /* Placeholder for upcoming case studies */
-  .case-card-soon {
-    border-style: dashed;
-    background: transparent;
+  /* ===== CATEGORY PICKER ===== */
+  .pick-panel {
+    max-width: 720px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    color: var(--text-dim);
+    gap: 4px;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
   }
-  .case-card-soon .case-category { color: var(--text-dim); opacity: 0.7; }
-  .case-card-soon .case-title { color: var(--text-dim); font-size: 20px; }
-
-  /* Bağlantıyla gelinen kart sabit menünün altında kalmasın */
-  .case-card[id] { scroll-margin-top: 96px; }
+  .pick-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .pick-icon {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--orange-dim);
+    border: 1px solid rgba(255,122,0,0.35);
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.25s ease;
+  }
+  .pick-icon .material-symbols-outlined { font-size: 24px; }
+  .pick-text { flex: 1; min-width: 0; }
+  .pick-title { display: block; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .pick-desc { display: block; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
+  .pick-arrow { flex: 0 0 auto; color: var(--text-dim); transition: color 0.25s ease, transform 0.25s ease; }
+  .pick-row:hover, .pick-row:focus-visible { background: rgba(255,122,0,0.06); border-color: rgba(255,122,0,0.3); }
+  .pick-row:hover .pick-icon, .pick-row:focus-visible .pick-icon { box-shadow: 0 0 24px var(--orange-glow); }
+  .pick-row:hover .pick-arrow, .pick-row:focus-visible .pick-arrow { color: var(--orange); transform: translateX(4px); }
+  .pick-row:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
 
   /* ===== GLOW ORBS ===== */
   .orb { position: fixed; border-radius: 50%; pointer-events: none; filter: blur(90px); z-index: 0; }
@@ -360,12 +221,9 @@
   /* ===== RESPONSIVE ===== */
   @media (max-width: 640px) {
     main { padding: 132px 20px 72px; }
-    .case-card { padding: 32px 26px; }
-    .case-title { font-size: 24px; }
-    .case-thumb { margin: -32px -26px 24px; }
-    .cat-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
-    .cat-card { padding: 18px 18px; gap: 14px; }
-    .cat-meta { flex-direction: column-reverse; align-items: flex-end; gap: 2px; }
+    .pick-row { padding: 16px; gap: 14px; }
+    .pick-icon { flex-basis: 44px; width: 44px; height: 44px; }
+    .pick-title { font-size: 16px; }
   }
 
   /* WhatsApp FAB */
@@ -432,7 +290,6 @@
      the card stayed 340px wide and pushed the page 45px past the screen.
      Capping the floor at the available width lets it shrink instead. */
   .case-grid { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
-  .case-card { width: 100%; max-width: 100%; min-width: 0; }
 
   /* Gezinme ve erişilebilirlik */
   section[id] { scroll-margin-top: 88px; }
@@ -502,77 +359,28 @@
   <div class="container">
     <div class="page-header reveal">
       <div class="page-label">What We've Built</div>
-      <h1>Selected <span>Work.</span></h1>
-      <p>Our own products and sample projects that show our approach. Each one shows how we turn a business problem into a simple digital solution.</p>
+      <h1>Which Work Would You <span>Like to See?</span></h1>
+      <p>Pick a category to see our own products and the sample projects that show our approach.</p>
     </div>
 
-    <nav class="cat-grid" aria-label="Categories">
-      <a href="#apps-work" class="cat-card reveal">
-        <span class="cat-icon"><span class="material-symbols-outlined" aria-hidden="true">apps</span></span>
-        <span class="cat-text">
-          <span class="cat-title" style="display:block">Apps</span>
-          <span class="cat-desc" style="display:block">Ready-to-use web apps offered by subscription</span>
+    <nav class="pick-panel reveal" aria-label="Categories">
+      <a href="neler-yaptik-uygulamalar-en.html" class="pick-row">
+        <span class="pick-icon"><span class="material-symbols-outlined" aria-hidden="true">apps</span></span>
+        <span class="pick-text">
+          <span class="pick-title">Apps</span>
+          <span class="pick-desc">Ready-to-use web apps offered by subscription</span>
         </span>
-        <span class="cat-meta"><span>1 project</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></span>
+        <span class="material-symbols-outlined pick-arrow" aria-hidden="true">arrow_forward</span>
       </a>
-      <a href="#websites" class="cat-card reveal">
-        <span class="cat-icon"><span class="material-symbols-outlined" aria-hidden="true">language</span></span>
-        <span class="cat-text">
-          <span class="cat-title" style="display:block">Websites</span>
-          <span class="cat-desc" style="display:block">Product launch and restaurant websites</span>
+      <a href="neler-yaptik-web-siteleri-en.html" class="pick-row">
+        <span class="pick-icon"><span class="material-symbols-outlined" aria-hidden="true">language</span></span>
+        <span class="pick-text">
+          <span class="pick-title">Websites</span>
+          <span class="pick-desc">Product launch and restaurant websites</span>
         </span>
-        <span class="cat-meta"><span>2 projects</span><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></span>
+        <span class="material-symbols-outlined pick-arrow" aria-hidden="true">arrow_forward</span>
       </a>
     </nav>
-
-    <section class="case-group">
-      <h2 class="case-group-title reveal" id="apps-work">Apps</h2>
-      <div class="case-grid">
-      <a id="fixnote" href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="case-card reveal" aria-label="Explore Fixnote (Fixnote website opens in a new tab)">
-        <div class="case-thumb case-thumb--contain"><img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Service reports dashboard in the Fixnote live demo"></div>
-        <div class="case-meta"><div class="case-category">Software Product · Field Service</div><span class="case-badge case-badge--own">Our product</span></div>
-        <div class="case-title">Fixnote: Digital Service Reports for Field Teams</div>
-        <div class="case-desc">Our own product. Technicians fill in the job report on their phone at the customer's door and collect an on-screen signature; a branded A4 PDF report is generated and shared via WhatsApp. The job is closed before getting back in the van.</div>
-        <div class="case-cta">
-          Explore Fixnote
-          <span class="material-symbols-outlined">open_in_new</span>
-        </div>
-      </a>
-      </div>
-    </section>
-
-    <section class="case-group">
-      <h2 class="case-group-title reveal" id="websites">Websites</h2>
-      <div class="case-grid">
-      <a href="case-study-verse-audio-pro-en.html" class="case-card reveal" style="transition-delay:0.05s;">
-        <div class="case-thumb"><img src="case-studies/verse-audio-pro/verse-case-study-poster.jpg?v=2" width="1920" height="1080" loading="lazy" decoding="async" alt="Cover of the VERSE Audio Pro product site showing the headphones"></div>
-        <div class="case-meta"><div class="case-category">Web Design & Development · Interactive Site</div><span class="case-badge">Sample project</span></div>
-        <div class="case-title">VERSE Audio Pro</div>
-        <div class="case-desc">A sample project we built for a premium wireless headphone launch: a cinematic, scroll-controlled product site made from raw product footage.</div>
-        <div class="case-cta">
-          View Project
-          <span class="material-symbols-outlined">arrow_outward</span>
-        </div>
-      </a>
-
-      <div class="case-card reveal" style="transition-delay:0.1s;">
-        <a href="case-study-restaurant-multilang-ordering-en.html" class="case-card-link" aria-label="View Project"></a>
-        <div class="case-meta"><div class="case-category">Web Design & Development · Restaurant</div><span class="case-badge">Sample project</span></div>
-        <div class="case-title">Multi-Language Restaurant Platform</div>
-        <div class="case-desc">A sample project we built for a kebab and pizza restaurant in Czechia: a three-language, brand-aligned web platform. The digital menu, online ordering and reservations come together in one system.</div>
-        <div class="case-actions">
-          <div class="case-cta">
-            View Project
-            <span class="material-symbols-outlined">arrow_outward</span>
-          </div>
-          <a href="https://king-kebab-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-cta case-live">
-            View Live Sample
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
-        </div>
-      </div>
-      </div>
-    </section>
   </div>
 </main>
 
