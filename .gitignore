@@ -3,3 +3,9 @@
 
 # Local Wrangler (Cloudflare Pages) dev cache
 .wrangler
+
+# Local prompt / legal source text files (not part of the site)
+MotiqAI_*.txt
+
+# Playwright MCP scratch folder
+.playwright-mcp/

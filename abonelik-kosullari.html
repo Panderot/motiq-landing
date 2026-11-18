@@ -445,55 +445,6 @@
     transition: color var(--transition);
   }
   .footer-col a:hover { color: var(--text); }
-  .footer-newsletter h4 {
-    font-size: 12px;
-    font-family: var(--font-mono);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 10px;
-  }
-  .footer-newsletter p {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-    line-height: 1.5;
-  }
-  .newsletter-form {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .newsletter-form input {
-    flex: 1;
-    min-width: 160px;
-    background: var(--bg);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    font-size: 13px;
-    color: var(--text);
-    font-family: var(--font-main);
-    outline: none;
-    transition: border-color var(--transition);
-  }
-  .newsletter-form input:focus { border-color: rgba(255,122,0,0.5); }
-  .newsletter-form input::placeholder { color: var(--text-dim); }
-  .newsletter-form button {
-    background: var(--orange);
-    color: #000;
-    border: none;
-    border-radius: var(--radius);
-    padding: 10px 18px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background var(--transition);
-    white-space: nowrap;
-  }
-  .newsletter-form button:hover { background: #FF9533; }
   .footer-bottom {
     border-top: 1px solid var(--border);
     padding: 20px 24px;
@@ -809,7 +760,7 @@
   <div class="footer-main">
     <div class="footer-brand">
       <div class="logo">Motiq<span>AI</span></div>
-      <p>Yapay zeka destekli sistemler ve sorunsuz iş akışları ile işletmenizi geleceğe taşıyoruz.</p>
+      <p>Yapay zekâ ve otomasyon danışmanlığı: süreçlerinizi analiz ediyor, doğru sistemi birlikte kuruyoruz.</p>
       <div class="social-links">
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/company/motiq-ai/" target="_blank" class="social-link" aria-label="LinkedIn">
@@ -834,20 +785,9 @@
     <div class="footer-col">
       <h4>Şirket</h4>
       <ul>
-        <li><a href="index.html#testimonials">Çalışmalarımız</a></li>
         <li><a href="index.html#how">Süreç</a></li>
         <li><a href="contact.html">İletişim</a></li>
       </ul>
-    </div>
-    <div class="footer-col footer-newsletter">
-      <h4>Bize Katılın</h4>
-      <p>Yapay zeka ve otomasyon trendlerini takip etmek için bültenimize abone olun.</p>
-      <form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
-        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
-        <input type="email" name="email" placeholder="E-posta adresiniz" required />
-        <button type="submit">Kayıt Ol</button>
-      </form>
-      <p class="newsletter-note" style="font-size:12px;line-height:1.5;color:var(--text-dim);margin-top:10px;">Kayıt olarak bülten e-postaları almayı kabul edersin; istediğin zaman ayrılabilirsin. <a href="privacy-policy-tr.html" style="color:inherit;text-decoration:underline;font-size:inherit;">Gizlilik Politikası</a></p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -879,60 +819,7 @@
     if (rect.top < window.innerHeight) el.classList.add('visible');
   }), 100);
 
-  // Newsletter form
-  const newsletterForm = document.querySelector('.newsletter-form');
-  if (newsletterForm) {
-    let isSubmitting = false;
-    newsletterForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (isSubmitting) return;
 
-      const emailInput = newsletterForm.querySelector('input[name="email"]');
-      const companyWebsiteInput = newsletterForm.querySelector('input[name="company_website"]');
-      const btn = newsletterForm.querySelector('button');
-      
-      const email = emailInput ? emailInput.value : '';
-      const company_website = companyWebsiteInput ? companyWebsiteInput.value : '';
-      
-      const originalText = btn.textContent;
-      const originalBg = btn.style.background;
-
-      isSubmitting = true;
-      btn.disabled = true;
-
-      try {
-        const response = await fetch('/api/newsletter', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email, company_website })
-        });
-
-        const data = await response.json().catch(() => ({}));
-
-        if (response.ok && data.success) {
-          btn.textContent = '✓ Kaydedildi!';
-          btn.style.background = '#22c55e';
-          if (emailInput) emailInput.value = '';
-        } else {
-          btn.textContent = 'Tekrar deneyin';
-          btn.style.background = '#ef4444';
-        }
-      } catch (err) {
-        console.error(err);
-        btn.textContent = 'Tekrar deneyin';
-        btn.style.background = '#ef4444';
-      } finally {
-        isSubmitting = false;
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = originalBg;
-        }, 3000);
-      }
-    });
-  }
 </script>
 <!-- WhatsApp FAB -->
 <a href="https://wa.me/+447476196133?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="wa-fab" data-tooltip="WhatsApp'tan yazın">

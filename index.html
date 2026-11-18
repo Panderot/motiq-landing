@@ -20,20 +20,20 @@
   })();
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu</title>
-<meta name="description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
+<title>MotiqAI | Yapay Zekâ ve Otomasyon Danışmanlığı</title>
+<meta name="description" content="İşletmenizin süreçlerini analiz ediyor, size uygun yapay zekâ ve otomasyon yol haritasını çıkarıyor, isterseniz kurulumunu da yapıyoruz. Ücretsiz ön görüşme planlayın."/>
 <link rel="canonical" href="https://motiqai.com/"/>
 <link rel="alternate" hreflang="tr" href="https://motiqai.com/"/>
 <link rel="alternate" hreflang="en" href="https://motiqai.com/index-en.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="MotiqAI"/>
-<meta property="og:title" content="MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu"/>
-<meta property="og:description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
+<meta property="og:title" content="MotiqAI | Yapay Zekâ ve Otomasyon Danışmanlığı"/>
+<meta property="og:description" content="İşletmenizin süreçlerini analiz ediyor, size uygun yapay zekâ ve otomasyon yol haritasını çıkarıyor, isterseniz kurulumunu da yapıyoruz. Ücretsiz ön görüşme planlayın."/>
 <meta property="og:url" content="https://motiqai.com/"/>
 <meta property="og:locale" content="tr_TR"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MotiqAI - Yapay Zeka Destekli İş Akışı Otomasyonu"/>
-<meta name="twitter:description" content="MotiqAI ile tekrarlayan işleri otomatikleştirin, ekibinizi büyümeye odaklayın. Lider bulut araçları ve yapay zeka entegrasyonlarıyla modern otomasyon çözümleri."/>
+<meta name="twitter:title" content="MotiqAI | Yapay Zekâ ve Otomasyon Danışmanlığı"/>
+<meta name="twitter:description" content="İşletmenizin süreçlerini analiz ediyor, size uygun yapay zekâ ve otomasyon yol haritasını çıkarıyor, isterseniz kurulumunu da yapıyoruz. Ücretsiz ön görüşme planlayın."/>
 <meta name="theme-color" content="#050505"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
@@ -833,52 +833,6 @@
     color: var(--orange);
   }
 
-  /* ===== STATS ===== */
-  .stats {
-    padding: 96px 24px;
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2px;
-    background: var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .stat-item {
-    background: var(--bg);
-    padding: 40px 32px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: background var(--transition);
-  }
-  .stat-item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--orange), transparent);
-    opacity: 0;
-    transition: opacity var(--transition);
-  }
-  .stat-item:hover { background: rgba(255,122,0,0.03); }
-  .stat-item:hover::before { opacity: 1; }
-  .stat-num {
-    font-size: 52px;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: -0.04em;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .stat-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-
   /* ===== WHY US ===== */
   .why-us {
     padding: 96px 24px;
@@ -1037,7 +991,7 @@
   .how-we-work { padding: 96px 24px; }
   .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2px;
     position: relative;
   }
@@ -1100,67 +1054,6 @@
     margin-top: 20px;
     text-transform: uppercase;
   }
-
-  /* ===== TESTIMONIALS ===== */
-  .testimonials { padding: 96px 24px; }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  .testimonial-card {
-    background: var(--surface);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    position: relative;
-    transition: transform var(--transition), box-shadow var(--transition);
-  }
-  .testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .testimonial-card::before {
-    content: '"';
-    position: absolute;
-    top: 20px; right: 24px;
-    font-size: 80px;
-    line-height: 1;
-    color: var(--orange);
-    opacity: 0.12;
-    font-family: Georgia, serif;
-  }
-  .testimonial-stars {
-    display: flex;
-    gap: 3px;
-    margin-bottom: 16px;
-  }
-  .star { color: var(--orange); font-size: 16px; }
-  .testimonial-text {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .author-avatar {
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--orange), #FF4500);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 15px;
-    color: #000;
-    flex-shrink: 0;
-  }
-  .author-name { font-size: 14px; font-weight: 700; color: var(--text); }
-  .author-role { font-size: 12px; color: var(--text-dim); margin-top: 1px; }
 
   /* ===== FAQ ===== */
   .faq { padding: 96px 24px; }
@@ -1340,55 +1233,6 @@
     transition: color var(--transition);
   }
   .footer-col a:hover { color: var(--text); }
-  .footer-newsletter h4 {
-    font-size: 12px;
-    font-family: var(--font-mono);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 10px;
-  }
-  .footer-newsletter p {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-    line-height: 1.5;
-  }
-  .newsletter-form {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .newsletter-form input {
-    flex: 1;
-    min-width: 160px;
-    background: var(--bg);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    font-size: 13px;
-    color: var(--text);
-    font-family: var(--font-main);
-    outline: none;
-    transition: border-color var(--transition);
-  }
-  .newsletter-form input:focus { border-color: rgba(255,122,0,0.5); }
-  .newsletter-form input::placeholder { color: var(--text-dim); }
-  .newsletter-form button {
-    background: var(--orange);
-    color: #000;
-    border: none;
-    border-radius: var(--radius);
-    padding: 10px 18px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background var(--transition);
-    white-space: nowrap;
-  }
-  .newsletter-form button:hover { background: #FF9533; }
   .footer-bottom {
     border-top: 1px solid var(--border);
     padding: 20px 24px;
@@ -1465,8 +1309,6 @@
   .expertise-grid > *,
   .steps-grid > *,
   .feature-grid > *,
-  .testimonials-grid > *,
-  .stats-grid > *,
   .before-after-grid > *,
   .footer-main > *,
   .nav-inner > *,
@@ -1485,7 +1327,6 @@
   .feature-card p,
   .workflow-title,
   .step-text,
-  .testimonial-card p,
   .section-title,
   .section-sub,
   .cta-box h2,
@@ -1501,16 +1342,13 @@
      minmax(300px, 1fr) forces a 300px column even inside a 279px
      container, which is a real horizontal-overflow source at 375px.
      min(300px, 100%) caps the floor at the available width. */
-  .steps-grid        { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
-  .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+  .steps-grid        { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
   .feature-grid      { grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); }
-  .stats-grid        { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); }
 
   /* Cards get an explicit width envelope of their own. */
   .expertise-card,
   .step-card,
   .feature-card,
-  .testimonial-card,
   .workflow-card {
     width: 100%;
     max-width: 100%;
@@ -1525,7 +1363,6 @@
   .hero-sub                  { font-size: clamp(15px, 4.2vw, 18px); }
   .hero-stat-num             { font-size: clamp(24px, 6.5vw, 32px); }
   .section-sub               { font-size: clamp(14.5px, 4vw, 17px); }
-  .stat-num                  { font-size: clamp(34px, 9vw, 52px); }
   .partner-item              { font-size: clamp(17px, 4.6vw, 22px); }
   .expertise-card .card-num  { font-size: clamp(10px, 2.9vw, 11px); }
   .expertise-card .card-icon { font-size: clamp(32px, 9vw, 44px); }
@@ -1538,7 +1375,6 @@
   .workflow-title            { font-size: clamp(17px, 4.4vw, 20px); }
   .faq-question              { font-size: clamp(15px, 4vw, 17px); }
   .cta-box p                 { font-size: clamp(14.5px, 4vw, 16px); }
-  .testimonial-card::before  { font-size: clamp(48px, 12vw, 80px); }
 
   /* 5. TABLET - the 4-up expertise grid folds to 2 --------------------- */
   @media (max-width: 1024px) {
@@ -1549,11 +1385,9 @@
   @media (max-width: 768px) {
     /* Proportionally smaller rhythm - desktop spacing is not reused. */
     .before-after,
-    .stats,
     .why-us,
     .expertise,
     .how-we-work,
-    .testimonials,
     .faq            { padding-left: 20px; padding-right: 20px; padding-top: 64px; padding-bottom: 64px; }
     .partners       { padding: 44px 20px; }
     .cta-banner     { padding: 32px 20px 64px; }
@@ -1563,7 +1397,6 @@
     .step-card        { padding: 28px 22px; }
     .feature-card     { padding: 24px 20px; }
     .workflow-card    { padding: 28px 22px; }
-    .testimonial-card { padding: 24px 20px; }
     .cta-box          { padding: 48px 24px; }
     .key-message-box  { padding: 32px 22px; }
     .section-header   { margin-bottom: 40px; }
@@ -1581,8 +1414,6 @@
     .expertise-card:nth-child(4) { grid-column: auto; }
     .steps-grid        { grid-template-columns: 1fr; gap: 12px; }
     .feature-grid      { grid-template-columns: 1fr; gap: 14px; }
-    .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
-    .stats-grid        { grid-template-columns: 1fr; }
 
     /* Header: the CTA moves into the hamburger menu (where it already
        exists) so logo, language picker and burger are not cramped. */
@@ -1634,8 +1465,6 @@
     .footer-links  { gap: 8px 20px; flex-wrap: wrap; justify-content: center; }
     .footer-links a{ min-height: 44px; padding: 4px 2px; display: inline-flex; align-items: center; }
     .nav-logo      { min-height: 44px; display: inline-flex; align-items: center; }
-    .newsletter-form input  { min-height: 44px; }
-    .newsletter-form button { min-height: 44px; padding: 12px 18px; }
   }
 
   /* 8. FLOATING WHATSAPP BUTTON ---------------------------------------
@@ -1660,11 +1489,9 @@
   /* 9. SMALL PHONES - 320px to 400px ----------------------------------- */
   @media (max-width: 400px) {
     .before-after,
-    .stats,
     .why-us,
     .expertise,
     .how-we-work,
-    .testimonials,
     .faq        { padding-left: 16px; padding-right: 16px; }
     .hero       { padding-left: 16px; padding-right: 16px; }
     .cta-banner { padding-left: 16px; padding-right: 16px; }
@@ -1674,10 +1501,6 @@
     .hero-badge     { font-size: 11px; padding: 7px 12px; text-align: center; }
     .nav-logo       { font-size: 22px; }
     .lang-trigger   { padding: 8px 10px; font-size: 11px; }
-    /* Newsletter stacks so input and button both get full width. */
-    .newsletter-form { flex-direction: column; }
-    .newsletter-form input,
-    .newsletter-form button { width: 100%; min-width: 0; }
   }
 
   /* 10. REVEAL ANIMATION MUST NOT PUSH CARDS OUT OF THE VIEWPORT ------
@@ -1702,8 +1525,7 @@
     .expertise-grid,
     .steps-grid,
     .feature-grid,
-    .before-after-grid,
-    .testimonials-grid { overflow-x: clip; }
+    .before-after-grid{ overflow-x: clip; }
   }
 
   /* 11. LONG BUTTON LABELS MUST WRAP ON NARROW PHONES -----------------
@@ -1762,10 +1584,9 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">Motiq<span>AI</span></a>
     <ul class="nav-links">
-      <li><a href="#expertise">Hizmetler</a></li>
-      <li><a href="#how">Nasıl Çalışırız?</a></li>
-      <li><a href="#abonelik">Abonelik</a></li>
-      <li><a href="#testimonials">Referanslar</a></li>
+      <li><a href="#expertise">Danışmanlık Alanları</a></li>
+      <li><a href="#how">Süreç</a></li>
+      <li><a href="#abonelik">Uygulamalar</a></li>
       <li><a href="case-studies.html">Case Study'ler</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
@@ -1791,10 +1612,10 @@
         </div>
       </div>
       <a href="#cta" class="btn-primary" style="display:none;" id="nav-cta">
-        Konuşalım <span class="material-symbols-outlined" style="font-size:16px;">arrow_outward</span>
+        Ücretsiz Ön Görüşme <span class="material-symbols-outlined" style="font-size:16px;">arrow_outward</span>
       </a>
       <a href="#cta" class="btn-primary" id="nav-cta-mobile-hidden">
-        Konuşalım
+        Ücretsiz Ön Görüşme
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menü">
         <span></span><span></span><span></span>
@@ -1805,13 +1626,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#expertise">Hizmetler</a>
-  <a href="#how">Nasıl Çalışırız?</a>
-  <a href="#abonelik">Abonelik</a>
-  <a href="#testimonials">Referanslar</a>
+  <a href="#expertise">Danışmanlık Alanları</a>
+  <a href="#how">Süreç</a>
+  <a href="#abonelik">Uygulamalar</a>
   <a href="case-studies.html">Case Study'ler</a>
   <a href="#faq">SSS</a>
-  <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Konuşalım →</a>
+  <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Ücretsiz Ön Görüşme →</a>
 </div>
 
 <!-- HERO -->
@@ -1821,42 +1641,42 @@
 
   <div class="hero-badge">
     <span class="dot"></span>
-    Yapay Zeka Destekli Otomasyon
+    Yapay Zekâ ve Otomasyon Danışmanlığı
   </div>
 
   <h1>
-    Tekrarlayan İşleri<br>
-    <em>Bize Bırakın</em>, Büyümeye<br>
-    <em>Odaklanın.</em>
+    İşletmeniz İçin Doğru<br>
+    <em>Otomasyonu</em> Birlikte<br>
+    <em>Belirleyelim.</em>
   </h1>
 
   <p class="hero-sub">
-    Yapay zeka destekli otomasyon sistemleri ile manuel süreçleri ortadan kaldırın. Modern ekipler için hatasız, hızlı ve ölçeklenebilir altyapılar kuruyoruz.
+    Önce işinizi dinliyoruz. Zaman kaybettiren süreçleri buluyor, size uygun yapay zekâ ve otomasyon yol haritasını çıkarıyoruz. İsterseniz kurulumu ve ekibinizin eğitimini de biz yapıyoruz.
   </p>
 
   <div class="hero-ctas">
     <a href="#cta" class="btn-primary">
-      Ücretsiz Görüşme Planla
+      Ücretsiz Ön Görüşme Planla
       <span class="material-symbols-outlined" style="font-size:18px;">arrow_outward</span>
     </a>
-    <a href="#expertise" class="btn-secondary">
-      Hizmetleri İncele
+    <a href="#how" class="btn-secondary">
+      Danışmanlık Sürecini İncele
       <span class="material-symbols-outlined" style="font-size:18px;">south</span>
     </a>
   </div>
 
   <div class="hero-visual">
     <div class="hero-stat-card">
-      <div class="hero-stat-num">10+</div>
-      <div class="hero-stat-label">Tamamlanan Proje</div>
+      <div class="hero-stat-num"><span class="material-symbols-outlined" aria-hidden="true" style="font-size:inherit;">check_circle</span></div>
+      <div class="hero-stat-label">Ücretsiz ön görüşme</div>
     </div>
     <div class="hero-stat-card">
-      <div class="hero-stat-num">95%</div>
-      <div class="hero-stat-label">Müşteri Memnuniyeti</div>
+      <div class="hero-stat-num"><span class="material-symbols-outlined" aria-hidden="true" style="font-size:inherit;">check_circle</span></div>
+      <div class="hero-stat-label">Size özel yol haritası</div>
     </div>
     <div class="hero-stat-card">
-      <div class="hero-stat-num">6h</div>
-      <div class="hero-stat-label">Haftalık Tasarruf</div>
+      <div class="hero-stat-num"><span class="material-symbols-outlined" aria-hidden="true" style="font-size:inherit;">check_circle</span></div>
+      <div class="hero-stat-label">İsterseniz kurulum ve eğitim</div>
     </div>
   </div>
 </header>
@@ -1864,7 +1684,7 @@
 <!-- PARTNERS -->
 <section class="partners reveal">
   <div class="container">
-    <p class="partners-label">Entegre Ettiğimiz Sistemler</p>
+    <p class="partners-label">Danışmanlık verdiğimiz araçlar</p>
     <div class="partners-row">
       <div class="partner-item">
         <div class="partner-icon">
@@ -1901,12 +1721,15 @@
       </div>
       <div class="partner-item">
         <div class="partner-icon">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18.5 4L5.5 14L2 11.5L5.5 9L18.5 19L22 17.5V6.5L18.5 4Z"/>
-            <path d="M18.5 4V19"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         </div>
-        VS Code
+        WhatsApp
+      </div>
+      <div class="partner-item">
+        <div class="partner-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M4 15h16M10 9v12"/></svg>
+        </div>
+        Google Sheets
       </div>
       <div class="partner-item">
         <div class="partner-icon">
@@ -1926,6 +1749,7 @@
     <div class="section-header" style="margin-bottom:64px">
       <span class="section-label">Önce → Sonra</span>
       <h2 class="section-title">Aynı İş.<br>Daha Akıllı Bir Süreç.</h2>
+      <p class="section-sub" style="margin-bottom:8px;">Danışmanlık görüşmelerinde en sık bulduğumuz üç fırsat.</p>
       <p class="section-sub">Tekrarlayan operasyonları yeniden tasarlıyor, ekibinizin manuel adımlar yerine sonuçlara odaklanmasını sağlıyoruz.</p>
     </div>
 
@@ -2135,7 +1959,7 @@
     <!-- KEY MESSAGE -->
     <div class="key-message-box reveal">
       <div class="key-message">
-        Otomasyon insanı süreçten çıkarmak değil,<br>
+        Danışmanlık yaklaşımımız: Otomasyon insanı süreçten çıkarmak değil,<br>
         <em>gereksiz işi</em> süreçten çıkarmaktır.
       </div>
       <div class="key-message-sub">
@@ -2145,56 +1969,32 @@
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats reveal">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num" data-target="10">0</div>
-        <div class="stat-desc">Tamamlanan Otomasyon Projesi</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-target="6">0</div>
-        <div class="stat-desc">Saatlik Haftalık Tasarruf / Müşteri</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-target="95">0</div>
-        <div class="stat-desc">% Müşteri Memnuniyeti</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-target="3">0</div>
-        <div class="stat-desc">Entegrasyon Ortağı</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- EXPERTISE -->
 <section class="expertise" id="expertise">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Hizmetler</span>
-      <h2 class="section-title">Uzmanlık Alanlarımız</h2>
+      <span class="section-label">Danışmanlık</span>
+      <h2 class="section-title">Danışmanlık Alanlarımız</h2>
       <p class="section-sub">İşletmenize özel otomasyon çözümleriyle verimliliğinizi zirveye taşıyoruz.</p>
     </div>
     <div class="expertise-grid">
       <div class="expertise-card reveal reveal-left">
         <div class="card-num">// 01</div>
         <span class="material-symbols-outlined card-icon">code</span>
-        <h3>Özel Yazılım ve Otomasyon</h3>
-        <p>İşletmenizin ihtiyaçlarına özel dijital sistemler geliştiriyoruz. Veri toplama, raporlama, bildirim, randevu, ödeme ve farklı platform entegrasyonlarını tek bir akışta birleştiriyoruz.</p>
+        <h3>Yazılım ve Otomasyon Danışmanlığı</h3>
+        <p>Veri toplama, raporlama, bildirim, randevu, ödeme ve platform entegrasyonlarında hangi işlerin otomatikleşebileceğini birlikte belirliyor; size uygun sistemi tasarlayıp kuruyoruz.</p>
       </div>
       <div class="expertise-card reveal reveal-right">
         <div class="card-num">// 02</div>
         <span class="material-symbols-outlined card-icon">smart_display</span>
-        <h3>Görsel ve Video Otomasyonu</h3>
-        <p>Yapay zeka destekli görsel tasarımı, video kurgusu ve içerik üretim süreçlerini otomatize ederek YouTube, Instagram ve TikTok gibi mecralarda sosyal medya varlığınızı güçlendiriyoruz.</p>
+        <h3>Görsel ve Video Otomasyonu Danışmanlığı</h3>
+        <p>YouTube, Instagram ve TikTok için içerik üretim sürecinizi inceliyor; yapay zekâ destekli tasarım ve video kurgu akışını sizin için kuruyoruz.</p>
       </div>
       <div class="expertise-card reveal" style="transition-delay:0.15s">
         <div class="card-num">// 03</div>
         <span class="material-symbols-outlined card-icon">web</span>
-        <h3>Web Sitesi Tasarımı</h3>
-        <p>İşletmenizin kimliğini yansıtan, dönüşüm odaklı ve modern web siteleri tasarlıyoruz. Hız, estetik ve kullanıcı deneyimini bir araya getiriyoruz.</p>
+        <h3>Web Sitesi Danışmanlığı ve Tasarımı</h3>
+        <p>Sitenizin müşteri kazandırıp kazandırmadığını analiz ediyor; işletmenizi yansıtan, hızlı ve dönüşüm odaklı bir site tasarlıyoruz.</p>
       </div>
     </div>
   </div>
@@ -2205,27 +2005,29 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Süreç</span>
-      <h2 class="section-title">Nasıl Çalışıyoruz?</h2>
-      <p class="section-sub">3 adımda mükemmel otomasyon sisteminizi kuruyoruz.</p>
+      <h2 class="section-title">Danışmanlık Süreci</h2>
+      <p class="section-sub">Dinlemekten takibe, dört adımda ilerliyoruz.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card reveal reveal-left">
         <div class="step-num">01</div>
-        <h3>Keşif ve Analiz</h3>
-        <p>İşletmenizin mevcut süreçlerini inceliyor, otomasyon potansiyeli olan alanları tespit ediyor ve size özel bir yol haritası çiziyoruz.</p>
-
+        <h3>Ücretsiz Ön Görüşme</h3>
+        <p>İşinizi, ekibinizi ve sizi en çok yoran işleri dinliyoruz.</p>
       </div>
       <div class="step-card reveal" style="transition-delay:0.1s">
         <div class="step-num">02</div>
-        <h3>Sistem Tasarımı</h3>
-        <p>Size özel ölçeklenebilir mimari tasarlıyor, gerekli araçların entegrasyonunu planlıyor ve sistemi güvenli hale getiriyoruz.</p>
-
+        <h3>Süreç Analizi ve Yol Haritası</h3>
+        <p>Otomatikleşebilecek işleri, kullanılacak araçları ve beklenen kazancı yazılı bir yol haritasında topluyoruz.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.2s">
+        <div class="step-num">03</div>
+        <h3>Kurulum ve Eğitim (isteğe bağlı)</h3>
+        <p>İsterseniz sistemi biz kuruyor, test ediyor ve ekibinize kullanımını öğretiyoruz. İsterseniz yol haritasını kendi ekibinizle uyguluyorsunuz.</p>
       </div>
       <div class="step-card reveal reveal-right">
-        <div class="step-num">03</div>
-        <h3>Kurulum ve Teslim</h3>
-        <p>Sistemleri kuruyor, kapsamlı testler yapıyor ve ekibinize gerekli eğitimleri vererek sorunsuz bir geçiş sağlıyoruz.</p>
-
+        <div class="step-num">04</div>
+        <h3>Takip ve İyileştirme</h3>
+        <p>Sistem çalıştıktan sonra sonuçları birlikte takip ediyor, gerekirse iyileştiriyoruz.</p>
       </div>
     </div>
   </div>
@@ -2235,8 +2037,8 @@
 <section class="subscription" id="abonelik">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Abonelik</span>
-      <h2 class="section-title">Bir Problemi Çözüyoruz.<br>Birçok İşletme Aynı Uygulamayı Kullanıyor.</h2>
+      <span class="section-label">Uygulamalar</span>
+      <h2 class="section-title">Danışmanlıkta Sık Gördüğümüz Problemleri Uygulamaya Dönüştürüyoruz</h2>
       <p class="section-sub">Birçok işletmenin yaşadığı ortak bir problemi seçiyor, çözümünü herkesin kullanabileceği bir web uygulamasına dönüştürüyoruz. Bu uygulamalar abonelikle kullanılır; paketler, fiyatlar ve abonelik her uygulamanın kendi sitesindedir.</p>
     </div>
 
@@ -2279,7 +2081,7 @@
       <div class="sub-pair reveal" style="transition-delay:0.2s">
         <div class="sub-problem"><span class="sub-tag">Sorun</span><p>Sunucu, güvenlik ve yedekle uğraşacak bir ekibiniz yok.</p></div>
         <div class="sub-arrow">↓</div>
-        <div class="sub-solution"><span class="sub-tag">Çözüm</span><p>Altyapıyı biz yönetiriz; verileriniz şifreli bağlantılarla korunur ve düzenli olarak yedeklenir.</p></div>
+        <div class="sub-solution"><span class="sub-tag">Çözüm</span><p>Barındırma, güvenlik ve yedekleme işini biz üstleniyoruz.</p></div>
       </div>
     </div>
 
@@ -2300,58 +2102,6 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Referanslar</span>
-      <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
-      <p class="section-sub">10'dan fazla başarılı projede güvenilir otomasyon ortağınız.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal" style="transition-delay:0.05s">
-        <div class="testimonial-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <p class="testimonial-text">"MotiqAI ekibi, haftalık 30 saatlik manuel raporlama sürecimizi tamamen otomatikleştirdi. Artık veriler sabah e-postama geliyor. Harika bir iş."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">AK</div>
-          <div>
-            <div class="author-name">Ahmet Kaya</div>
-            <div class="author-role">CEO, TechScale Türkiye</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal" style="transition-delay:0.1s">
-        <div class="testimonial-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <p class="testimonial-text">"İçerik üretim sürecimiz 5 kat hızlandı. UGC stratejisi için kurdukları sistem, sosyal medya performansımızı inanılmaz artırdı."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#FF7A00,#E91E63);">SY</div>
-          <div>
-            <div class="author-name">Selin Yılmaz</div>
-            <div class="author-role">Marketing Director, CreativeHub</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal" style="transition-delay:0.15s">
-        <div class="testimonial-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <p class="testimonial-text">"Teknik bilgimiz olmasa da sistemi kolayca yönetebildik. Destek ekibi her sorumuza anında yanıt verdi. Kesinlikle tavsiye ediyoruz."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#FF7A00,#2196F3);">MÖ</div>
-          <div>
-            <div class="author-name">Mehmet Öztürk</div>
-            <div class="author-role">Founder, LogiFlow</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container">
@@ -2363,16 +2113,25 @@
     <div class="faq-inner">
       <div class="faq-item reveal">
         <button class="faq-question">
-          Kurulum süreci ne kadar sürüyor?
+          Danışmanlık süreci nasıl ilerliyor?
           <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Proje işlerinde kapsama göre genellikle 2–6 hafta sürer; basit entegrasyonlar 1–2 haftada biter. Kesin teslim tarihi teklifte yazar.</div>
+          <div class="faq-answer-inner">Ücretsiz bir ön görüşmeyle başlıyoruz. Ardından süreçlerinizi inceleyip yazılı bir yol haritası hazırlıyoruz. Kurulumu bize bırakmak ya da kendi ekibinizle yapmak size kalmış. Kurulumu bize bıraktığınız işlerde teslimden sonra 30 gün ücretsiz destek veriyoruz; sonrasında isteğe bağlı aylık bakım sunuyoruz.</div>
         </div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-question">
-          Teknik bilgiye ihtiyacım var mı?
+          Ne kadar sürer?
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Analiz ve yol haritası genelde 1–2 hafta sürer. Kurulumu da bize bırakırsanız basit entegrasyonlar 1–2 hafta, kapsamlı sistemler 2–6 hafta sürebilir.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Teknik bilgi gerekiyor mu?
           <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
         </button>
         <div class="faq-answer">
@@ -2381,25 +2140,16 @@
       </div>
       <div class="faq-item reveal">
         <button class="faq-question">
-          Fiyatlar nasıl belirleniyor, nasıl ödüyorum?
+          Ücretlendirme nasıl?
           <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Proje işlerini ihtiyacınıza göre teklifle fiyatlandırırız. Ödeme, teklif ve sözleşmeden sonra banka havalesi/EFT ya da güvenli bir ödeme bağlantısıyla alınır. Kendi uygulamalarımızın paketleri ve fiyatları, uygulamaların kendi sitelerindedir.</div>
+          <div class="faq-answer-inner">Ön görüşme ücretsizdir. Danışmanlık ve kurulum, kapsamına göre yazılı teklifle fiyatlandırılır; ödeme havale/EFT ya da güvenli ödeme linkiyle yapılır.</div>
         </div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-question">
-          Kurulum sonrası destek veriyor musunuz?
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Evet. Proje işlerinde teslimden sonra 30 gün ücretsiz destek veririz: hata düzeltme, küçük ayarlar ve kullanım soruları. Sonrası için aylık bakım ya da ayrı teklif sunarız.</div>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-question">
-          Hangi araçlarla entegrasyon yapıyorsunuz?
+          Hangi araçlarla çalışıyorsunuz?
           <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
         </button>
         <div class="faq-answer">
@@ -2408,11 +2158,11 @@
       </div>
       <div class="faq-item reveal">
         <button class="faq-question">
-          Verilerim güvende mi?
+          Verilerimiz güvende mi?
           <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Bağlantılar şifrelidir, hesaplarımızda iki aşamalı doğrulama kullanırız ve verileri düzenli olarak yedekleriz. Verilerinizi satmayız; reklam ya da yapay zeka modellerinin eğitimi için kullanmayız. Ayrıntılar <a href="privacy-policy-tr.html" style="color:var(--orange);text-decoration:underline;">Gizlilik Politikası</a>'nda.</div>
+          <div class="faq-answer-inner">Bağlantılar şifrelidir ve hesaplarımızda iki aşamalı doğrulama kullanırız. Verilerinizi satmayız ve yapay zekâ modellerinin eğitimi için kullanmayız. Ayrıntılar <a href="privacy-policy-tr.html" style="color:var(--orange);text-decoration:underline;">Gizlilik Politikası</a>'nda.</div>
         </div>
       </div>
     </div>
@@ -2423,10 +2173,10 @@
 <section class="cta-banner" id="cta">
   <div class="container">
     <div class="cta-box reveal">
-      <h2>Otomasyon Yolculuğunuza<br><em style="color:var(--orange);font-style:normal;">Bugün Başlayın</em></h2>
-      <p>Ücretsiz danışmanlık görüşmesi için hemen randevu alın.<br>Size özel otomasyon stratejinizi birlikte oluşturalım.</p>
+      <h2>İşletmeniz İçin Doğru Otomasyonu<br><em style="color:var(--orange);font-style:normal;">Birlikte Belirleyelim</em></h2>
+      <p>30 dakikalık ücretsiz ön görüşmede işinizi dinleyelim, size uygun ilk adımları birlikte konuşalım.</p>
       <a href="contact.html" class="btn-primary">
-        Ücretsiz Görüşme Başlat
+        Ücretsiz Ön Görüşme Planla
         <span class="material-symbols-outlined" style="font-size:18px;">arrow_outward</span>
       </a>
     </div>
@@ -2438,7 +2188,7 @@
   <div class="footer-main">
     <div class="footer-brand">
       <div class="logo">Motiq<span>AI</span></div>
-      <p>Yapay zeka destekli sistemler ve kusursuz iş akışları ile işletmenizi geleceğe taşıyoruz.</p>
+      <p>Yapay zekâ ve otomasyon danışmanlığı: süreçlerinizi analiz ediyor, doğru sistemi birlikte kuruyoruz.</p>
       <div class="social-links">
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/company/motiq-ai/" target="_blank" class="social-link" aria-label="LinkedIn">
@@ -2463,21 +2213,10 @@
     <div class="footer-col">
       <h4>Şirket</h4>
       <ul>
-        <li><a href="#testimonials">Çalışmalarımız</a></li>
         <li><a href="case-studies.html">Case Study'ler</a></li>
         <li><a href="#how">Süreç</a></li>
         <li><a href="contact.html">İletişim</a></li>
       </ul>
-    </div>
-    <div class="footer-col footer-newsletter">
-      <h4>Bize Katılın</h4>
-      <p>Yapay zeka ve otomasyon trendlerini takip etmek için bültenimize abone olun.</p>
-      <form class="newsletter-form" name="newsletter" method="POST" action="/api/newsletter">
-        <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
-        <input type="email" name="email" placeholder="E-posta adresiniz" required />
-        <button type="submit">Kayıt Ol</button>
-      </form>
-      <p class="newsletter-note" style="font-size:12px;line-height:1.5;color:var(--text-dim);margin-top:10px;">Kayıt olarak bülten e-postaları almayı kabul edersin; istediğin zaman ayrılabilirsin. <a href="privacy-policy-tr.html" style="color:inherit;text-decoration:underline;font-size:inherit;">Gizlilik Politikası</a></p>
     </div>
   </div>
   <div class="footer-bottom container">
@@ -2533,27 +2272,6 @@
     });
   });
 
-  // ===== COUNTER ANIMATION =====
-  const counters = document.querySelectorAll('[data-target]');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        const suffix = el.parentElement.querySelector('.stat-desc').textContent.includes('%') ? '%' : '+';
-        let current = 0;
-        const step = target / 60;
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = Math.round(current) + suffix;
-          if (current >= target) clearInterval(timer);
-        }, 20);
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => counterObserver.observe(c));
-
   // ===== FAQ ACCORDION =====
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -2601,62 +2319,9 @@
     });
   });
 
-      // ===== NEWSLETTER FORM =====
-  const newsletterForm = document.querySelector('.newsletter-form');
-  if (newsletterForm) {
-    let isSubmitting = false;
-    newsletterForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (isSubmitting) return;
-
-      const emailInput = newsletterForm.querySelector('input[name="email"]');
-      const companyWebsiteInput = newsletterForm.querySelector('input[name="company_website"]');
-      const btn = newsletterForm.querySelector('button');
-      
-      const email = emailInput ? emailInput.value : '';
-      const company_website = companyWebsiteInput ? companyWebsiteInput.value : '';
-      
-      const originalText = btn.textContent;
-      const originalBg = btn.style.background;
-
-      isSubmitting = true;
-      btn.disabled = true;
-
-      try {
-        const response = await fetch('/api/newsletter', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email, company_website })
-        });
-
-        const data = await response.json().catch(() => ({}));
-
-        if (response.ok && data.success) {
-          btn.textContent = '✓ Kaydedildi!';
-          btn.style.background = '#22c55e';
-          if (emailInput) emailInput.value = '';
-        } else {
-          btn.textContent = 'Tekrar deneyin';
-          btn.style.background = '#ef4444';
-        }
-      } catch (err) {
-        console.error(err);
-        btn.textContent = 'Tekrar deneyin';
-        btn.style.background = '#ef4444';
-      } finally {
-        isSubmitting = false;
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = originalBg;
-        }, 3000);
-      }
-    });
-  }</script>
+</script>
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/+447476196133?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="wa-fab" data-tooltip="WhatsApp'tan yazın">
+<a href="https://wa.me/+447476196133?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20yapay%20zek%C3%A2%20ve%20otomasyon%20dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1%20hakk%C4%B1nda%20%C3%B6n%20g%C3%B6r%C3%BC%C5%9Fme%20yapmak%20istiyorum." target="_blank" class="wa-fab" data-tooltip="WhatsApp'tan yazın">
   <svg viewBox="0 0 24 24">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.81 11.81 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413Z"/>
   </svg>
