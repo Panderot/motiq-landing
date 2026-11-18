@@ -310,6 +310,63 @@
   .sub-cta { text-align: center; }
   .sub-note { max-width: 640px; margin: 20px auto 0; font-size: 13px; line-height: 1.6; color: var(--text-dim); }
   .sub-note a { color: var(--text-muted); text-decoration: underline; }
+  .app-card {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    margin: 0 0 72px;
+    transition: border-color var(--transition);
+  }
+  .app-card:hover { border-color: rgba(255,122,0,0.3); }
+  .app-card--no-media { grid-template-columns: 1fr; }
+  .app-card-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .app-card-title { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin: 12px 0 4px; }
+  .app-card-lead { font-size: 18px; color: var(--text); margin: 0 0 16px; }
+  .app-card-desc { font-size: 15px; line-height: 1.7; color: var(--text-muted); margin: 0 0 20px; }
+  .app-card-features { list-style: none; margin: 0 0 24px; padding: 0; }
+  .app-card-features li { position: relative; padding-left: 26px; font-size: 15px; color: var(--text); margin-bottom: 10px; }
+  .app-card-features li::before { content: "¹3"; position: absolute; left: 0; color: var(--orange); }
+  .app-card-trial {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    border: 1px solid rgba(255,122,0,0.35);
+    background: var(--orange-dim);
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin: 0;
+  }
+  .app-card-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+  .app-card-note { font-size: 13px; color: var(--text-dim); margin: 14px 0 0; }
+  .app-card-media { margin: 0; display: flex; justify-content: center; }
+  .app-card-media img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 28px;
+    border: 1px solid var(--border-bright);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  }
+  @media (max-width: 900px) {
+    .app-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 32px; }
+    .app-card-media img { max-width: 260px; }
+    .app-card-title { font-size: 32px; }
+  }
+  @media (max-width: 560px) {
+    .app-card-actions .btn-primary, .app-card-actions .btn-secondary { width: 100%; justify-content: center; }
+  }
   @media (max-width: 960px) {
     .sub-pairs { grid-template-columns: 1fr; margin-bottom: 56px; }
     .sub-steps { grid-template-columns: repeat(2, 1fr); }
@@ -1586,8 +1643,7 @@
     <ul class="nav-links">
       <li><a href="#expertise">Danışmanlık Alanları</a></li>
       <li><a href="#how">Süreç</a></li>
-      <li><a href="#abonelik">Uygulamalar</a></li>
-      <li><a href="case-studies.html">Case Study'ler</a></li>
+      <li><a href="#uygulamalar">Uygulamalar</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <div class="lang-switcher">
@@ -1628,8 +1684,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#expertise">Danışmanlık Alanları</a>
   <a href="#how">Süreç</a>
-  <a href="#abonelik">Uygulamalar</a>
-  <a href="case-studies.html">Case Study'ler</a>
+  <a href="#uygulamalar">Uygulamalar</a>
   <a href="#faq">SSS</a>
   <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Ücretsiz Ön Görüşme →</a>
 </div>
@@ -2034,13 +2089,44 @@
 </section>
 
 <!-- SUBSCRIPTION -->
-<section class="subscription" id="abonelik">
+<section class="subscription" id="uygulamalar">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Uygulamalar</span>
       <h2 class="section-title">Danışmanlıkta Sık Gördüğümüz Problemleri Uygulamaya Dönüştürüyoruz</h2>
       <p class="section-sub">Birçok işletmenin yaşadığı ortak bir problemi seçiyor, çözümünü herkesin kullanabileceği bir web uygulamasına dönüştürüyoruz. Bu uygulamalar abonelikle kullanılır; paketler, fiyatlar ve abonelik her uygulamanın kendi sitesindedir.</p>
     </div>
+
+    <article class="app-card reveal" id="fixnote">
+  <div class="app-card-body">
+    <span class="app-card-tag">Saha Servis · Web Uygulaması</span>
+    <h3 class="app-card-title">Fixnote</h3>
+    <p class="app-card-lead">Saha ekipleri için dijital servis raporu</p>
+    <p class="app-card-desc">Kendi ürünümüz. Usta işi müşterinin kapısında telefondan doldurur, müşteriye ekranda imzalatır; firma başlıklı A4 rapor PDF olarak hazırlanır ve WhatsApp'tan gönderilir. İş, araca binmeden kapanır.</p>
+    <ul class="app-card-features">
+      <li>Telefondan doldur, müşteriye ekranda imzalat</li>
+      <li>Firma başlıklı A4 rapor, PDF olarak hazır</li>
+      <li>WhatsApp'tan müşteriye gönder</li>
+      <li>İnternet yokken de kaydeder, kayıtlar bulutta</li>
+      <li>Firma paketinde bütün ekibin raporları tek yerde</li>
+    </ul>
+    <p class="app-card-trial">3 gün ücretsiz deneme · Kart gerekmez</p>
+    <div class="app-card-actions">
+      <a href="https://fixnotee.vercel.app/demo" target="_blank" rel="noopener" class="btn-primary">
+        Canlı Demoyu Gör
+        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">open_in_new</span>
+      </a>
+      <a href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="btn-secondary">
+        Fixnote'a Git
+        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">arrow_outward</span>
+      </a>
+    </div>
+    <p class="app-card-note">Paketler, fiyatlar ve abonelik Fixnote'un kendi sitesindedir.</p>
+  </div>
+  <figure class="app-card-media">
+    <img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Fixnote canlı demosunda servis raporları paneli">
+  </figure>
+</article>
 
     <h3 class="sub-subtitle reveal">Nasıl çalışıyor?</h3>
     <div class="sub-steps">
@@ -2093,10 +2179,6 @@
     </div>
 
     <div class="sub-cta reveal">
-      <a href="case-studies.html#fixnote" class="btn-secondary">
-        Fixnote'u görün
-        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">arrow_outward</span>
-      </a>
       <p class="sub-note">Sistemin tamamen sizin olmasını mı istiyorsunuz? Aynı çözümü tek seferlik proje olarak da kurabiliriz.</p>
     </div>
   </div>
@@ -2213,7 +2295,7 @@
     <div class="footer-col">
       <h4>Şirket</h4>
       <ul>
-        <li><a href="case-studies.html">Case Study'ler</a></li>
+        <li><a href="#uygulamalar">Uygulamalar</a></li>
         <li><a href="#how">Süreç</a></li>
         <li><a href="contact.html">İletişim</a></li>
       </ul>

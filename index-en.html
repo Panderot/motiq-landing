@@ -231,6 +231,63 @@
   .sub-cta { text-align: center; }
   .sub-note { max-width: 640px; margin: 20px auto 0; font-size: 13px; line-height: 1.6; color: var(--text-dim); }
   .sub-note a { color: var(--text-muted); text-decoration: underline; }
+  .app-card {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    margin: 0 0 72px;
+    transition: border-color var(--transition);
+  }
+  .app-card:hover { border-color: rgba(255,122,0,0.3); }
+  .app-card--no-media { grid-template-columns: 1fr; }
+  .app-card-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .app-card-title { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin: 12px 0 4px; }
+  .app-card-lead { font-size: 18px; color: var(--text); margin: 0 0 16px; }
+  .app-card-desc { font-size: 15px; line-height: 1.7; color: var(--text-muted); margin: 0 0 20px; }
+  .app-card-features { list-style: none; margin: 0 0 24px; padding: 0; }
+  .app-card-features li { position: relative; padding-left: 26px; font-size: 15px; color: var(--text); margin-bottom: 10px; }
+  .app-card-features li::before { content: "¹3"; position: absolute; left: 0; color: var(--orange); }
+  .app-card-trial {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    border: 1px solid rgba(255,122,0,0.35);
+    background: var(--orange-dim);
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin: 0;
+  }
+  .app-card-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+  .app-card-note { font-size: 13px; color: var(--text-dim); margin: 14px 0 0; }
+  .app-card-media { margin: 0; display: flex; justify-content: center; }
+  .app-card-media img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 28px;
+    border: 1px solid var(--border-bright);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  }
+  @media (max-width: 900px) {
+    .app-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 32px; }
+    .app-card-media img { max-width: 260px; }
+    .app-card-title { font-size: 32px; }
+  }
+  @media (max-width: 560px) {
+    .app-card-actions .btn-primary, .app-card-actions .btn-secondary { width: 100%; justify-content: center; }
+  }
   @media (max-width: 960px) {
     .sub-pairs { grid-template-columns: 1fr; margin-bottom: 56px; }
     .sub-steps { grid-template-columns: repeat(2, 1fr); }
@@ -732,8 +789,7 @@
     <ul class="nav-links">
       <li><a href="#expertise">Consulting Areas</a></li>
       <li><a href="#how">Process</a></li>
-      <li><a href="#subscription">Apps</a></li>
-      <li><a href="case-studies-en.html">Case Studies</a></li>
+      <li><a href="#apps">Apps</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
       <div class="lang-switcher">
@@ -772,8 +828,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#expertise">Consulting Areas</a>
   <a href="#how">Process</a>
-  <a href="#subscription">Apps</a>
-  <a href="case-studies-en.html">Case Studies</a>
+  <a href="#apps">Apps</a>
   <a href="#faq">FAQ</a>
   <a href="#cta" class="btn-primary" style="justify-content:center;margin-top:8px;">Free Intro Call →</a>
 </div>
@@ -1178,13 +1233,44 @@
 </section>
 
 <!-- SUBSCRIPTION -->
-<section class="subscription" id="subscription">
+<section class="subscription" id="apps">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Apps</span>
       <h2 class="section-title">We Turn the Problems We Often See in Consulting Into Apps</h2>
       <p class="section-sub">We pick a common problem many businesses face and turn its solution into a web app anyone can use. These apps are offered by subscription; plans, prices and sign-up are on each app's own website.</p>
     </div>
+
+    <article class="app-card reveal" id="fixnote">
+  <div class="app-card-body">
+    <span class="app-card-tag">Field Service · Web App</span>
+    <h3 class="app-card-title">Fixnote</h3>
+    <p class="app-card-lead">Digital service reports for field teams</p>
+    <p class="app-card-desc">Our own product. Technicians fill in the job report on their phone at the customer's door and collect an on-screen signature; a branded A4 PDF report is generated and shared via WhatsApp. The job is closed before getting back in the van.</p>
+    <ul class="app-card-features">
+      <li>Fill it in on your phone, get it signed on screen</li>
+      <li>Branded A4 report, ready as a PDF</li>
+      <li>Send it to your customer via WhatsApp</li>
+      <li>Saves even offline, records are kept in the cloud</li>
+      <li>On the Team plan, the whole team's reports in one place</li>
+    </ul>
+    <p class="app-card-trial">3-day free trial · No card required</p>
+    <div class="app-card-actions">
+      <a href="https://fixnotee.vercel.app/demo" target="_blank" rel="noopener" class="btn-primary">
+        View Live Demo
+        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">open_in_new</span>
+      </a>
+      <a href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="btn-secondary">
+        Go to Fixnote
+        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">arrow_outward</span>
+      </a>
+    </div>
+    <p class="app-card-note">Plans, prices and sign-up are on Fixnote's own website.</p>
+  </div>
+  <figure class="app-card-media">
+    <img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Service reports dashboard in the Fixnote live demo">
+  </figure>
+</article>
 
     <h3 class="sub-subtitle reveal">How does it work?</h3>
     <div class="sub-steps">
@@ -1237,10 +1323,6 @@
     </div>
 
     <div class="sub-cta reveal">
-      <a href="case-studies-en.html#fixnote" class="btn-secondary">
-        See Fixnote
-        <span class="material-symbols-outlined" style="font-size:18px;" aria-hidden="true">arrow_outward</span>
-      </a>
       <p class="sub-note">Want the system to be fully yours? We can also build the same solution as a one-off project.</p>
     </div>
   </div>
@@ -1351,7 +1433,7 @@
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="case-studies-en.html">Case Studies</a></li>
+        <li><a href="#apps">Apps</a></li>
         <li><a href="#how">Process</a></li>
         <li><a href="contact-en.html">Contact</a></li>
       </ul>
