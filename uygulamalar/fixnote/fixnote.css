@@ -1734,6 +1734,7 @@
   border: 1px solid var(--fx-line-2); border-radius: 16px; color: var(--fx-accent);
 }
 .fx .vk-dugum-orta { max-width: 136px; padding: 26px 8px 18px; box-shadow: 0 0 44px rgba(255, 122, 0, 0.22), var(--fx-shadow-md); }
+@media (max-width: 520px) { .fx .vk-dugum { max-width: 92px; } .fx .vk-dugum-orta { max-width: 116px; } }
 .fx .vk-et { font-size: 12.5px; font-weight: 700; color: var(--fx-ink); text-align: center; line-height: 1.25; }
 .fx .vk-kilit {
   position: absolute; top: -11px; left: 50%; transform: translateX(-50%); width: 24px; height: 24px; border-radius: 50%;
