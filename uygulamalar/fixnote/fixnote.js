@@ -7,7 +7,7 @@
 
   // İNDİRME ANAHTARI: tek yer. .exe hazır olunca INDIRME_URL'ye tam adres yazılır.
   // Boşken "data-indir" işaretli bütün linkler WhatsApp'tan deneme sürümünü ister.
-  const INDIRME_URL = ""; // .exe hazır olunca buraya tam adres yazılır
+  const INDIRME_URL = ""; // .exe hazır olunca tam adres yazılır
   const WA_DENEME = "https://wa.me/905369011714?text=" + encodeURIComponent(document.documentElement.lang === 'en' ? "Hello, I'd like to download the Fixnote trial." : "Merhaba, Fixnote deneme sürümünü indirmek istiyorum.");
 
   // Fiyatlar TEK yerde. Fixnote app/lib/paket.ts ile AYNI tutulmalı.
@@ -563,13 +563,18 @@
       a.href = indir ? INDIRME_URL : WA_DENEME;
       if (indir) { a.setAttribute('download', ''); a.removeAttribute('target'); a.removeAttribute('rel'); }
       else { a.removeAttribute('download'); a.target = '_blank'; a.rel = 'noopener'; }
-      if (a.getAttribute('data-indir') === 'sabit') return; // metni HTML'de sabit olan link
       let t = a.firstChild;
       while (t && t.nodeType !== 3) t = t.nextSibling;
       if (t) t.nodeValue = yazi; else a.insertBefore(document.createTextNode(yazi), a.firstChild);
     });
-    // "bağlantı WhatsApp'tan gönderilir" notu yalnızca INDIRME_URL boşken görünür
-    $$('[data-indir-not]').forEach(function (n) { n.hidden = indir; });
+    // Süre hesabı satırındaki "Hemen indir": INDIRME_URL boşken href yok, tıklanmaz; dolunca normal indirme linki
+    $$('[data-indir-satir]').forEach(function (a) {
+      if (indir) {
+        a.href = INDIRME_URL; a.setAttribute('download', ''); a.removeAttribute('aria-disabled'); a.style.cursor = '';
+      } else {
+        a.removeAttribute('href'); a.removeAttribute('download'); a.setAttribute('aria-disabled', 'true');
+      }
+    });
   }
 
   indirmeLinkleri();
