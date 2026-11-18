@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex"/>
 <meta charset="utf-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Case Studies — MotiqAI</title>
-<meta name="description" content="See how MotiqAI turns raw material and business processes into premium digital experiences in our case studies."/>
+<title>Our Work — MotiqAI</title>
+<meta name="description" content="MotiqAI's own products and sample projects that show our approach: apps and websites."/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <style>
@@ -166,7 +165,7 @@
   /* ===== CASE GRID ===== */
   .case-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 24px;
   }
   .case-card {
@@ -250,6 +249,42 @@
     .case-live { min-height: 44px; }
   }
 
+
+  /* ===== WORK GROUPS ===== */
+  .case-group { margin-bottom: 56px; }
+  .case-group-title {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+  }
+  .case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 18px; }
+  .case-meta .case-category { margin-bottom: 0; }
+  .case-badge {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border-bright);
+    color: var(--text-muted);
+  }
+  .case-badge--own { border-color: var(--orange); background: var(--orange-dim); color: var(--orange); }
+  .case-thumb {
+    margin: -40px -36px 28px;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-bright);
+    background: var(--surface-2);
+  }
+  .case-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .case-thumb--contain img { object-fit: contain; object-position: top; }
+
   /* Placeholder for upcoming case studies */
   .case-card-soon {
     border-style: dashed;
@@ -280,6 +315,7 @@
     main { padding: 132px 20px 72px; }
     .case-card { padding: 32px 26px; }
     .case-title { font-size: 24px; }
+    .case-thumb { margin: -32px -26px 24px; }
   }
 
   /* WhatsApp FAB */
@@ -415,41 +451,17 @@
 <main>
   <div class="container">
     <div class="page-header reveal">
-      <div class="page-label">Case Studies</div>
-      <h1>Turning Raw Material <span>Into Premium Experiences.</span></h1>
-      <p>Every project shows how we turn what a business already has — a workflow, or raw product footage — into a simpler, more compelling digital experience.</p>
+      <div class="page-label">Our Work</div>
+      <h1>Selected <span>Work.</span></h1>
+      <p>Our own products and sample projects that show our approach. Each one shows how we turn a business problem into a simple digital solution.</p>
     </div>
 
-    <div class="case-grid">
-      <a href="case-study-verse-audio-pro-en.html" class="case-card reveal" style="transition-delay:0.05s;">
-        <div class="case-category">Web Design & Development · Interactive Site</div>
-        <div class="case-title">VERSE Audio Pro</div>
-        <div class="case-desc">A scroll-driven product launch site for a premium wireless headphone brand — cinematic, Apple-style scroll-scrubbing built from raw product footage.</div>
-        <div class="case-cta">
-          Read the Case Study
-          <span class="material-symbols-outlined">arrow_outward</span>
-        </div>
-      </a>
-
-      <div class="case-card reveal" style="transition-delay:0.1s;">
-        <a href="case-study-restaurant-multilang-ordering-en.html" class="case-card-link" aria-label="Read the Case Study"></a>
-        <div class="case-category">Web Design & Development · Restaurant</div>
-        <div class="case-title">Multi-Language Restaurant Platform</div>
-        <div class="case-desc">We built a three-language, brand-aligned web platform for our restaurant client in Czechia. The digital menu, online ordering and reservations converge in a single system, on an infrastructure that scales to new locations and languages.</div>
-        <div class="case-actions">
-          <div class="case-cta">
-            Read the Case Study
-            <span class="material-symbols-outlined">arrow_outward</span>
-          </div>
-          <a href="https://king-kebab-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-cta case-live">
-            View Live Site
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
-        </div>
-      </div>
-
-      <a id="fixnote" href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="case-card reveal" style="transition-delay:0.15s;" aria-label="Explore Fixnote (Fixnote website opens in a new tab)">
-        <div class="case-category">Software Product · Field Service</div>
+    <section class="case-group">
+      <h2 class="case-group-title reveal">Apps</h2>
+      <div class="case-grid">
+      <a id="fixnote" href="https://fixnotee.vercel.app" target="_blank" rel="noopener" class="case-card reveal" aria-label="Explore Fixnote (Fixnote website opens in a new tab)">
+        <div class="case-thumb case-thumb--contain"><img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Service reports dashboard in the Fixnote live demo"></div>
+        <div class="case-meta"><div class="case-category">Software Product · Field Service</div><span class="case-badge case-badge--own">Our product</span></div>
         <div class="case-title">Fixnote: Digital Service Reports for Field Teams</div>
         <div class="case-desc">Our own product. Technicians fill in the job report on their phone at the customer's door and collect an on-screen signature; a branded A4 PDF report is generated and shared via WhatsApp. The job is closed before getting back in the van.</div>
         <div class="case-cta">
@@ -457,7 +469,41 @@
           <span class="material-symbols-outlined">open_in_new</span>
         </div>
       </a>
-    </div>
+      </div>
+    </section>
+
+    <section class="case-group">
+      <h2 class="case-group-title reveal">Websites</h2>
+      <div class="case-grid">
+      <a href="case-study-verse-audio-pro-en.html" class="case-card reveal" style="transition-delay:0.05s;">
+        <div class="case-thumb"><img src="case-studies/verse-audio-pro/verse-case-study-poster.jpg?v=2" width="1920" height="1080" loading="lazy" decoding="async" alt="Cover of the VERSE Audio Pro product site showing the headphones"></div>
+        <div class="case-meta"><div class="case-category">Web Design & Development · Interactive Site</div><span class="case-badge">Sample project</span></div>
+        <div class="case-title">VERSE Audio Pro</div>
+        <div class="case-desc">A sample project we built for a premium wireless headphone launch: a cinematic, scroll-controlled product site made from raw product footage.</div>
+        <div class="case-cta">
+          View Project
+          <span class="material-symbols-outlined">arrow_outward</span>
+        </div>
+      </a>
+
+      <div class="case-card reveal" style="transition-delay:0.1s;">
+        <a href="case-study-restaurant-multilang-ordering-en.html" class="case-card-link" aria-label="View Project"></a>
+        <div class="case-meta"><div class="case-category">Web Design & Development · Restaurant</div><span class="case-badge">Sample project</span></div>
+        <div class="case-title">Multi-Language Restaurant Platform</div>
+        <div class="case-desc">A sample project we built for a kebab and pizza restaurant in Czechia: a three-language, brand-aligned web platform. The digital menu, online ordering and reservations come together in one system.</div>
+        <div class="case-actions">
+          <div class="case-cta">
+            View Project
+            <span class="material-symbols-outlined">arrow_outward</span>
+          </div>
+          <a href="https://king-kebab-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-cta case-live">
+            View Live Sample
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -494,7 +540,7 @@
 
 
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/+905369011714?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20case%20studies." target="_blank" class="wa-fab" data-tooltip="Message us on WhatsApp">
+<a href="https://wa.me/+905369011714?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20work." target="_blank" class="wa-fab" data-tooltip="Message us on WhatsApp">
   <svg viewBox="0 0 24 24">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.81 11.81 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413Z"/>
   </svg>
