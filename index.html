@@ -323,7 +323,7 @@
     transition: border-color var(--transition);
   }
   .app-card:hover { border-color: rgba(255,122,0,0.3); }
-  .app-card--no-media { grid-template-columns: 1fr; }
+  .app-card--no-media { grid-template-columns: 1fr; max-width: 820px; margin-left: auto; margin-right: auto; }
   .app-card-tag {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -2099,7 +2099,7 @@
       <p class="section-sub">Birçok işletmenin yaşadığı ortak bir problemi seçiyor, çözümünü herkesin kullanabileceği bir web uygulamasına dönüştürüyoruz. Bu uygulamalar abonelikle kullanılır; paketler, fiyatlar ve abonelik her uygulamanın kendi sitesindedir.</p>
     </div>
 
-    <article class="app-card reveal" id="fixnote">
+    <article class="app-card app-card--no-media reveal" id="fixnote">
   <div class="app-card-body">
     <span class="app-card-tag">Saha Servis · Web Uygulaması</span>
     <h3 class="app-card-title">Fixnote</h3>
@@ -2125,9 +2125,6 @@
     </div>
     <p class="app-card-note">Paketler, fiyatlar ve abonelik Fixnote'un kendi sitesindedir.</p>
   </div>
-  <figure class="app-card-media">
-    <img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Fixnote canlı demosunda servis raporları paneli">
-  </figure>
 </article>
 
     <h3 class="sub-subtitle reveal">Nasıl çalışıyor?</h3>

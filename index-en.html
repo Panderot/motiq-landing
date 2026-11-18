@@ -244,7 +244,7 @@
     transition: border-color var(--transition);
   }
   .app-card:hover { border-color: rgba(255,122,0,0.3); }
-  .app-card--no-media { grid-template-columns: 1fr; }
+  .app-card--no-media { grid-template-columns: 1fr; max-width: 820px; margin-left: auto; margin-right: auto; }
   .app-card-tag {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -1243,7 +1243,7 @@
       <p class="section-sub">We pick a common problem many businesses face and turn its solution into a web app anyone can use. These apps are offered by subscription; plans, prices and sign-up are on each app's own website.</p>
     </div>
 
-    <article class="app-card reveal" id="fixnote">
+    <article class="app-card app-card--no-media reveal" id="fixnote">
   <div class="app-card-body">
     <span class="app-card-tag">Field Service · Web App</span>
     <h3 class="app-card-title">Fixnote</h3>
@@ -1269,9 +1269,6 @@
     </div>
     <p class="app-card-note">Plans, prices and sign-up are on Fixnote's own website.</p>
   </div>
-  <figure class="app-card-media">
-    <img src="uygulamalar/fixnote/fixnote-demo.jpg" width="390" height="844" loading="lazy" decoding="async" alt="Service reports dashboard in the Fixnote live demo">
-  </figure>
 </article>
 
     <h3 class="sub-subtitle reveal">How does it work?</h3>
