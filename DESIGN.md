@@ -181,3 +181,7 @@ The shape language is "Calculated Softness." Elements are rounded enough to feel
 ## Fixnote yasal metinleri
 
 Fixnote yasal metinleri (12 sayfa, `fixnote-*.html`): servis-formu `413fa5d` (12 Kasım 2026) kopyası. Fixnote'ta bu metinlerden biri değişince buradaki kopyası da birebir güncellenir; tarih ve hash yenilenir.
+
+## Masaüstü sürüm yayın günü kontrol listesi
+
+- privacy-policy-tr.html ve privacy-policy.html 'Son güncelleme' tarihi yayın gününün tarihiyle değiştirilecek.
