@@ -20,7 +20,8 @@
   const SURESIZ = { tutar: 8990, guncelleme: 690 };
   // iyzico'da taksit açılınca true yapılır; false iken taksit satırı hiç görünmez.
   const TAKSIT_VAR = false;
-  const FIXNOTE = 'https://fixnotee.vercel.app';
+  // "Paketi seç" butonları: seçili paket ve döneme göre hazır WhatsApp mesajı.
+  const WA_PAKET = 'https://wa.me/905369011714?text=';
 
   const kok = document.getElementById('fx');
   const dataEl = document.getElementById('fx-data');
@@ -525,7 +526,9 @@
       ucuz: (t) => t + ' less per person than Solo', ucuzDegil: 'Cheaper than Solo from the 3rd technician',
     },
   }[DIL];
-  const secimAdresi = (p, yillik) => FIXNOTE + '/giris?kayit=1&sonra=' + encodeURIComponent('/abonelik?paket=' + p + '&donem=' + (yillik ? 'yillik' : 'aylik'));
+  const secimAdresi = (p, yillik) => WA_PAKET + encodeURIComponent(EN
+    ? "Hello, I'd like to know more about the Fixnote " + (p === 'firma' ? 'Team' : 'Solo') + ' plan (' + (yillik ? 'yearly' : 'monthly') + ').'
+    : 'Merhaba, Fixnote ' + (p === 'firma' ? 'Firma' : 'Usta') + ' paketi (' + (yillik ? 'yıllık' : 'aylık') + ') hakkında bilgi almak istiyorum.');
   const kurus = (tl) => Math.round(tl * 100);
   const fiyat = (k) => tlSayi(k / 100, DIL) + ' TL';
 

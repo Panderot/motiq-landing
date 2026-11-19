@@ -1,0 +1,30 @@
+# Old cloud-Fixnote legal pages (removed 2026-11-19).
+# 302s are temporary: point them at the new sales documents once those are published.
+/fixnote-gizlilik /privacy-policy-tr 301
+/fixnote-gizlilik.html /privacy-policy-tr 301
+/fixnote-veri-isleme /privacy-policy-tr 301
+/fixnote-veri-isleme.html /privacy-policy-tr 301
+/fixnote-gizlilik-en /privacy-policy 301
+/fixnote-gizlilik-en.html /privacy-policy 301
+/fixnote-veri-isleme-en /privacy-policy 301
+/fixnote-veri-isleme-en.html /privacy-policy 301
+/fixnote-kosullar /fixnote 302
+/fixnote-kosullar.html /fixnote 302
+/fixnote-mesafeli-satis /fixnote 302
+/fixnote-mesafeli-satis.html /fixnote 302
+/fixnote-on-bilgilendirme /fixnote 302
+/fixnote-on-bilgilendirme.html /fixnote 302
+/fixnote-teslimat-ve-iade /fixnote 302
+/fixnote-teslimat-ve-iade.html /fixnote 302
+/abonelik-kosullari /fixnote 302
+/abonelik-kosullari.html /fixnote 302
+/mesafeli-sozlesme /fixnote 302
+/mesafeli-sozlesme.html /fixnote 302
+/fixnote-kosullar-en /fixnote-en 302
+/fixnote-kosullar-en.html /fixnote-en 302
+/fixnote-mesafeli-satis-en /fixnote-en 302
+/fixnote-mesafeli-satis-en.html /fixnote-en 302
+/fixnote-on-bilgilendirme-en /fixnote-en 302
+/fixnote-on-bilgilendirme-en.html /fixnote-en 302
+/fixnote-teslimat-ve-iade-en /fixnote-en 302
+/fixnote-teslimat-ve-iade-en.html /fixnote-en 302

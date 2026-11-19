@@ -1,5 +1,5 @@
 /* Fixnote tanıtım sayfası: MotiqAI teması.
-   Kaynak: Fixnote ana sayfasının (fixnotee.vercel.app) birebir kopyası; yalnızca renkler MotiqAI'a çevrildi.
+   Kaynak: Fixnote ana sayfasının birebir kopyası; yalnızca renkler MotiqAI'a çevrildi.
    Tüm renkler bu bloktaki --fx-* değişkenlerinden gelir. */
 .fx {
   --fx-font-body: "Manrope", "Manrope Fallback", system-ui, sans-serif;
