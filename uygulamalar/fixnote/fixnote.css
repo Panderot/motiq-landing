@@ -1798,7 +1798,7 @@
 .fx .ku-kutular.ku-iki { max-width: none; }
 @media (min-width: 768px) { .fx .ku-kutular.ku-iki { grid-template-columns: 1fr 1fr; } }
 .fx .ku-not, .fx .ku-dogrula { background: var(--fx-paper); border: 1px solid var(--fx-line); border-radius: 14px; padding: 18px 20px; min-width: 0; }
-.fx .ku-not { align-self: start; border-left: 3px solid var(--fx-accent); display: flex; gap: 12px; align-items: flex-start; }
+.fx .ku-not { border-left: 3px solid var(--fx-accent); display: flex; gap: 12px; align-items: flex-start; }
 .fx .ku-not-ik { flex: none; color: var(--fx-accent); margin-top: 1px; }
 .fx .ku-not p { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.55; color: var(--fx-ink-2); }
 .fx .ku-dogrula-bas { margin: 0; font-size: 15px; font-weight: 800; }
