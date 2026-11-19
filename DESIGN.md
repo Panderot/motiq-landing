@@ -177,7 +177,3 @@ The shape language is "Calculated Softness." Elements are rounded enough to feel
 - **Chips/Tags:** Small, semi-transparent backgrounds with a 1px border. Use `JetBrains Mono` for the text.
 - **Navigation Bar:** A floating glassmorphic pill-shaped container or a full-width blur at the top. The "Let's Talk" CTA should be distinguished by a unique border treatment or the primary color.
 - **Feature Icons:** Encased in a soft-glow container with the primary color at 10% opacity, utilizing thin-stroke monoline icons.
-
-## Masaüstü sürüm yayın günü kontrol listesi
-
-- privacy-policy-tr.html ve privacy-policy.html 'Son güncelleme' tarihi yayın gününün tarihiyle değiştirilecek.

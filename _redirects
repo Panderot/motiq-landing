@@ -1,5 +1,4 @@
-# Old cloud-Fixnote legal pages (removed 2026-11-19).
-# 302s are temporary: point them at the new sales documents once those are published.
+# Old cloud-Fixnote legal pages (removed 2026-11-19) -> new legal set (installed apps).
 /fixnote-gizlilik /privacy-policy-tr 301
 /fixnote-gizlilik.html /privacy-policy-tr 301
 /fixnote-veri-isleme /privacy-policy-tr 301
@@ -8,23 +7,27 @@
 /fixnote-gizlilik-en.html /privacy-policy 301
 /fixnote-veri-isleme-en /privacy-policy 301
 /fixnote-veri-isleme-en.html /privacy-policy 301
-/fixnote-kosullar /fixnote 302
-/fixnote-kosullar.html /fixnote 302
-/fixnote-mesafeli-satis /fixnote 302
-/fixnote-mesafeli-satis.html /fixnote 302
-/fixnote-on-bilgilendirme /fixnote 302
-/fixnote-on-bilgilendirme.html /fixnote 302
-/fixnote-teslimat-ve-iade /fixnote 302
-/fixnote-teslimat-ve-iade.html /fixnote 302
-/abonelik-kosullari /fixnote 302
-/abonelik-kosullari.html /fixnote 302
-/mesafeli-sozlesme /fixnote 302
-/mesafeli-sozlesme.html /fixnote 302
-/fixnote-kosullar-en /fixnote-en 302
-/fixnote-kosullar-en.html /fixnote-en 302
-/fixnote-mesafeli-satis-en /fixnote-en 302
-/fixnote-mesafeli-satis-en.html /fixnote-en 302
-/fixnote-on-bilgilendirme-en /fixnote-en 302
-/fixnote-on-bilgilendirme-en.html /fixnote-en 302
-/fixnote-teslimat-ve-iade-en /fixnote-en 302
-/fixnote-teslimat-ve-iade-en.html /fixnote-en 302
+/fixnote-kosullar /uygulama-lisans-kosullari 301
+/fixnote-kosullar.html /uygulama-lisans-kosullari 301
+/abonelik-kosullari /uygulama-lisans-kosullari 301
+/abonelik-kosullari.html /uygulama-lisans-kosullari 301
+/fixnote-kosullar-en /app-licence-terms 301
+/fixnote-kosullar-en.html /app-licence-terms 301
+/abonelik-kosullari-en /app-licence-terms 301
+/abonelik-kosullari-en.html /app-licence-terms 301
+/fixnote-mesafeli-satis /mesafeli-satis-sozlesmesi 301
+/fixnote-mesafeli-satis.html /mesafeli-satis-sozlesmesi 301
+/mesafeli-sozlesme /mesafeli-satis-sozlesmesi 301
+/mesafeli-sozlesme.html /mesafeli-satis-sozlesmesi 301
+/fixnote-mesafeli-satis-en /distance-sales-agreement 301
+/fixnote-mesafeli-satis-en.html /distance-sales-agreement 301
+/mesafeli-sozlesme-en /distance-sales-agreement 301
+/mesafeli-sozlesme-en.html /distance-sales-agreement 301
+/fixnote-on-bilgilendirme /on-bilgilendirme-formu 301
+/fixnote-on-bilgilendirme.html /on-bilgilendirme-formu 301
+/fixnote-on-bilgilendirme-en /pre-information-form 301
+/fixnote-on-bilgilendirme-en.html /pre-information-form 301
+/fixnote-teslimat-ve-iade /teslimat-iade-cayma 301
+/fixnote-teslimat-ve-iade.html /teslimat-iade-cayma 301
+/fixnote-teslimat-ve-iade-en /delivery-refunds-withdrawal 301
+/fixnote-teslimat-ve-iade-en.html /delivery-refunds-withdrawal 301
