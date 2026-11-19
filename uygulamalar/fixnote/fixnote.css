@@ -1895,3 +1895,139 @@
   .fx .sz-kart { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .fx .sz-cubuk[data-dolu] i { animation: none; background: var(--fx-accent); } }
+/* ===== Site footer: copied from index.html (same HTML, class names and rules) ===== */
+footer { --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.footer-main {
+  padding: 64px 24px 48px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-brand .logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+.footer-brand .logo span { color: var(--orange); }
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 260px;
+  margin-bottom: 24px;
+}
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+.social-link {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.social-link svg, .social-link .material-symbols-outlined {
+  pointer-events: none;
+}
+.social-link:hover {
+  background: var(--orange-dim);
+  border-color: rgba(255,122,0,0.4);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+.social-link .material-symbols-outlined { font-size: 18px; }
+.footer-col h4 {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.footer-col a {
+  font-size: 16px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--text); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 20px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-bottom p {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--orange); }
+@media (max-width: 900px) {
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+}
+.footer-main > * { min-width: 0; }
+@media (max-width: 640px) {
+  .footer-main    { padding: 48px 20px 36px; gap: 32px; }
+  .footer-bottom  { padding: 20px; justify-content: center; text-align: center; }
+}
+@media (pointer: coarse), (max-width: 768px) {
+  .social-links  { gap: 12px; }
+  .social-link   { width: 44px; height: 44px; }
+  .footer-col ul { gap: 4px; }
+  .footer-col a  { min-height: 44px; min-width: 44px; padding-right: 8px; display: inline-flex; align-items: center; }
+  .footer-links  { gap: 8px 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a{ min-height: 44px; padding: 4px 2px; display: inline-flex; align-items: center; }
+}
+@media (max-width: 768px) {
+  .footer-bottom { padding-bottom: 88px; }
+}
+.footer-bottom { flex-wrap: wrap; }
+.footer-biz { flex-basis: 100%; line-height: 1.7; }
+.footer-biz a { white-space: nowrap; color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+.footer-biz a:hover { color: var(--orange); }
+/* Fixnote legal column in the footer */
+.footer-main { grid-template-columns: 2fr 1fr 1.4fr; }
+@media (max-width: 900px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+}

@@ -529,6 +529,43 @@
   .btn-primary .material-symbols-outlined { font-size: 18px; }
   .btn-wa { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 999px; border: 1px solid rgba(37,211,102,0.45); color: #25D366 !important; font-weight: 700; font-size: 14px; text-decoration: none !important; }
   .btn-wa:hover { background: rgba(37,211,102,0.08); opacity: 1 !important; }
+  /* ===== Site footer: same as index.html (do not edit one page alone) ===== */
+  footer { --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: var(--surface, #111111); border-top: 1px solid var(--border, rgba(255,255,255,0.07)); padding: 0; margin: 0; width: 100%; max-width: none; text-align: left; position: relative; z-index: 1; }
+  footer .footer-main { padding: 64px 24px 48px; display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: 48px; max-width: 1200px; margin: 0 auto; }
+  footer .footer-main > * { min-width: 0; }
+  footer .footer-brand .logo { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.04em; color: #ffffff; margin-bottom: 14px; }
+  footer .footer-brand .logo span { color: var(--orange); }
+  footer .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin: 0 0 24px; }
+  footer .social-links { display: flex; gap: 10px; }
+  footer .social-link { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--border-bright); display: flex; align-items: center; justify-content: center; color: var(--text-muted); text-decoration: none; font-size: 15px; cursor: pointer; position: relative; z-index: 10; transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition); }
+  footer .social-link svg { pointer-events: none; }
+  footer .social-link:hover { background: var(--orange-dim); border-color: rgba(255,122,0,0.4); color: var(--orange); transform: translateY(-2px); }
+  footer .footer-col h4 { font-size: 12px; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin: 0 0 20px; }
+  footer .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+  footer .footer-col a { font-size: 16px; color: var(--text-muted); text-decoration: none; transition: color var(--transition); }
+  footer .footer-col a:hover { color: var(--text); }
+  footer .footer-bottom { border-top: 1px solid var(--border, rgba(255,255,255,0.07)); padding: 20px 24px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer .footer-bottom p { margin: 0; font-size: 12px; line-height: normal; color: var(--text-dim); }
+  footer .footer-bottom .footer-biz { flex-basis: 100%; line-height: 1.7; }
+  footer .footer-biz a { white-space: nowrap; color: inherit; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  footer .footer-biz a:hover { color: var(--orange); }
+  @media (max-width: 900px) {
+    footer .footer-main { grid-template-columns: 1fr; gap: 36px; }
+    footer .footer-brand { grid-column: auto; }
+  }
+  @media (max-width: 640px) {
+    footer .footer-main { padding: 48px 20px 36px; gap: 32px; }
+    footer .footer-bottom { padding: 20px; justify-content: center; text-align: center; }
+  }
+  @media (pointer: coarse), (max-width: 768px) {
+    footer .social-links { gap: 12px; }
+    footer .social-link { width: 44px; height: 44px; }
+    footer .footer-col ul { gap: 4px; }
+    footer .footer-col a { min-height: 44px; min-width: 44px; padding-right: 8px; display: inline-flex; align-items: center; }
+  }
+  @media (max-width: 768px) {
+    footer .footer-bottom { padding-bottom: 88px; }
+  }
 </style>
 </head>
 <body>
@@ -702,6 +739,8 @@
       <h4>Şirket</h4>
       <ul>
         <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="index.html#uygulamalar">Uygulamalar</a></li>
+        <li><a href="case-studies.html">Neler Yaptık</a></li>
         <li><a href="index.html#how">Süreç</a></li>
         <li><a href="contact.html">İletişim</a></li>
       </ul>
@@ -719,7 +758,7 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom container">
     <p class="footer-biz">Baret Güngörmezer (şahıs işletmesi) · Zincirlikuyu VD / VKN 4380649547 · Mecidiyeköy Mah. Selahattin Pınar Aralığı Sk. Hüseyin Özer İş Merkezi No: 3 İç Kapı No: 8, 34387 Şişli / İstanbul · <a href="mailto:info@motiqai.com">info@motiqai.com</a> · <a href="tel:+905369011714">+90 536 901 17 14</a></p>
     <p>© 2026 MotiqAI. Tüm hakları saklıdır.</p>
   </div>
