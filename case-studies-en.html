@@ -166,9 +166,9 @@
   /* ===== WORK PICKER ===== */
   .work-picker {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    max-width: 880px;
+    max-width: 1080px;
     margin: 56px auto 0;
   }
   .work-option {
@@ -217,6 +217,10 @@
   .work-option:hover .work-option-icon, .work-option:focus-visible .work-option-icon { box-shadow: 0 0 24px var(--orange-glow); }
   .work-option:hover .work-option-cta .material-symbols-outlined, .work-option:focus-visible .work-option-cta .material-symbols-outlined { transform: translateX(4px); }
   .work-option:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  @media (min-width: 721px) and (max-width: 1023px) {
+    .work-option { padding: 28px 22px; }
+    .work-option-title { font-size: 21px; overflow-wrap: break-word; }
+  }
   @media (max-width: 720px) {
     .work-picker { grid-template-columns: minmax(0, 1fr); }
   }
@@ -405,6 +409,12 @@
         <span class="work-option-icon"><span class="material-symbols-outlined" aria-hidden="true">apps</span></span>
         <span class="work-option-title">Apps</span>
         <span class="work-option-desc">Ready-to-use web apps offered by subscription</span>
+        <span class="work-option-cta">View <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+      </a>
+      <a href="neler-yaptik-mobil-en.html" class="work-option">
+        <span class="work-option-icon"><span class="material-symbols-outlined" aria-hidden="true">smartphone</span></span>
+        <span class="work-option-title">Mobile Apps</span>
+        <span class="work-option-desc">Android apps that work on your phone, even offline</span>
         <span class="work-option-cta">View <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
       </a>
       <a href="neler-yaptik-web-siteleri-en.html" class="work-option">
