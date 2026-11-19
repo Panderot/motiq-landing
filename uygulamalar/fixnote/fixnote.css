@@ -1896,7 +1896,7 @@
 }
 @media (prefers-reduced-motion: reduce) { .fx .sz-cubuk[data-dolu] i { animation: none; background: var(--fx-accent); } }
 /* ===== Site footer: copied from index.html (same HTML, class names and rules) ===== */
-footer { --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+footer { --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 footer {
   background: var(--surface);
