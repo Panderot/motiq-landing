@@ -32,8 +32,8 @@
 /fixnote-teslimat-ve-iade-en /delivery-refunds-withdrawal 301
 /fixnote-teslimat-ve-iade-en.html /delivery-refunds-withdrawal 301
 
-# Apps category merged into Mobile Apps (2026-11-20): Fixnote moved to Mobile Apps.
-/neler-yaptik-uygulamalar /neler-yaptik-mobil 301
-/neler-yaptik-uygulamalar.html /neler-yaptik-mobil 301
-/neler-yaptik-uygulamalar-en /neler-yaptik-mobil-en 301
-/neler-yaptik-uygulamalar-en.html /neler-yaptik-mobil-en 301
+# Mobile Apps renamed back to Apps (2026-11-20): one category for phone and computer apps.
+/neler-yaptik-mobil /neler-yaptik-uygulamalar 301
+/neler-yaptik-mobil.html /neler-yaptik-uygulamalar 301
+/neler-yaptik-mobil-en /neler-yaptik-uygulamalar-en 301
+/neler-yaptik-mobil-en.html /neler-yaptik-uygulamalar-en 301
