@@ -14,14 +14,8 @@
   // sha256 boşken "Dosyayı doğrulayın" kutusu hiç görünmez.
   const KURULUM = { surum: "", boyut: "", sha256: "" }; // her yeni sürümde güncellenir
 
-  // Fiyatlar TEK yerde. Fixnote app/lib/paket.ts ile AYNI tutulmalı.
-  const PAKET = { usta: { ay: 499, yil: 4790 }, firma: { ay: 1249, yil: 11990 } };
-  // Süresiz Lisans: tek yer. Fixnote lisans fiyatlarıyla AYNI tutulmalı. KDV dahil TL.
-  const SURESIZ = { tutar: 8990, guncelleme: 690 };
-  // iyzico'da taksit açılınca true yapılır; false iken taksit satırı hiç görünmez.
-  const TAKSIT_VAR = false;
-  // "Paketi seç" butonları: seçili paket ve döneme göre hazır WhatsApp mesajı.
-  const WA_PAKET = 'https://wa.me/905369011714?text=';
+  // Fiyatlar ve lisans düğmeleri fixnote.html / fixnote-en.html içinde (#fiyat) sabit yazılı.
+  // Fixnote app/lib/paket.ts LISANS ile AYNI tutulmalı (Aylık 499, Yıllık 4.790, Süresiz 8.990 TL, KDV dahil).
 
   const kok = document.getElementById('fx');
   const dataEl = document.getElementById('fx-data');
@@ -515,91 +509,6 @@
     });
   }
 
-  // ---------- Fiyat: Aylık/Yıllık anahtarı, ekip kişi sayısı ----------
-  const FT = {
-    tr: {
-      tlAy: 'TL / ay', ay: '/ ay', yillikAlt: (t) => 'Yıllık ' + t + ' peşin · KDV dahil', aylikAlt: 'Aylık ödeme · KDV dahil',
-      ucuz: (t) => 'Usta paketinden kişi başı ' + t + ' ucuz', ucuzDegil: "3. teknisyenden itibaren Usta'dan ucuz",
-    },
-    en: {
-      tlAy: 'TL / month', ay: '/ month', yillikAlt: (t) => t + ' billed yearly · TRY, VAT included', aylikAlt: 'Billed monthly · TRY, VAT included',
-      ucuz: (t) => t + ' less per person than Solo', ucuzDegil: 'Cheaper than Solo from the 3rd technician',
-    },
-  }[DIL];
-  const secimAdresi = (p, yillik) => WA_PAKET + encodeURIComponent(EN
-    ? "Hello, I'd like to know more about the Fixnote " + (p === 'firma' ? 'Team' : 'Solo') + ' plan (' + (yillik ? 'yearly' : 'monthly') + ').'
-    : 'Merhaba, Fixnote ' + (p === 'firma' ? 'Firma' : 'Usta') + ' paketi (' + (yillik ? 'yıllık' : 'aylık') + ') hakkında bilgi almak istiyorum.');
-  const kurus = (tl) => Math.round(tl * 100);
-  const fiyat = (k) => tlSayi(k / 100, DIL) + ' TL';
-
-  function fiyatlar() {
-    const rk = $('[data-fx="fiyat"]');
-    if (!rk) return;
-    let yillik = true, ekip = 4;
-    const donemler = $$('[data-fx="donem"]', rk), ekipN = $('[data-fx="ekip-n"]', rk), azalt = $('[data-ekip="azalt"]', rk), artir = $('[data-ekip="artir"]', rk);
-    const kisiEl = $('[data-kisi-basi]', rk), kiyasEl = $('[data-fiyat-kiyas]', rk);
-    function satir(p, koyu) {
-      const soluk = koyu ? 'rgba(255,255,255,.62)' : 'var(--fx-muted)';
-      const aylik = kurus(yillik ? p.yil / 12 : p.ay);
-      return '<div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px"><span class="num" style="font-size:clamp(38px, 10vw, 48px);font-weight:800;letter-spacing:-0.045em;line-height:1">' + tlSayi(aylik / 100, DIL) + '</span>' +
-        '<span style="font-size:14px;color:' + soluk + ';font-weight:700">' + FT.tlAy + '</span>' +
-        (yillik ? '<s class="num" style="font-size:14px;color:' + soluk + ';font-weight:600">' + fiyat(kurus(p.ay)) + '</s>' : '') + '</div>' +
-        '<div style="font-size:12.5px;color:' + soluk + ';font-weight:600;margin-top:8px;line-height:1.5">' + (yillik ? FT.yillikAlt(fiyat(kurus(p.yil))) : FT.aylikAlt) + '</div>';
-    }
-    function boya() {
-      rk.setAttribute('data-fiyat', yillik ? 'yillik' : 'aylik');
-      donemler.forEach(function (b) { b.setAttribute('aria-pressed', String((b.getAttribute('data-yillik') === 'true') === yillik)); });
-      $('[data-paket="usta"] [data-fiyat-tutar]', rk).innerHTML = satir(PAKET.usta, false);
-      $('[data-paket="firma"] [data-fiyat-tutar]', rk).innerHTML = satir(PAKET.firma, true);
-      const firmaAylik = yillik ? PAKET.firma.yil / 12 : PAKET.firma.ay;
-      const kisiBasi = kurus(firmaAylik / ekip), ustaAylik = kurus(yillik ? PAKET.usta.yil / 12 : PAKET.usta.ay);
-      ekipN.textContent = ekip;
-      kisiEl.textContent = fiyat(kisiBasi);
-      kiyasEl.textContent = kisiBasi < ustaAylik ? FT.ucuz(fiyat(ustaAylik - kisiBasi)) : FT.ucuzDegil;
-      azalt.disabled = ekip <= 2; azalt.style.opacity = ekip <= 2 ? '0.35' : '1';
-      artir.disabled = ekip >= 50; artir.style.opacity = ekip >= 50 ? '0.35' : '1';
-      $$('[data-paket-sec]', rk).forEach(function (a) { a.href = secimAdresi(a.getAttribute('data-paket-sec'), yillik); });
-    }
-    donemler.forEach(function (b) { b.addEventListener('click', function () { yillik = b.getAttribute('data-yillik') === 'true'; boya(); }); });
-    azalt.addEventListener('click', function () { ekip = Math.max(2, ekip - 1); boya(); });
-    artir.addEventListener('click', function () { ekip = Math.min(50, ekip + 1); boya(); });
-    boya();
-  }
-
-  // ---------- Süresiz Lisans kartı: tutar, ay sayısı, kendini ödeme çubuğu, taksit satırı, WhatsApp mesajı ----------
-  function suresiz() {
-    const kart = document.getElementById('suresiz');
-    if (!kart) return;
-    const q = function (a) { return kart.querySelector('[data-sz="' + a + '"]'); };
-    const tl = function (n) { return tlSayi(n, DIL) + ' TL'; };
-    const n = Math.max(1, Math.round(SURESIZ.tutar / PAKET.usta.ay));
-    q('tutar').textContent = tl(SURESIZ.tutar);
-    q('guncelleme').textContent = tlSayi(SURESIZ.guncelleme, DIL);
-    q('n').textContent = n;
-    q('taksit').hidden = !TAKSIT_VAR;
-    q('wa').href = 'https://wa.me/905369011714?text=' + encodeURIComponent(EN
-      ? "Hello, I'd like to know more about the Fixnote lifetime licence (" + tl(SURESIZ.tutar) + ")."
-      : 'Merhaba, Fixnote süresiz lisans (' + tl(SURESIZ.tutar) + ') hakkında bilgi almak istiyorum.');
-    // çubuk: n parça (her biri bir ay). Hareketsiz tercihinde dolu gelir; değilse görününce soldan sağa BİR kez dolar (~1,2 sn).
-    const cubuk = q('cubuk');
-    cubuk.innerHTML = '';
-    for (let i = 0; i < n; i++) {
-      const p = document.createElement('i');
-      p.style.setProperty('--i', i);
-      p.style.setProperty('--gec', Math.round(1200 / n * i) + 'ms');
-      cubuk.appendChild(p);
-    }
-    cubuk.setAttribute('aria-label', (EN ? 'Months you would pay on the monthly plan: ' : 'Aylık paketle ödeyeceğiniz ay sayısı: ') + n);
-    if (hareketsiz() || !('IntersectionObserver' in window)) { cubuk.setAttribute('data-dolu', 'evet'); return; }
-    cubuk.setAttribute('data-dolu', 'hayir');
-    const io = new IntersectionObserver(function (es) {
-      if (!es[0].isIntersecting) return;
-      io.disconnect();
-      cubuk.setAttribute('data-dolu', 'evet');
-    }, { threshold: 0.6 });
-    io.observe(cubuk);
-  }
-
   // ---------- İndirme linkleri: INDIRME_URL boşsa WhatsApp, doluysa doğrudan indirme ----------
   function indirmeLinkleri() {
     const indir = !!INDIRME_URL;
@@ -670,6 +579,4 @@
   sablon();
   musteriGecmisi();
   whatsapp();
-  fiyatlar();
-  suresiz();
 })();
