@@ -9,3 +9,4 @@
 - Screenshots you take for checking work: `.playwright-mcp/` (Playwright default) or `_calisma/ekran-goruntuleri/`. Never save `shot-*.png` or other screenshots in the root.
 - Prompt files, notes, drafts: `_calisma/promptlar/` or `_calisma/notlar/`.
 - `_calisma/`, `.playwright-mcp/`, `.wrangler/`, `.vscode/` are git-ignored and never deployed. Do not commit them.
+- Fixnote purchase page: prices and iyzico payment links live in one place, `uygulamalar/fixnote/satin-al.js` (`LISANSLAR`, `ODEME_LINKLERI`). Keep prices identical to the pricing cards in fixnote.html / fixnote-en.html. Every change to satin-al.js must bump the `?v=` value on its script tag in satin-al.html and buy.html.
