@@ -9,3 +9,10 @@ MotiqAI_*.txt
 
 # Playwright MCP scratch folder
 .playwright-mcp/
+
+# Local working files: screenshots, prompts, notes (not part of the site)
+_calisma/
+
+# Editor and local Claude Code settings
+.vscode/
+.claude/settings.local.json
